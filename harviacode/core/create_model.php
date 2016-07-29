@@ -44,7 +44,7 @@ $string .= "
         
         \$this->where(\$where);
         \$this->order_by( \$dataorder[\$order[0][\"column\"]],  \$order[0][\"dir\"]);
-        \$this->limit(\$limit, \$start);
+        \$this->limit(\$start, \$limit);
         \$result['get_db']=\$this->as_array()->get_all();
         return \$result;
     }
