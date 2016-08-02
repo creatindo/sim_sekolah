@@ -25,7 +25,7 @@ class Calendar extends CI_Controller {
 				"title" => $r['status'], 
 				"start" => $r['tgl_start'], 
 				"end"   => $r['tgl_end'], 
-				// "backgroundColor"=> "App.getBrandColor('green')",
+				"backgroundColor"=> "green",
 				// "allDay"=> "true",
 			);
 			$response[]=$absensi;
