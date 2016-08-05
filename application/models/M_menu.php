@@ -9,7 +9,7 @@ class M_menu extends MY_Model
     public $table = 'menu';
     public $primary_key = 'id';
     public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
-    public $protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
+    public $protected = array('id'); // ...Or you can set an array with the fields that cannot be filled by insert/update
 
     function __construct()
     {
@@ -50,7 +50,7 @@ class M_menu extends MY_Model
         
         $this->where($where);
         $this->order_by( $dataorder[$order[0]["column"]],  $order[0]["dir"]);
-        $this->limit($limit, $start);
+        $this->limit($start, $limit);
         $result['get_db']=$this->as_array()->get_all();
         return $result;
     }

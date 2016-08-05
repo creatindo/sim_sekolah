@@ -101,7 +101,7 @@ class Menu extends CI_Controller
 			'is_active' => set_value('is_active'),
             'is_parent' => set_value('is_parent'),
             'is_parent_dd' => $this->m_menu->as_dropdown('name')->get_all(),
-            'status' => $this->m_status->as_dropdown('status_label')->get_all(),
+            'status' => $this->m_status->as_dropdown('status_nama')->get_all(),
 		);
         $this->template->load('template','menu_form', $data);
     }
@@ -142,7 +142,7 @@ class Menu extends CI_Controller
 				'is_active' => set_value('is_active', $row->is_active),
                 'is_parent' => set_value('is_parent', $row->is_parent),
                 'is_parent_dd' => $this->m_menu->as_dropdown('name')->get_all(),
-                'status' => $this->m_status->as_dropdown('status_label')->get_all(),
+                'status' => $this->m_status->as_dropdown('status_nama')->get_all(),
 			);
             $this->template->load('template','menu_form', $data);
         } else {

@@ -37,7 +37,11 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Jk</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="siswa_jk" id="siswa_jk" placeholder="Siswa Jk" value="<?php echo $siswa_jk; ?>" />
+                            <select class="form-control" name="siswa_jk" id="siswa_jk" placeholder="Siswa Jk">
+                                <option value="" >Pilih</option>                              
+                                <option value="l" <?php echo $siswa_jk == 'l' ?'selected':''; ?>>Laki-laki</option>                              
+                                <option value="p" <?php echo $siswa_jk == 'p' ?'selected':''; ?>>Perempuan</option>                              
+                            </select>
                             <span class='help-block'> <?php echo form_error('siswa_jk') ?> </span>
                         </div>
                     </div>
@@ -47,7 +51,14 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Tgl Lahir</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="siswa_tgl_lahir" id="siswa_tgl_lahir" placeholder="Siswa Tgl Lahir" value="<?php echo $siswa_tgl_lahir; ?>" />
+                            <?php if (isset($siswa_tgl_lahir)) {
+                                $time = strtotime($siswa_tgl_lahir);
+                                $time_format = date('d/m/Y', $time); 
+                                $value=$time_format;
+                            }else{
+                                $value = '';
+                            }?>
+                            <input class="form-control form-control-inline date-picker" size="16" type="text" name="siswa_tgl_lahir" id="siswa_tgl_lahir" readonly value="<?php echo $value ?>"/>
                             <span class='help-block'> <?php echo form_error('siswa_tgl_lahir') ?> </span>
                         </div>
                     </div>

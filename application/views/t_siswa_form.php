@@ -17,7 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Id</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="siswa_id" id="siswa_id" placeholder="Siswa Id" value="<?php echo $siswa_id; ?>" />
+                            <?php $siswa_id_dd = array(''=>'Pilih')+$siswa_id_dd ?>
+                            <?php echo form_dropdown('siswa_id', $siswa_id_dd, $siswa_id, 'id="siswa_id" class="form-control"'); ?>
                             <span class='help-block'> <?php echo form_error('siswa_id') ?> </span>
                         </div>
                     </div>
@@ -27,7 +28,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>T Kelas Id</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="t_kelas_id" id="t_kelas_id" placeholder="T Kelas Id" value="<?php echo $t_kelas_id; ?>" />
+                            <?php $t_kelas_id_dd = array(''=>'Pilih')+$t_kelas_id_dd ?>
+                            <?php echo form_dropdown('t_kelas_id', $t_kelas_id_dd, $t_kelas_id, 'id="t_kelas_id" class="form-control"'); ?>
                             <span class='help-block'> <?php echo form_error('t_kelas_id') ?> </span>
                         </div>
                     </div>
@@ -35,10 +37,10 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Create Date</label>
+                        <label class='col-md-3 control-label'>Tahun</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="create_date" id="create_date" placeholder="Create Date" value="<?php echo $create_date; ?>" />
-                            <span class='help-block'> <?php echo form_error('create_date') ?> </span>
+                            <input type="text" class="form-control" name="tahun" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
+                            <span class='help-block'> <?php echo form_error('tahun') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -47,7 +49,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>T Siswa Active</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="t_siswa_active" id="t_siswa_active" placeholder="T Siswa Active" value="<?php echo $t_siswa_active; ?>" />
+                            <?php $t_siswa_active_dd = array(''=>'Pilih')+$t_siswa_active_dd ?>
+                            <?php echo form_dropdown('t_siswa_active', $t_siswa_active_dd, $t_siswa_active, 'id="t_siswa_active" class="form-control"'); ?>
                             <span class='help-block'> <?php echo form_error('t_siswa_active') ?> </span>
                         </div>
                     </div>

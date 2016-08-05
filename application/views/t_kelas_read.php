@@ -6,16 +6,17 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>T_siswa Read</span>
+                    <span class='caption-subject bold uppercase'>T_kelas Read</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Siswa Id</td><td><?php echo $siswa_id; ?></td></tr>
-                    <tr><td>T Kelas Id</td><td><?php echo $t_kelas_id; ?></td></tr>
+                    <tr><td>Kelas Id</td><td><?php echo $kelas_id; ?></td></tr>
+                    <tr><td>Jurusan Id</td><td><?php echo $jurusan_id; ?></td></tr>
+                    <tr><td>Semester Id</td><td><?php echo $semester_id; ?></td></tr>
+                    <tr><td>T Kelas Active</td><td><?php echo $t_kelas_active; ?></td></tr>
                     <tr><td>Tahun</td><td><?php echo $tahun; ?></td></tr>
-                    <tr><td>T Siswa Active</td><td><?php echo $t_siswa_active; ?></td></tr>
-                    <tr><td></td><td><a href="<?php echo site_url('t_siswa') ?>" class="btn btn-default">Cancel</a></td></tr>
+                    <tr><td></td><td><a href="<?php echo site_url('t_kelas') ?>" class="btn btn-default">Cancel</a></td></tr>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.col -->

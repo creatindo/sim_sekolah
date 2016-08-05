@@ -6,16 +6,18 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>T_siswa Read</span>
+                    <span class='caption-subject bold uppercase'>T_jadwal Read</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Siswa Id</td><td><?php echo $siswa_id; ?></td></tr>
+                    <tr><td>Jam Id</td><td><?php echo $jam_id; ?></td></tr>
+                    <tr><td>Hari Id</td><td><?php echo $hari_id; ?></td></tr>
+                    <tr><td>Mapel Id</td><td><?php echo $mapel_id; ?></td></tr>
                     <tr><td>T Kelas Id</td><td><?php echo $t_kelas_id; ?></td></tr>
-                    <tr><td>Tahun</td><td><?php echo $tahun; ?></td></tr>
-                    <tr><td>T Siswa Active</td><td><?php echo $t_siswa_active; ?></td></tr>
-                    <tr><td></td><td><a href="<?php echo site_url('t_siswa') ?>" class="btn btn-default">Cancel</a></td></tr>
+                    <tr><td>Jadwal Active</td><td><?php echo $jadwal_active; ?></td></tr>
+                    <tr><td>Pegawai Id</td><td><?php echo $pegawai_id; ?></td></tr>
+                    <tr><td></td><td><a href="<?php echo site_url('jadwal') ?>" class="btn btn-default">Cancel</a></td></tr>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.col -->

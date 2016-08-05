@@ -10,6 +10,9 @@ class T_siswa extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('m_siswa');
+        $this->load->model('m_status');
+        $this->load->model('m_t_kelas');
         $this->load->model('M_t_siswa');
         $this->load->library('form_validation');
     }
@@ -54,7 +57,7 @@ class T_siswa extends CI_Controller
                 
 					$d['siswa_id'], 
 					$d['t_kelas_id'], 
-					$d['create_date'], 
+					$d['tahun'], 
 					$d['t_siswa_active'], 
                     $view.$edit.$delete
                 );
@@ -75,7 +78,7 @@ class T_siswa extends CI_Controller
 			't_siswa_id' => $row->t_siswa_id,
 			'siswa_id' => $row->siswa_id,
 			't_kelas_id' => $row->t_kelas_id,
-			'create_date' => $row->create_date,
+			'tahun' => $row->tahun,
 			't_siswa_active' => $row->t_siswa_active,
 		);
             $this->template->load('template','t_siswa_read', $data);
@@ -88,13 +91,16 @@ class T_siswa extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
-            'action' => site_url('t_siswa/create_action'),
-			't_siswa_id' => set_value('t_siswa_id'),
-			'siswa_id' => set_value('siswa_id'),
-			't_kelas_id' => set_value('t_kelas_id'),
-			'create_date' => set_value('create_date'),
-			't_siswa_active' => set_value('t_siswa_active'),
+            'button'            => 'Create',
+            'action'            => site_url('t_siswa/create_action'),
+            't_siswa_id'        => set_value('t_siswa_id'),
+            'siswa_id'          => set_value('siswa_id'),
+            't_kelas_id'        => set_value('t_kelas_id'),
+            'tahun'             => set_value('tahun'),
+            't_siswa_active'    => set_value('t_siswa_active'),
+            'siswa_id_dd'       => $this->m_siswa->as_dropdown('siswa_nama')->get_all(),
+            't_kelas_id_dd'     => $this->m_t_kelas->as_dropdown('kelas_id')->get_all(),
+            't_siswa_active_dd' => $this->m_status->as_dropdown('status_nama')->get_all(),
 		);
         $this->template->load('template','t_siswa_form', $data);
     }
@@ -109,7 +115,7 @@ class T_siswa extends CI_Controller
             $data = array(
 				'siswa_id' => $this->input->post('siswa_id',TRUE),
 				't_kelas_id' => $this->input->post('t_kelas_id',TRUE),
-				'create_date' => $this->input->post('create_date',TRUE),
+				'tahun' => $this->input->post('tahun',TRUE),
 				't_siswa_active' => $this->input->post('t_siswa_active',TRUE),
 			);
 
@@ -130,8 +136,12 @@ class T_siswa extends CI_Controller
 				't_siswa_id' => set_value('t_siswa_id', $row->t_siswa_id),
 				'siswa_id' => set_value('siswa_id', $row->siswa_id),
 				't_kelas_id' => set_value('t_kelas_id', $row->t_kelas_id),
-				'create_date' => set_value('create_date', $row->create_date),
+				'tahun' => set_value('tahun', $row->tahun),
 				't_siswa_active' => set_value('t_siswa_active', $row->t_siswa_active),
+                'siswa_id_dd'       => $this->m_siswa->as_dropdown('siswa_nama')->get_all(),
+                't_kelas_id_dd'     => $this->m_t_kelas->as_dropdown('kelas_id')->get_all(),
+                't_siswa_active_dd' => $this->m_status->as_dropdown('status_nama')->get_all(),
+
 			);
             $this->template->load('template','t_siswa_form', $data);
         } else {
@@ -150,7 +160,7 @@ class T_siswa extends CI_Controller
             $data = array(
 				'siswa_id' => $this->input->post('siswa_id',TRUE),
 				't_kelas_id' => $this->input->post('t_kelas_id',TRUE),
-				'create_date' => $this->input->post('create_date',TRUE),
+				'tahun' => $this->input->post('tahun',TRUE),
 				't_siswa_active' => $this->input->post('t_siswa_active',TRUE),
 		    );
 
@@ -193,7 +203,7 @@ class T_siswa extends CI_Controller
     {
 		$this->form_validation->set_rules('siswa_id', 'siswa id', 'trim|required');
 		$this->form_validation->set_rules('t_kelas_id', 't kelas id', 'trim|required');
-		$this->form_validation->set_rules('create_date', 'create date', 'trim|required');
+		$this->form_validation->set_rules('tahun', 'tahun', 'trim|required');
 		$this->form_validation->set_rules('t_siswa_active', 't siswa active', 'trim|required');
 
 		$this->form_validation->set_rules('t_siswa_id', 't_siswa_id', 'trim');
@@ -224,7 +234,7 @@ class T_siswa extends CI_Controller
         xlsWriteLabel($tablehead, $kolomhead++, "No");
 		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Kelas Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Create Date");
+		xlsWriteLabel($tablehead, $kolomhead++, "Tahun");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Siswa Active");
 
 		foreach ($this->M_t_siswa->get_all() as $data) {
@@ -234,7 +244,7 @@ class T_siswa extends CI_Controller
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->siswa_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->t_kelas_id);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->create_date);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->tahun);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->t_siswa_active);
 
 		    $tablebody++;
@@ -250,5 +260,5 @@ class T_siswa extends CI_Controller
 /* End of file T_siswa.php */
 /* Location: ./application/controllers/T_siswa.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-07-29 05:47:44 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-07-31 04:36:23 */
 /* http://harviacode.com */
