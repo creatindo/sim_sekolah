@@ -49,7 +49,8 @@
                     <th>Pegawai Alamat</th>
                     <th>Pegawai Telp</th>
                     <th>Pegawai Foto</th>
-                    <th>Create Date</th>
+                    <th>Jabatan</th>
+                    <th>User Id</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
@@ -65,7 +66,8 @@
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_alamat"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_telp"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_foto"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="create_date"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="jabatan"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="user_id"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">

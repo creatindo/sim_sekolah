@@ -39,7 +39,19 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Jk</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="pegawai_jk" id="pegawai_jk" placeholder="Pegawai Jk" value="<?php echo $pegawai_jk; ?>" />
+                            <?php 
+                              $v_name_3 = '';
+                              if (!empty($pegawai_jk)) {                                
+                                $v_name_3 = $this->m_gender->get($pegawai_jk)->{$this->m_gender->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_gender'), 
+                                  'name' =>'pegawai_jk',
+                                  'current_selected_id' => $pegawai_jk, 
+                                  'current_selected_name' => $v_name_3, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
                             <span class='help-block'> <?php echo form_error('pegawai_jk') ?> </span>
                         </div>
                     </div>
@@ -86,7 +98,19 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Id</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_id" id="kota_id" placeholder="Kota Id" value="<?php echo $kota_id; ?>" />
+                            <?php 
+                              $v_name_6 = '';
+                              if (!empty($kota_id)) {                                
+                                $v_name_6 = $this->m_kota->get($kota_id)->{$this->m_kota->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_kota'), 
+                                  'name' =>'kota_id',
+                                  'current_selected_id' => $kota_id, 
+                                  'current_selected_name' => $v_name_6, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
                             <span class='help-block'> <?php echo form_error('kota_id') ?> </span>
                         </div>
                     </div>
@@ -98,7 +122,19 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kecamatan Id</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kecamatan_id" id="kecamatan_id" placeholder="Kecamatan Id" value="<?php echo $kecamatan_id; ?>" />
+                            <?php 
+                              $v_name_7 = '';
+                              if (!empty($kecamatan_id)) {                                
+                                $v_name_7 = $this->m_kecamatan->get($kecamatan_id)->{$this->m_kecamatan->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_kecamatan'), 
+                                  'name' =>'kecamatan_id',
+                                  'current_selected_id' => $kecamatan_id, 
+                                  'current_selected_name' => $v_name_7, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
                             <span class='help-block'> <?php echo form_error('kecamatan_id') ?> </span>
                         </div>
                     </div>
@@ -108,7 +144,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Alamat</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="pegawai_alamat" id="pegawai_alamat" placeholder="Pegawai Alamat" value="<?php echo $pegawai_alamat; ?>" />
+                            <textarea class="form-control" rows="3" name="pegawai_alamat" id="pegawai_alamat" placeholder="Pegawai Alamat"><?php echo $pegawai_alamat; ?></textarea>
                             <span class='help-block'> <?php echo form_error('pegawai_alamat') ?> </span>
                         </div>
                     </div>
@@ -140,25 +176,32 @@
                 <div class='row'>
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Create Date</label>
+                        <label class='col-md-3 control-label'>Jabatan</label>
                         <div class='col-md-9'>
-                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='dd-mm-yyyy' data-date-startView='decade'>
-                                <input type='text' class='form-control ' readonly name="create_date" value="<?php echo $create_date; ?>">
-                                <span class='input-group-btn'>
-                                    <button class='btn default' type='button'>
-                                        <i class='fa fa-calendar'></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <script type='text/javascript'>
-                                $(document).ready(function () {
-                                    $('#tanggal').datepicker({
-                                      startView: 'decade' , 
-                                      autoclose:true 
-                                    });
-                                })
-                            </script>
-                            <span class='help-block'> <?php echo form_error('create_date') ?> </span>
+                            <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Jabatan" value="<?php echo $jabatan; ?>" />
+                            <span class='help-block'> <?php echo form_error('jabatan') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>User Id</label>
+                        <div class='col-md-9'>
+                            <?php 
+                              $v_name_12 = '';
+                              if (!empty($user_id)) {                                
+                                $v_name_12 = $this->m_user->get($user_id)->{$this->m_user->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_user'), 
+                                  'name' =>'user_id',
+                                  'current_selected_id' => $user_id, 
+                                  'current_selected_name' => $v_name_12, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
+                            <span class='help-block'> <?php echo form_error('user_id') ?> </span>
                         </div>
                     </div>
                   </div>

@@ -12,6 +12,9 @@ class Form extends CI_Controller {
 	{
 
 		$this->load->model($m);
+		$limit=$this->input->post('limit');
+		$page=$this->input->post('page')-1;
+		$this->db->limit($limit,($page*$limit));
 		$data_db=$this->{$m}->get_all();
 		$output=array();
 		if ($data_db) {

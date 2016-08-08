@@ -59,7 +59,8 @@ var dd_<?php echo $ddajax['id'] ?> = function() {
                     	echo $key.':'.$value.',';
                     } ?>
                     q: params.term, // search term
-                    limit : limit_data
+                    limit : limit_data,
+                    page: params.page || 1
 
                 };
             },
@@ -67,7 +68,7 @@ var dd_<?php echo $ddajax['id'] ?> = function() {
                 // parse the results into the format expected by Select2.
                 // since we are using custom formatting functions we do not need to
                 // alter the remote JSON data
-                // params.page = params.page || 1;
+                params.page = params.page || 1;
 
 
                 return {
