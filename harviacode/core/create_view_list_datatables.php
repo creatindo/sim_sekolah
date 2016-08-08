@@ -9,7 +9,7 @@ $string .= "
         <div class='portlet-title'>
             <div class=\"caption\">
                 <i class=\"icon-settings font-dark\"></i>
-                <span class=\"caption-subject font-dark sbold uppercase\">".  strtoupper($table_name)." LIST </span>
+                <span class=\"caption-subject font-dark sbold uppercase\">".  strtoupper($c)."  </span>
             </div>
             <div class=\"actions\">
                 <div class=\"btn-group\" >
