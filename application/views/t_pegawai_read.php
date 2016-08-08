@@ -6,19 +6,16 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>M_semester Read</span>
+                    <span class='caption-subject bold uppercase'>T_pegawai Read</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Semester Nama</td><td><?php echo $semester_nama; ?></td></tr>
-                    <tr>
-                      <td></td>
-                      <td>
-                        <a href="<?php echo site_url('semester') ?>" class="btn btn-default">Cancel</a>
-                        <a href="<?php echo site_url('semester/update/'.$id) ?>" class="btn btn-default">Edit</a>
-                      </td>
-                    </tr>
+                    <tr><td>Pagawai Id</td><td><?php echo $pagawai_id; ?></td></tr>
+                    <tr><td>Jabatan Id</td><td><?php echo $jabatan_id; ?></td></tr>
+                    <tr><td>Create Date</td><td><?php echo $create_date; ?></td></tr>
+                    <tr><td>T Pegawai Active</td><td><?php echo $t_pegawai_active; ?></td></tr>
+                    <tr><td></td><td><a href="<?php echo site_url('t_pegawai') ?>" class="btn btn-default">Cancel</a></td></tr>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.col -->

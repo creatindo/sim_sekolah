@@ -3,14 +3,14 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Semester extends CI_Controller
+class T_absensi extends CI_Controller
 {
     
         
     function __construct()
     {
         parent::__construct();
-        $this->load->model('M_semester');
+        $this->load->model('M_t_absensi');
         $this->load->library('form_validation');
     }
 
@@ -19,7 +19,7 @@ class Semester extends CI_Controller
         $data = array(
         );
 
-        $this->template->load('template','m_semester_list', $data);
+        $this->template->load('template','t_absensi_list', $data);
     }
 
     public function getDatatable()
@@ -35,7 +35,7 @@ class Semester extends CI_Controller
         $iDisplayStart  = intval($_REQUEST['start']);
         $sEcho          = intval($_REQUEST['draw']);
         
-        $t              = $this->M_semester->get_limit_data($iDisplayStart, $iDisplayLength);
+        $t              = $this->M_t_absensi->get_limit_data($iDisplayStart, $iDisplayLength);
         $iTotalRecords  = $t['total_rows'];
         $get_data       = $t['get_db'];
 
@@ -44,15 +44,17 @@ class Semester extends CI_Controller
         $i=$iDisplayStart+1;
         if ($get_data) {
             foreach ($get_data as $d) {
-                $checkbok= '<input type="checkbox" name="id[]" value="'.$d['semester_id'].'">';
-                $view    = anchor(site_url('semester/read/'.$d['semester_id']),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
-                $edit    = anchor(site_url('semester/update/'.$d['semester_id']),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('semester/delete/'.$d['semester_id']),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
+                $checkbok= '<input type="checkbox" name="id[]" value="'.$d['absensi_id'].'">';
+                $view    = anchor(site_url('t_absensi/read/'.$d['absensi_id']),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
+                $edit    = anchor(site_url('t_absensi/update/'.$d['absensi_id']),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
+                $delete  = anchor(site_url('t_absensi/delete/'.$d['absensi_id']),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
 
                 $records["data"][] = array(
                     $checkbok,
                 
-					$d['semester_nama'], 
+					$d['jadwal_id'], 
+					$d['t_siswa_id'], 
+					$d['siswa'], 
                     $view.$edit.$delete
                 );
             }
@@ -66,17 +68,18 @@ class Semester extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_semester->get($id);
+        $row = $this->M_t_absensi->get($id);
         if ($row) {
             $data = array(
-			'semester_id' => $row->semester_id,
-			'semester_nama' => $row->semester_nama,
+			'absensi_id' => $row->absensi_id,
+			'jadwal_id' => $row->jadwal_id,
+			't_siswa_id' => $row->t_siswa_id,
+			'siswa' => $row->siswa,
 		);
-            $data['id'] = $id;
-            $this->template->load('template','m_semester_read', $data);
+            $this->template->load('template','t_absensi_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('semester'));
+            redirect(site_url('t_absensi'));
         }
     }
 
@@ -84,11 +87,13 @@ class Semester extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('semester/create_action'),
-			'semester_id' => set_value('semester_id'),
-			'semester_nama' => set_value('semester_nama'),
+            'action' => site_url('t_absensi/create_action'),
+			'absensi_id' => set_value('absensi_id'),
+			'jadwal_id' => set_value('jadwal_id'),
+			't_siswa_id' => set_value('t_siswa_id'),
+			'siswa' => set_value('siswa'),
 		);
-        $this->template->load('template','m_semester_form', $data);
+        $this->template->load('template','t_absensi_form', $data);
     }
     
     public function create_action() 
@@ -99,30 +104,34 @@ class Semester extends CI_Controller
             $this->create();
         } else {
             $data = array(
-				'semester_nama' => $this->input->post('semester_nama',TRUE),
+				'jadwal_id' => $this->input->post('jadwal_id',TRUE),
+				't_siswa_id' => $this->input->post('t_siswa_id',TRUE),
+				'siswa' => $this->input->post('siswa',TRUE),
 			);
 
-            $this->M_semester->insert($data);
+            $this->M_t_absensi->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('semester'));
+            redirect(site_url('t_absensi'));
         }
     }
     
     public function update($id) 
     {
-        $row = $this->M_semester->get($id);
+        $row = $this->M_t_absensi->get($id);
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('semester/update_action'),
-				'semester_id' => set_value('semester_id', $row->semester_id),
-				'semester_nama' => set_value('semester_nama', $row->semester_nama),
+                'action' => site_url('t_absensi/update_action'),
+				'absensi_id' => set_value('absensi_id', $row->absensi_id),
+				'jadwal_id' => set_value('jadwal_id', $row->jadwal_id),
+				't_siswa_id' => set_value('t_siswa_id', $row->t_siswa_id),
+				'siswa' => set_value('siswa', $row->siswa),
 			);
-            $this->template->load('template','m_semester_form', $data);
+            $this->template->load('template','t_absensi_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('semester'));
+            redirect(site_url('t_absensi'));
         }
     }
     
@@ -131,29 +140,31 @@ class Semester extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('semester_id', TRUE));
+            $this->update($this->input->post('absensi_id', TRUE));
         } else {
             $data = array(
-				'semester_nama' => $this->input->post('semester_nama',TRUE),
+				'jadwal_id' => $this->input->post('jadwal_id',TRUE),
+				't_siswa_id' => $this->input->post('t_siswa_id',TRUE),
+				'siswa' => $this->input->post('siswa',TRUE),
 		    );
 
-            $this->M_semester->update($data,$this->input->post('semester_id', TRUE));
+            $this->M_t_absensi->update($data,$this->input->post('absensi_id', TRUE));
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('semester'));
+            redirect(site_url('t_absensi'));
         }
     }
     
     public function delete($id) 
     {
-        $row = $this->M_semester->get($id);
+        $row = $this->M_t_absensi->get($id);
 
         if ($row) {
-            $this->M_semester->delete($id);
+            $this->M_t_absensi->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('semester'));
+            redirect(site_url('t_absensi'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('semester'));
+            redirect(site_url('t_absensi'));
         }
     }
 
@@ -174,17 +185,19 @@ class Semester extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('semester_nama', 'semester nama', 'trim|required');
+		$this->form_validation->set_rules('jadwal_id', 'jadwal id', 'trim|required');
+		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|required');
+		$this->form_validation->set_rules('siswa', 'siswa', 'trim|required');
 
-		$this->form_validation->set_rules('semester_id', 'semester_id', 'trim');
+		$this->form_validation->set_rules('absensi_id', 'absensi_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
     {
         $this->load->helper('exportexcel');
-        $namaFile = "m_semester.xls";
-        $judul = "m_semester";
+        $namaFile = "t_absensi.xls";
+        $judul = "t_absensi";
         $tablehead = 0;
         $tablebody = 1;
         $nourut = 1;
@@ -202,14 +215,18 @@ class Semester extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-		xlsWriteLabel($tablehead, $kolomhead++, "Semester Nama");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jadwal Id");
+		xlsWriteLabel($tablehead, $kolomhead++, "T Siswa Id");
+		xlsWriteLabel($tablehead, $kolomhead++, "Siswa");
 
-		foreach ($this->M_semester->get_all() as $data) {
+		foreach ($this->M_t_absensi->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->semester_nama);
+		    xlsWriteNumber($tablebody, $kolombody++, $data->jadwal_id);
+		    xlsWriteNumber($tablebody, $kolombody++, $data->t_siswa_id);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa);
 
 		    $tablebody++;
             $nourut++;
@@ -221,8 +238,8 @@ class Semester extends CI_Controller
 
 }
 
-/* End of file Semester.php */
-/* Location: ./application/controllers/Semester.php */
+/* End of file T_absensi.php */
+/* Location: ./application/controllers/T_absensi.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 04:19:10 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-07 09:31:10 */
 /* http://harviacode.com */

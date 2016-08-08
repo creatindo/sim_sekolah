@@ -7,11 +7,11 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">M_SEMESTER LIST </span>
+                <span class="caption-subject font-dark sbold uppercase">M_PEGAWAI LIST </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
-                        <?php echo anchor('semester/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
+                        <?php echo anchor('pegawai/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
                 </div>
                 <div class="btn-group">
                     <a class="btn red btn-circle" href="javascript:;" data-toggle="dropdown">
@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <?php echo anchor(site_url('semester/excel'), ' Export to Excel', ''); ?>
+                            <?php echo anchor(site_url('pegawai/excel'), ' Export to Excel', ''); ?>
                         </li>
                     </ul>
                 </div>
@@ -42,13 +42,33 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Semester Nama</th>
+                    <th>Pegawai Nip</th>
+                    <th>Pegawai Nama</th>
+                    <th>Pegawai Jk</th>
+                    <th>Pegawai Tgl Lahir</th>
+                    <th>Pegawai Golongan</th>
+                    <th>Kota Id</th>
+                    <th>Kecamatan Id</th>
+                    <th>Pegawai Alamat</th>
+                    <th>Pegawai Telp</th>
+                    <th>Pegawai Foto</th>
+                    <th>Create Date</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="semester_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_nip"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_jk"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_tgl_lahir"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_golongan"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kota_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_alamat"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_telp"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_foto"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="create_date"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
@@ -69,7 +89,7 @@
                     src: $("#mytable"),
                     dataTable: {  
                         "ajax": {
-                            "url": "<?php echo site_url('semester/getDatatable/') ?>", // ajax source
+                            "url": "<?php echo site_url('pegawai/getDatatable/') ?>", // ajax source
                         },
                         "order": [
                             [1, "asc"]

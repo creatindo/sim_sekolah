@@ -114,6 +114,7 @@ foreach ($all as $row) {
     $string .= "\n\t\t\t'" . $row['column_name'] . "' => \$row->" . $row['column_name'] . ",";
 }
 $string .= "\n\t\t);
+            \$data['id'] = \$id;
             \$this->template->load('template','$v_read', \$data);
         } else {
             \$this->session->set_flashdata('message', 'Record Not Found');

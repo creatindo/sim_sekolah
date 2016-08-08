@@ -13,13 +13,19 @@ $string = "
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class=\"table table-bordered\">";
-foreach ($non_pk as $row) {
-    $string .= "
+                    foreach ($non_pk as $row) {
+                      $string .= "
                     <tr><td>".label($row["column_name"])."</td><td><?php echo $".$row["column_name"]."; ?></td></tr>";
-}
-$string .= "
-                    <tr><td></td><td><a href=\"<?php echo site_url('".$c_url."') ?>\" class=\"btn btn-default\">Cancel</a></td></tr>";
-$string .= "
+                    }
+                      $string .= "
+                    <tr>
+                      <td></td>
+                      <td>
+                        <a href=\"<?php echo site_url('".$c_url."') ?>\" class=\"btn btn-default\">Cancel</a>
+                        <a href=\"<?php echo site_url('".$c_url."/update/'.\$id) ?>\" class=\"btn btn-default\">Edit</a>
+                      </td>
+                    </tr>";
+                      $string .= "
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.col -->

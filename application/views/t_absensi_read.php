@@ -6,19 +6,15 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>M_semester Read</span>
+                    <span class='caption-subject bold uppercase'>T_absensi Read</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Semester Nama</td><td><?php echo $semester_nama; ?></td></tr>
-                    <tr>
-                      <td></td>
-                      <td>
-                        <a href="<?php echo site_url('semester') ?>" class="btn btn-default">Cancel</a>
-                        <a href="<?php echo site_url('semester/update/'.$id) ?>" class="btn btn-default">Edit</a>
-                      </td>
-                    </tr>
+                    <tr><td>Jadwal Id</td><td><?php echo $jadwal_id; ?></td></tr>
+                    <tr><td>T Siswa Id</td><td><?php echo $t_siswa_id; ?></td></tr>
+                    <tr><td>Siswa</td><td><?php echo $siswa; ?></td></tr>
+                    <tr><td></td><td><a href="<?php echo site_url('t_absensi') ?>" class="btn btn-default">Cancel</a></td></tr>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.col -->
