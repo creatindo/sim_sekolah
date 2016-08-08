@@ -59,7 +59,7 @@
                             </div>
                             <script type="text/javascript"> 
                                 $(document).ready(function () {
-                                    $('#user_birthday').datepicker({startView: "decade" });
+                                    $('#user_birthday').datepicker({startView: "decade" , autoclose:true});
                                 })
                             </script>
 

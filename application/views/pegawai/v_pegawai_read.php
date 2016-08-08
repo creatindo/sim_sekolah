@@ -21,7 +21,8 @@
                     <tr><td>Pegawai Alamat</td><td><?php echo $pegawai_alamat; ?></td></tr>
                     <tr><td>Pegawai Telp</td><td><?php echo $pegawai_telp; ?></td></tr>
                     <tr><td>Pegawai Foto</td><td><?php echo $pegawai_foto; ?></td></tr>
-                    <tr><td>Create Date</td><td><?php echo $create_date; ?></td></tr>
+                    <tr><td>Jabatan</td><td><?php echo $jabatan; ?></td></tr>
+                    <tr><td>User Id</td><td><?php echo $user_id; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>
