@@ -7,7 +7,7 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">M_HARI LIST </span>
+                <span class="caption-subject font-dark sbold uppercase">HARI  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
@@ -22,12 +22,6 @@
                     <ul class="dropdown-menu pull-right">
                         <li>
                             <?php echo anchor(site_url('hari/excel'), ' Export to Excel', ''); ?>
-                        </li>
-                        <li>
-                            <?php echo anchor(site_url('hari/word'), ' Export to Word', ''); ?>
-                        </li>
-                        <li>
-                            <?php echo anchor(site_url('hari/pdf'), ' Export to PDF', ''); ?>
                         </li>
                     </ul>
                 </div>

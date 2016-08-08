@@ -7,11 +7,11 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">M_HARI  </span>
+                <span class="caption-subject font-dark sbold uppercase">SISWA  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
-                        <?php echo anchor('m_hari/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
+                        <?php echo anchor('siswa/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
                 </div>
                 <div class="btn-group">
                     <a class="btn red btn-circle" href="javascript:;" data-toggle="dropdown">
@@ -21,7 +21,13 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <?php echo anchor(site_url('m_hari/excel'), ' Export to Excel', ''); ?>
+                            <?php echo anchor(site_url('siswa/excel'), ' Export to Excel', ''); ?>
+                        </li>
+                        <li>
+                            <?php echo anchor(site_url('siswa/word'), ' Export to Word', ''); ?>
+                        </li>
+                        <li>
+                            <?php echo anchor(site_url('siswa/pdf'), ' Export to PDF', ''); ?>
                         </li>
                     </ul>
                 </div>
@@ -42,13 +48,33 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Hari Nama</th>
+                    <th>Siswa Nis</th>
+                    <th>Siswa Nama</th>
+                    <th>Siswa Jk</th>
+                    <th>Siswa Tgl Lahir</th>
+                    <th>Kota Id</th>
+                    <th>Kecamatan Id</th>
+                    <th>Siswa Alamat</th>
+                    <th>Siswa Ayah</th>
+                    <th>Siswa Ibu</th>
+                    <th>Siswa Wali</th>
+                    <th>Telp Ortu</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="hari_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_nis"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_jk"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_tgl_lahir"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kota_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_alamat"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_ayah"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_ibu"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_wali"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="telp_ortu"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
@@ -69,7 +95,7 @@
                     src: $("#mytable"),
                     dataTable: {  
                         "ajax": {
-                            "url": "<?php echo site_url('m_hari/getDatatable/') ?>", // ajax source
+                            "url": "<?php echo site_url('siswa/getDatatable/') ?>", // ajax source
                         },
                         "order": [
                             [1, "asc"]

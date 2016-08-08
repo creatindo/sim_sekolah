@@ -19,10 +19,15 @@ $string = "
                     }
                       $string .= "
                     <tr>
-                      <td></td>
-                      <td>
-                        <a href=\"<?php echo site_url('".$c_url."') ?>\" class=\"btn btn-default\">Cancel</a>
-                        <a href=\"<?php echo site_url('".$c_url."/update/'.\$id) ?>\" class=\"btn btn-info\">Edit</a>
+                      <td colspan='2'>
+                        <div class='form-actions'>
+                          <div class='row'>
+                            <div class='col-md-offset-5 col-md-7'>
+                                <a href=\"<?php echo site_url('".$c_url."') ?>\" class=\"btn btn-default\">Cancel</a>
+                                <a href=\"<?php echo site_url('".$c_url."/update/'.\$id) ?>\" class=\"btn btn-info\">Edit</a>
+                            </div>
+                          </div>
+                        </div>
                       </td>
                     </tr>";
                       $string .= "

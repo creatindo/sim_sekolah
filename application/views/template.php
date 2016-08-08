@@ -66,6 +66,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="<?php echo base_url(); ?>assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 
+        <!-- SELECT2 -->
+        <link href="<?php echo base_url(); ?>theme/m4/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>theme/m4/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="<?php echo base_url(); ?>theme/m4/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
 
 
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
@@ -76,7 +80,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- DATEPICKER -->
             <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
             <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-            <script src="<?php echo base_url(); ?>assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
+            <!-- <script src="<?php echo base_url(); ?>assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script> -->
         
 
         <!-- END PAGE LEVEL SCRIPTS -->
