@@ -11,7 +11,7 @@
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>User Name</td><td><?php echo $user_name; ?></td></tr>
+                    <tr><td>User Nama</td><td><?php echo $user_nama; ?></td></tr>
                     <tr><td>User Pass</td><td><?php echo $user_pass; ?></td></tr>
                     <tr><td>User Pass Verif</td><td><?php echo $user_pass_verif; ?></td></tr>
                     <tr>

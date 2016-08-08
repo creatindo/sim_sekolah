@@ -15,10 +15,10 @@
                 <div class='row'>
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>User Name</label>
+                        <label class='col-md-3 control-label'>User Nama</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name" value="<?php echo $user_name; ?>" />
-                            <span class='help-block'> <?php echo form_error('user_name') ?> </span>
+                            <input type="text" class="form-control" name="user_nama" id="user_nama" placeholder="User Nama" value="<?php echo $user_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('user_nama') ?> </span>
                         </div>
                     </div>
                   </div>

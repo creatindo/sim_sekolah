@@ -20,7 +20,7 @@
         <table class="word-table" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>User Name</th>
+		<th>User Nama</th>
 		<th>User Pass</th>
 		<th>User Pass Verif</th>
 		
@@ -30,7 +30,7 @@
                 ?>
                 <tr>
 		      <td><?php echo ++$start ?></td>
-		      <td><?php echo $user->user_name ?></td>
+		      <td><?php echo $user->user_nama ?></td>
 		      <td><?php echo $user->user_pass ?></td>
 		      <td><?php echo $user->user_pass_verif ?></td>	
                 </tr>

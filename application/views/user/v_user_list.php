@@ -48,7 +48,7 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>User Name</th>
+                    <th>User Nama</th>
                     <th>User Pass</th>
                     <th>User Pass Verif</th>
                     <th>Action</th>
@@ -56,7 +56,7 @@
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="user_name"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="user_nama"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="user_pass"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="user_pass_verif"></td>
                     <td>

@@ -62,7 +62,7 @@
                         <label class='col-md-3 control-label'>Pegawai Tgl Lahir</label>
                         <div class='col-md-9'>
                             <div id = 'tanggal' class='input-group date date-picker' data-date-format='dd-mm-yyyy' data-date-startView='decade'>
-                                <input type='text' class='form-control ' readonly name="pegawai_tgl_lahir" value="<?php echo $pegawai_tgl_lahir; ?>">
+                                <input type='text' class='form-control ' readonly name="pegawai_tgl_lahir" value="<?php echo date('d-m-Y', strtotime($pegawai_tgl_lahir)); ?>">
                                 <span class='input-group-btn'>
                                     <button class='btn default' type='button'>
                                         <i class='fa fa-calendar'></i>

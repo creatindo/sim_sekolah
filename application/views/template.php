@@ -477,15 +477,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                 if($submenu->num_rows()>0){
                                     // tampilkan submenu
                                     echo "<li class='menu-dropdown classic-menu-dropdown'>
-                                        ".anchor('#',  "<i class='$m->icon'></i>".strtoupper($m->name).' ')."
+                                        ".anchor('#',  "<i class='$m->icon'></i>".strtoupper($m->menu_nama).' ')."
                                             <ul class='dropdown-menu pull-left'>";
                                     foreach ($submenu->result() as $s){
-                                         echo "<li>" . anchor($s->link, "<i class='$s->icon'></i> <span>" . $s->name) . "</span></li>";
+                                         echo "<li>" . anchor($s->link, "<i class='$s->icon'></i> <span>" . $s->menu_nama) . "</span></li>";
                                     }
                                        echo"</ul>
                                         </li>";
                                 }else{
-                                    echo "<li class='menu-dropdown classic-menu-dropdown'>" . anchor($m->link, "<i class='$m->icon'></i> <span>" . strtoupper($m->name)) . "</span></li>";
+                                    echo "<li class='menu-dropdown classic-menu-dropdown'>" . anchor($m->link, "<i class='$m->icon'></i> <span>" . strtoupper($m->menu_nama)) . "</span></li>";
                                 }
                                 
                             }
