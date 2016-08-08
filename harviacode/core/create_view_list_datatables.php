@@ -34,6 +34,12 @@ if ($export_word == '1') {
                             <?php echo anchor(site_url('".$c_url."/word'), ' Export to Word', ''); ?>
                         </li>";
 }
+if ($export_pdf == '1') {
+    $string .= "
+                        <li>
+                            <?php echo anchor(site_url('".$c_url."/pdf'), ' Export to PDF', ''); ?>
+                        </li>";
+}
     $string .= "
                     </ul>
                 </div>
@@ -109,6 +115,6 @@ $string .= "\n\t    <tbody>
 </section><!-- /.content -->";
 
 
-$hasil_view_list = createFile($string, $target."views/" . $v_list_file);
+$hasil_view_list = createFile($string, $target_view. $v_list_file);
 
 ?>

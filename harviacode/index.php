@@ -78,17 +78,17 @@ require_once 'core/process.php';
                         </div>
                     </div>
 
-                    <!--                    <div class="form-group">
-                                            <div class="checkbox  <?php // echo file_exists('../application/third_party/mpdf/mpdf.php') ? '' : 'disabled';   ?>">
-                    <?php // $export_pdf = isset($_POST['export_pdf']) ? $_POST['export_pdf'] : ''; ?>
-                                                <label>
-                                                    <input type="checkbox" name="export_pdf" value="1" <?php // echo $export_pdf == '1' ? 'checked' : ''   ?>
-                    <?php // echo file_exists('../application/third_party/mpdf/mpdf.php') ? '' : 'disabled'; ?>>
-                                                    Export PDF
-                                                </label>
-                    <?php // echo file_exists('../application/third_party/mpdf/mpdf.php') ? '' : '<small class="text-danger">mpdf required, download <a href="http://harviacode.com">here</a></small>'; ?>
-                                            </div>
-                                        </div>-->
+                    <div class="form-group">
+                        <div class="checkbox  <?php  echo file_exists('../application/third_party/mpdf/mpdf.php') ? '' : 'disabled';   ?>">
+                            <?php  $export_pdf = isset($_POST['export_pdf']) ? $_POST['export_pdf'] : ''; ?>
+                            <label>
+                                <input type="checkbox" name="export_pdf" value="1" <?php  echo $export_pdf == '1' ? 'checked' : ''   ?>
+                                <?php  echo file_exists('../application/third_party/mpdf/mpdf.php') ? '' : 'disabled'; ?>>
+                                Export PDF
+                            </label>
+                            <?php  echo file_exists('../application/third_party/mpdf/mpdf.php') ? '' : '<small class="text-danger">mpdf required, download <a href="http://harviacode.com">here</a></small>'; ?>
+                        </div>
+                    </div>
 
 
                     <div class="form-group">
@@ -201,7 +201,8 @@ require_once 'core/process.php';
                 var table_name = document.getElementById('table_name').value.toLowerCase();
                 if (table_name != '') {
                     document.getElementById('controller').value = capitalize(table_name);
-                    document.getElementById('model').value = capitalize(table_name) + '_model';
+                    document.getElementById('model').value = '';
+                    // document.getElementById('model').value = 'M_' + table_name;
                 } else {
                     document.getElementById('controller').value = '';
                     document.getElementById('model').value = '';

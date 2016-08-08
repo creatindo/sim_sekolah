@@ -87,6 +87,6 @@ $string .=  "\n\t        </tr>
 </html>";
 
 
-$hasil_view_list = createFile($string, $target."views/" . $v_list_file);
+$hasil_view_list = createFile($string, $target_view. $v_list_file);
 
 ?>

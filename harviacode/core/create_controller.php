@@ -46,7 +46,7 @@ $string .= "\n\n    public function index()
             'total_rows' => \$config['total_rows'],
             'start' => \$start,
         );
-        \$this->template->load('template','$v_list', \$data);
+        \$this->template->load('template','$c_url/$v_list', \$data);
     }";
 
 } else {
@@ -56,7 +56,7 @@ $string .="\n\n    public function index()
         \$data = array(
         );
 
-        \$this->template->load('template','$v_list', \$data);
+        \$this->template->load('template','$c_url/$v_list', \$data);
     }";
 
 }
@@ -115,7 +115,7 @@ foreach ($all as $row) {
 }
 $string .= "\n\t\t);
             \$data['id'] = \$id;
-            \$this->template->load('template','$v_read', \$data);
+            \$this->template->load('template','$c_url/$v_read', \$data);
         } else {
             \$this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('$c_url'));
@@ -131,7 +131,7 @@ foreach ($all as $row) {
     $string .= "\n\t\t\t'" . $row['column_name'] . "' => set_value('" . $row['column_name'] . "'),";
 }
 $string .= "\n\t\t);
-        \$this->template->load('template','$v_form', \$data);
+        \$this->template->load('template','$c_url/$v_form', \$data);
     }
     
     public function create_action() 
@@ -165,7 +165,7 @@ foreach ($all as $row) {
     $string .= "\n\t\t\t\t'" . $row['column_name'] . "' => set_value('" . $row['column_name'] . "', \$row->". $row['column_name']."),";
 }
 $string .= "\n\t\t\t);
-            \$this->template->load('template','$v_form', \$data);
+            \$this->template->load('template','$c_url/$v_form', \$data);
         } else {
             \$this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('$c_url'));
@@ -280,14 +280,14 @@ if ($export_word == '1') {
     $string .= "\n\n    public function word()
     {
         header(\"Content-type: application/vnd.ms-word\");
-        header(\"Content-Disposition: attachment;Filename=$table_name.doc\");
+        header(\"Content-Disposition: attachment;Filename=$c_url.doc\");
 
         \$data = array(
-            '" . $table_name . "_data' => \$this->" . $m . "->get_all(),
+            '" . $c_url . "_data' => \$this->" . $m . "->get_all(),
             'start' => 0
         );
         
-        \$this->load->view('" . $v_doc . "',\$data);
+        \$this->load->view('" . $c_url."/".$v_doc . "',\$data);
     }";
 }
 
@@ -295,16 +295,16 @@ if ($export_pdf == '1') {
     $string .= "\n\n    function pdf()
     {
         \$data = array(
-            '" . $table_name . "_data' => \$this->" . $m . "->get_all(),
+            '" . $c_url . "_data' => \$this->" . $m . "->get_all(),
             'start' => 0
         );
         
         ini_set('memory_limit', '32M');
-        \$html = \$this->load->view('" . $v_pdf . "', \$data, true);
+        \$html = \$this->load->view('" . $c_url."/".$v_pdf . "', \$data, true);
         \$this->load->library('pdf');
         \$pdf = \$this->pdf->load();
         \$pdf->WriteHTML(\$html);
-        \$pdf->Output('" . $table_name . ".pdf', 'D'); 
+        \$pdf->Output('" . $c_url . ".pdf', 'D'); 
     }";
 }
 

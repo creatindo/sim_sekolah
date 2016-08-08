@@ -35,6 +35,6 @@ $string = "
 
 
 
-$hasil_view_read = createFile($string, $target."views/" . $v_read_file);
+$hasil_view_read = createFile($string, $target_view. $v_read_file);
 
 ?>

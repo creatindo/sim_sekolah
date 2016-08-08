@@ -10,7 +10,7 @@ class M_hari extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('M_hari');
+        $this->load->model('M_m_hari');
         $this->load->library('form_validation');
     }
 
@@ -19,7 +19,7 @@ class M_hari extends CI_Controller
         $data = array(
         );
 
-        $this->template->load('template','m_hari_list', $data);
+        $this->template->load('template','v_m_hari_list', $data);
     }
 
     public function getDatatable()
@@ -35,7 +35,7 @@ class M_hari extends CI_Controller
         $iDisplayStart  = intval($_REQUEST['start']);
         $sEcho          = intval($_REQUEST['draw']);
         
-        $t              = $this->M_hari->get_limit_data($iDisplayStart, $iDisplayLength);
+        $t              = $this->M_m_hari->get_limit_data($iDisplayStart, $iDisplayLength);
         $iTotalRecords  = $t['total_rows'];
         $get_data       = $t['get_db'];
 
@@ -66,13 +66,14 @@ class M_hari extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_hari->get($id);
+        $row = $this->M_m_hari->get($id);
         if ($row) {
             $data = array(
 			'hari_id' => $row->hari_id,
 			'hari_nama' => $row->hari_nama,
 		);
-            $this->template->load('template','m_hari_read', $data);
+            $data['id'] = $id;
+            $this->template->load('template','v_m_hari_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('m_hari'));
@@ -87,7 +88,7 @@ class M_hari extends CI_Controller
 			'hari_id' => set_value('hari_id'),
 			'hari_nama' => set_value('hari_nama'),
 		);
-        $this->template->load('template','m_hari_form', $data);
+        $this->template->load('template','v_m_hari_form', $data);
     }
     
     public function create_action() 
@@ -101,7 +102,7 @@ class M_hari extends CI_Controller
 				'hari_nama' => $this->input->post('hari_nama',TRUE),
 			);
 
-            $this->M_hari->insert($data);
+            $this->M_m_hari->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('m_hari'));
         }
@@ -109,7 +110,7 @@ class M_hari extends CI_Controller
     
     public function update($id) 
     {
-        $row = $this->M_hari->get($id);
+        $row = $this->M_m_hari->get($id);
 
         if ($row) {
             $data = array(
@@ -118,7 +119,7 @@ class M_hari extends CI_Controller
 				'hari_id' => set_value('hari_id', $row->hari_id),
 				'hari_nama' => set_value('hari_nama', $row->hari_nama),
 			);
-            $this->template->load('template','m_hari_form', $data);
+            $this->template->load('template','v_m_hari_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('m_hari'));
@@ -136,7 +137,7 @@ class M_hari extends CI_Controller
 				'hari_nama' => $this->input->post('hari_nama',TRUE),
 		    );
 
-            $this->M_hari->update($data,$this->input->post('hari_id', TRUE));
+            $this->M_m_hari->update($data,$this->input->post('hari_id', TRUE));
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('m_hari'));
         }
@@ -144,10 +145,10 @@ class M_hari extends CI_Controller
     
     public function delete($id) 
     {
-        $row = $this->M_hari->get($id);
+        $row = $this->M_m_hari->get($id);
 
         if ($row) {
-            $this->M_hari->delete($id);
+            $this->M_m_hari->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
             redirect(site_url('m_hari'));
         } else {
@@ -179,10 +180,49 @@ class M_hari extends CI_Controller
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
+    public function excel()
+    {
+        $this->load->helper('exportexcel');
+        $namaFile = "m_hari.xls";
+        $judul = "m_hari";
+        $tablehead = 0;
+        $tablebody = 1;
+        $nourut = 1;
+        //penulisan header
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+        header("Content-Disposition: attachment;filename=" . $namaFile . "");
+        header("Content-Transfer-Encoding: binary ");
+
+        xlsBOF();
+
+        $kolomhead = 0;
+        xlsWriteLabel($tablehead, $kolomhead++, "No");
+		xlsWriteLabel($tablehead, $kolomhead++, "Hari Nama");
+
+		foreach ($this->M_m_hari->get_all() as $data) {
+            $kolombody = 0;
+
+            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
+            xlsWriteNumber($tablebody, $kolombody++, $nourut);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->hari_nama);
+
+		    $tablebody++;
+            $nourut++;
+        }
+
+        xlsEOF();
+        exit();
+    }
+
 }
 
 /* End of file M_hari.php */
 /* Location: ./application/controllers/M_hari.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-07-28 18:36:28 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 04:52:56 */
 /* http://harviacode.com */

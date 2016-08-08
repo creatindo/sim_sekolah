@@ -49,6 +49,6 @@ $string .=  "\t
 </html>";
 
 
-$hasil_view_doc = createFile($string, $target."views/" . $v_doc_file);
+$hasil_view_doc = createFile($string, $target_view. $v_doc_file);
 
 ?>

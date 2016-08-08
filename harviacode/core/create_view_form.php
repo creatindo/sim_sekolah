@@ -61,5 +61,5 @@ $string .= "
   </div><!-- /.row -->
 </section><!-- /.content -->";
 
-$hasil_view_form = createFile($string, $target . "views/" . $v_form_file);
+$hasil_view_form = createFile($string, $target_view . $v_form_file);
 ?>
