@@ -7,11 +7,11 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">T_PEGAWAI  </span>
+                <span class="caption-subject font-dark sbold uppercase">M_JABATAN  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
-                        <?php echo anchor('t_pegawai/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
+                        <?php echo anchor('m_jabatan/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
                 </div>
                 <div class="btn-group">
                     <a class="btn red btn-circle" href="javascript:;" data-toggle="dropdown">
@@ -39,19 +39,13 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Pagawai Id</th>
-                    <th>Jabatan Id</th>
-                    <th>Create Date</th>
-                    <th>T Pegawai Active</th>
+                    <th>Jabatan Nama</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="pagawai_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="jabatan_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="create_date"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="t_pegawai_active"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="jabatan_nama"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
@@ -72,7 +66,7 @@
                     src: $("#mytable"),
                     dataTable: {  
                         "ajax": {
-                            "url": "<?php echo site_url('t_pegawai/getDatatable/') ?>", // ajax source
+                            "url": "<?php echo site_url('m_jabatan/getDatatable/') ?>", // ajax source
                         },
                         "order": [
                             [1, "asc"]

@@ -86,16 +86,20 @@ $string .="\n\n    public function getDatatable()
         \$i=\$iDisplayStart+1;
         if (\$get_data) {
             foreach (\$get_data as \$d) {
-                \$checkbok= '<input type=\"checkbox\" name=\"id[]\" value=\"'.\$d['".$pk."'].'\">';
-                \$view    = anchor(site_url('".$c_url."/read/'.\$d['".$pk."']),'<i class=\"fa fa-eye fa-lg\"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
-                \$edit    = anchor(site_url('".$c_url."/update/'.\$d['".$pk."']),'<i class=\"fa fa-pencil-square-o fa-lg\"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                \$delete  = anchor(site_url('".$c_url."/delete/'.\$d['".$pk."']),'<i class=\"fa fa-trash-o fa-lg\"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
+                \$checkbok= '<input type=\"checkbox\" name=\"id[]\" value=\"'.\$d->".$pk.".'\">';
+                \$view    = anchor(site_url('".$c_url."/read/'.\$d->".$pk."),'<i class=\"fa fa-eye fa-lg\"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
+                \$edit    = anchor(site_url('".$c_url."/update/'.\$d->".$pk."),'<i class=\"fa fa-pencil-square-o fa-lg\"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
+                \$delete  = anchor(site_url('".$c_url."/delete/'.\$d->".$pk."),'<i class=\"fa fa-trash-o fa-lg\"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
 
                 \$records[\"data\"][] = array(
                     \$checkbok,
                 ";
                 foreach ($non_pk as $row) {
-                    $string .= "\n\t\t\t\t\t\$d['". $row['column_name'] ."'], ";
+                    if(array_key_exists($row["column_name"], $reference) ) {
+                        $string .= "\n\t\t\t\t\t\$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_table"]."->label}, ";
+                    }else{
+                        $string .= "\n\t\t\t\t\t\$d->". $row['column_name'] .", ";
+                    }
                 }
                 $string .= "
                     \$view.\$edit.\$delete

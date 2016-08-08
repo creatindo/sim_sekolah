@@ -63,7 +63,22 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Create Date</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="create_date" id="create_date" placeholder="Create Date" value="<?php echo $create_date; ?>" />
+                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='dd-mm-yyyy' data-date-startView='decade'>
+                                <input type='text' class='form-control ' readonly name="create_date" value="<?php echo $create_date; ?>">
+                                <span class='input-group-btn'>
+                                    <button class='btn default' type='button'>
+                                        <i class='fa fa-calendar'></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <script type='text/javascript'>
+                                $(document).ready(function () {
+                                    $('#tanggal').datepicker({
+                                      startView: 'decade' , 
+                                      autoclose:true 
+                                    });
+                                })
+                            </script>
                             <span class='help-block'> <?php echo form_error('create_date') ?> </span>
                         </div>
                     </div>

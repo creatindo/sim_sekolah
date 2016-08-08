@@ -10,14 +10,19 @@ class " . $m . " extends MY_Model
 
     public \$table = '$table_name';
     public \$primary_key = '$pk';
-    public \$label = '$pk';
+    public \$label = '$label';
     public \$fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
     public \$protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
 
     function __construct()
     {
         parent::__construct();
-        \$this->soft_deletes = TRUE;
+        \$this->soft_deletes = TRUE;";
+foreach ($reference as $row) {
+    $string .= "
+        \$this->has_one['". $row['r_table'] ."'] = array('". ucfirst($row['r_table']) ."','".$row['r_column']."','".$row['column_name']."');";
+}
+$string .="
     }
     
     // get total rows
@@ -46,7 +51,13 @@ $string .= "
         \$this->where(\$where);
         \$this->order_by( \$dataorder[\$order[0][\"column\"]],  \$order[0][\"dir\"]);
         \$this->limit(\$start, \$limit);
-        \$result['get_db']=\$this->as_array()->get_all();
+        \$result['get_db']=\$this";
+foreach ($reference as $row) {
+    $string .= "
+                            ->with_".$row['r_table']."()";
+}
+$string.="
+                            ->get_all();
         return \$result;
     }
 

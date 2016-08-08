@@ -6,7 +6,7 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>Jabatan</span>
+                    <span class='caption-subject bold uppercase'>M_jabatan</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
@@ -17,8 +17,8 @@
                         <div class='form-actions'>
                           <div class='row'>
                             <div class='col-md-offset-5 col-md-7'>
-                                <a href="<?php echo site_url('jabatan') ?>" class="btn btn-default">Cancel</a>
-                                <a href="<?php echo site_url('jabatan/update/'.$id) ?>" class="btn btn-info">Edit</a>
+                                <a href="<?php echo site_url('m_jabatan') ?>" class="btn btn-default">Cancel</a>
+                                <a href="<?php echo site_url('m_jabatan/update/'.$id) ?>" class="btn btn-info">Edit</a>
                             </div>
                           </div>
                         </div>

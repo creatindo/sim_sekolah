@@ -50,6 +50,15 @@ if (isset($_POST['generate']))
         $all = $hc->all_field($table_name);
         $reference = $hc->reference_field($table_name);
         
+        //find label
+        $label = $pk;
+        foreach ($non_pk as $row) {
+            if (strpos($row['column_name'], '_nama') !== false) {
+                $label = $row['column_name'];
+                break;
+            }
+        }
+
         // create view direktory
         mkdir($target_view);
         

@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form JABATAN </span>
+            <span class='caption-subject bold uppercase'>Form M_JABATAN </span>
           </div>
         </div>
         <div class='portlet-body form'>
@@ -30,7 +30,7 @@
                   <div class='row'>
                       <div class='col-md-offset-5 col-md-7'>
                         <button type='submit' class='btn green'>Submit</button>
-                        <a href="<?php echo site_url('jabatan') ?>" class="btn default">Cancel</a>
+                        <a href="<?php echo site_url('m_jabatan') ?>" class="btn default">Cancel</a>
                     </div>
                   </div>
                 </div>
