@@ -241,8 +241,8 @@ class Hari extends CI_Controller
         
         ini_set('memory_limit', '32M');
         $html = $this->load->view('hari/v_hari_pdf', $data, true);
-        $this->load->library('pdf');
-        $pdf = $this->pdf->load();
+        $this->load->library('m_pdf');
+        $pdf = $this->m_pdf->load();
         $pdf->WriteHTML($html);
         $pdf->Output('hari.pdf', 'D'); 
     }
