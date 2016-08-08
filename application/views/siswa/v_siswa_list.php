@@ -7,11 +7,11 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">M_HARI  </span>
+                <span class="caption-subject font-dark sbold uppercase">SISWA  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
-                        <?php echo anchor('m_hari/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
+                        <?php echo anchor('siswa/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
                 </div>
                 <div class="btn-group">
                     <a class="btn red btn-circle" href="javascript:;" data-toggle="dropdown">
@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <?php echo anchor(site_url('m_hari/excel'), ' Export to Excel', ''); ?>
+                            <?php echo anchor(site_url('siswa/excel'), ' Export to Excel', ''); ?>
                         </li>
                     </ul>
                 </div>
@@ -42,13 +42,19 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Hari Nama</th>
+                    <th>Siswa Id</th>
+                    <th>T Kelas Id</th>
+                    <th>Tahun</th>
+                    <th>T Siswa Active</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="hari_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="t_kelas_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="tahun"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="t_siswa_active"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
@@ -69,7 +75,7 @@
                     src: $("#mytable"),
                     dataTable: {  
                         "ajax": {
-                            "url": "<?php echo site_url('m_hari/getDatatable/') ?>", // ajax source
+                            "url": "<?php echo site_url('siswa/getDatatable/') ?>", // ajax source
                         },
                         "order": [
                             [1, "asc"]

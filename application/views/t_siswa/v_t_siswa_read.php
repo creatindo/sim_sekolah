@@ -6,17 +6,20 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>Hari</span>
+                    <span class='caption-subject bold uppercase'>T_siswa</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Hari Nama</td><td><?php echo $hari_nama; ?></td></tr>
+                    <tr><td>Siswa Id</td><td><?php echo $siswa_id; ?></td></tr>
+                    <tr><td>T Kelas Id</td><td><?php echo $t_kelas_id; ?></td></tr>
+                    <tr><td>Tahun</td><td><?php echo $tahun; ?></td></tr>
+                    <tr><td>T Siswa Active</td><td><?php echo $t_siswa_active; ?></td></tr>
                     <tr>
                       <td></td>
                       <td>
-                        <a href="<?php echo site_url('hari') ?>" class="btn btn-default">Cancel</a>
-                        <a href="<?php echo site_url('hari/update/'.$id) ?>" class="btn btn-info">Edit</a>
+                        <a href="<?php echo site_url('t_siswa') ?>" class="btn btn-default">Cancel</a>
+                        <a href="<?php echo site_url('t_siswa/update/'.$id) ?>" class="btn btn-info">Edit</a>
                       </td>
                     </tr>
                   </table>

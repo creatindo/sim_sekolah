@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form HARI </span>
+            <span class='caption-subject bold uppercase'>Form M_HARI </span>
           </div>
         </div>
         <div class='portlet-body form'>
@@ -22,16 +22,13 @@
                         </div>
                     </div>
                   </div>
-                </div>
+                  
+              </div>
                   <input type="hidden" name="hari_id" value="<?php echo $hari_id; ?>" />
                 </div>
                 <div class='form-actions'>
-                  <div class="row">
-                    <div class="col-md-offset-5 col-md-7">
-                      <button type='submit' class='btn green'>Submit</button>
-                      <a href="<?php echo site_url('hari') ?>" class="btn default">Cancel</a>
-                    </div>
-                  </div>
+                            <button type='submit' class='btn green'>Submit</button>
+                            <a href="<?php echo site_url('m_hari') ?>" class="btn default">Cancel</a>
                 </div>
                 
               </div>

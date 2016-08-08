@@ -6,7 +6,7 @@
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>M_hari Read</span>
+                    <span class='caption-subject bold uppercase'>M_hari</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
@@ -16,7 +16,7 @@
                       <td></td>
                       <td>
                         <a href="<?php echo site_url('m_hari') ?>" class="btn btn-default">Cancel</a>
-                        <a href="<?php echo site_url('m_hari/update/'.$id) ?>" class="btn btn-default">Edit</a>
+                        <a href="<?php echo site_url('m_hari/update/'.$id) ?>" class="btn btn-info">Edit</a>
                       </td>
                     </tr>
                   </table>
