@@ -12,6 +12,9 @@ class Siswa extends CI_Controller
         parent::__construct();
         $this->load->model('M_siswa');
         $this->load->library('form_validation');
+		$this->load->model('m_gender');
+		$this->load->model('m_kota');
+		$this->load->model('m_kecamatan');        
     }
 
     public function index()
@@ -44,25 +47,25 @@ class Siswa extends CI_Controller
         $i=$iDisplayStart+1;
         if ($get_data) {
             foreach ($get_data as $d) {
-                $checkbok= '<input type="checkbox" name="id[]" value="'.$d['siswa_id'].'">';
-                $view    = anchor(site_url('siswa/read/'.$d['siswa_id']),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
-                $edit    = anchor(site_url('siswa/update/'.$d['siswa_id']),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('siswa/delete/'.$d['siswa_id']),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
+                $checkbok= '<input type="checkbox" name="id[]" value="'.$d->siswa_id.'">';
+                $view    = anchor(site_url('siswa/read/'.$d->siswa_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
+                $edit    = anchor(site_url('siswa/update/'.$d->siswa_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
+                $delete  = anchor(site_url('siswa/delete/'.$d->siswa_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
 
                 $records["data"][] = array(
                     $checkbok,
                 
-					$d['siswa_nis'], 
-					$d['siswa_nama'], 
-					$d['siswa_jk'], 
-					$d['siswa_tgl_lahir'], 
-					$d['kota_id'], 
-					$d['kecamatan_id'], 
-					$d['siswa_alamat'], 
-					$d['siswa_ayah'], 
-					$d['siswa_ibu'], 
-					$d['siswa_wali'], 
-					$d['telp_ortu'], 
+					$d->siswa_nis, 
+					$d->siswa_nama, 
+					$d->m_gender->{$this->m_gender->label}, 
+					$d->siswa_tgl_lahir, 
+					$d->m_kota->{$this->m_kota->label}, 
+					$d->m_kecamatan->{$this->m_kecamatan->label}, 
+					$d->siswa_alamat, 
+					$d->siswa_ayah, 
+					$d->siswa_ibu, 
+					$d->siswa_wali, 
+					$d->telp_ortu, 
                     $view.$edit.$delete
                 );
             }
@@ -250,97 +253,10 @@ class Siswa extends CI_Controller
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
-    public function excel()
-    {
-        $this->load->helper('exportexcel');
-        $namaFile = "m_siswa.xls";
-        $judul = "m_siswa";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
-        //penulisan header
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header("Content-Disposition: attachment;filename=" . $namaFile . "");
-        header("Content-Transfer-Encoding: binary ");
-
-        xlsBOF();
-
-        $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Nis");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Nama");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Jk");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Tgl Lahir");
-		xlsWriteLabel($tablehead, $kolomhead++, "Kota Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Alamat");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Ayah");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Ibu");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Wali");
-		xlsWriteLabel($tablehead, $kolomhead++, "Telp Ortu");
-
-		foreach ($this->M_siswa->get_all() as $data) {
-            $kolombody = 0;
-
-            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_nis);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_nama);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_jk);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_tgl_lahir);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->kota_id);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->kecamatan_id);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_alamat);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_ayah);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_ibu);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_wali);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->telp_ortu);
-
-		    $tablebody++;
-            $nourut++;
-        }
-
-        xlsEOF();
-        exit();
-    }
-
-    public function word()
-    {
-        header("Content-type: application/vnd.ms-word");
-        header("Content-Disposition: attachment;Filename=siswa.doc");
-
-        $data = array(
-            'siswa_data' => $this->M_siswa->get_all(),
-            'start' => 0
-        );
-        
-        $this->load->view('siswa/v_siswa_doc',$data);
-    }
-
-    function pdf()
-    {
-        $data = array(
-            'siswa_data' => $this->M_siswa->get_all(),
-            'start' => 0
-        );
-        
-        ini_set('memory_limit', '32M');
-        $html = $this->load->view('siswa/v_siswa_pdf', $data, true);
-        $this->load->library('pdf');
-        $pdf = $this->pdf->load();
-        $pdf->WriteHTML($html);
-        $pdf->Output('siswa.pdf', 'D'); 
-    }
-
 }
 
 /* End of file Siswa.php */
 /* Location: ./application/controllers/Siswa.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 08:08:50 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 15:07:24 */
 /* http://harviacode.com */

@@ -25,9 +25,6 @@
 		<th>Kota Nama</th>
 		<th>Kota Aktif</th>
 		<th>Kota Created By</th>
-		<th>Kota Created Date</th>
-		<th>Kota Updated By</th>
-		<th>Kota Updated Date</th>
 		<th>Kota Revised</th>
 		<th>Kota Counter</th>
 		<th>Kota Kab</th>
@@ -43,9 +40,6 @@
 		      <td><?php echo $kota->kota_nama ?></td>
 		      <td><?php echo $kota->kota_aktif ?></td>
 		      <td><?php echo $kota->kota_created_by ?></td>
-		      <td><?php echo $kota->kota_created_date ?></td>
-		      <td><?php echo $kota->kota_updated_by ?></td>
-		      <td><?php echo $kota->kota_updated_date ?></td>
 		      <td><?php echo $kota->kota_revised ?></td>
 		      <td><?php echo $kota->kota_counter ?></td>
 		      <td><?php echo $kota->kota_kab ?></td>	

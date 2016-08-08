@@ -69,40 +69,6 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Kota Created Date</label>
-                        <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_created_date" id="kota_created_date" placeholder="Kota Created Date" value="<?php echo $kota_created_date; ?>" />
-                            <span class='help-block'> <?php echo form_error('kota_created_date') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class='row'>
-                  <div class='col-md-6'>
-                    <div class='form-group'>
-                        <label class='col-md-3 control-label'>Kota Updated By</label>
-                        <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_updated_by" id="kota_updated_by" placeholder="Kota Updated By" value="<?php echo $kota_updated_by; ?>" />
-                            <span class='help-block'> <?php echo form_error('kota_updated_by') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                  <div class='col-md-6'>
-                    <div class='form-group'>
-                        <label class='col-md-3 control-label'>Kota Updated Date</label>
-                        <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_updated_date" id="kota_updated_date" placeholder="Kota Updated Date" value="<?php echo $kota_updated_date; ?>" />
-                            <span class='help-block'> <?php echo form_error('kota_updated_date') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class='row'>
-                  <div class='col-md-6'>
-                    <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Revised</label>
                         <div class='col-md-9'>
                             <input type="text" class="form-control" name="kota_revised" id="kota_revised" placeholder="Kota Revised" value="<?php echo $kota_revised; ?>" />
@@ -111,6 +77,8 @@
                     </div>
                   </div>
                   
+                </div>
+                <div class='row'>
                   <div class='col-md-6'>
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Counter</label>
@@ -121,8 +89,6 @@
                     </div>
                   </div>
                   
-                </div>
-                <div class='row'>
                   <div class='col-md-6'>
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Kab</label>

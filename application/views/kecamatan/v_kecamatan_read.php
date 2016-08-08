@@ -16,9 +16,6 @@
                     <tr><td>Kecamatan Nama</td><td><?php echo $kecamatan_nama; ?></td></tr>
                     <tr><td>Kecamatan Aktif</td><td><?php echo $kecamatan_aktif; ?></td></tr>
                     <tr><td>Kecamatan Created By</td><td><?php echo $kecamatan_created_by; ?></td></tr>
-                    <tr><td>Kecamatan Created Date</td><td><?php echo $kecamatan_created_date; ?></td></tr>
-                    <tr><td>Kecamatan Updated By</td><td><?php echo $kecamatan_updated_by; ?></td></tr>
-                    <tr><td>Kecamatan Updated Date</td><td><?php echo $kecamatan_updated_date; ?></td></tr>
                     <tr><td>Kecamatan Revised</td><td><?php echo $kecamatan_revised; ?></td></tr>
                     <tr>
                       <td colspan='2'>

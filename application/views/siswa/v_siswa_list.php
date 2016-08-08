@@ -23,12 +23,6 @@
                         <li>
                             <?php echo anchor(site_url('siswa/excel'), ' Export to Excel', ''); ?>
                         </li>
-                        <li>
-                            <?php echo anchor(site_url('siswa/word'), ' Export to Word', ''); ?>
-                        </li>
-                        <li>
-                            <?php echo anchor(site_url('siswa/pdf'), ' Export to PDF', ''); ?>
-                        </li>
                     </ul>
                 </div>
             </div>

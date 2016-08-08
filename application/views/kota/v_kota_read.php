@@ -16,9 +16,6 @@
                     <tr><td>Kota Nama</td><td><?php echo $kota_nama; ?></td></tr>
                     <tr><td>Kota Aktif</td><td><?php echo $kota_aktif; ?></td></tr>
                     <tr><td>Kota Created By</td><td><?php echo $kota_created_by; ?></td></tr>
-                    <tr><td>Kota Created Date</td><td><?php echo $kota_created_date; ?></td></tr>
-                    <tr><td>Kota Updated By</td><td><?php echo $kota_updated_by; ?></td></tr>
-                    <tr><td>Kota Updated Date</td><td><?php echo $kota_updated_date; ?></td></tr>
                     <tr><td>Kota Revised</td><td><?php echo $kota_revised; ?></td></tr>
                     <tr><td>Kota Counter</td><td><?php echo $kota_counter; ?></td></tr>
                     <tr><td>Kota Kab</td><td><?php echo $kota_kab; ?></td></tr>
