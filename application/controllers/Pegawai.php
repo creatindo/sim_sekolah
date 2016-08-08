@@ -62,7 +62,8 @@ class Pegawai extends CI_Controller
 					$d['pegawai_alamat'], 
 					$d['pegawai_telp'], 
 					$d['pegawai_foto'], 
-					$d['create_date'], 
+					$d['jabatan'], 
+					$d['user_id'], 
                     $view.$edit.$delete
                 );
             }
@@ -90,7 +91,8 @@ class Pegawai extends CI_Controller
 			'pegawai_alamat' => $row->pegawai_alamat,
 			'pegawai_telp' => $row->pegawai_telp,
 			'pegawai_foto' => $row->pegawai_foto,
-			'create_date' => $row->create_date,
+			'jabatan' => $row->jabatan,
+			'user_id' => $row->user_id,
 		);
             $data['id'] = $id;
             $this->template->load('template','pegawai/v_pegawai_read', $data);
@@ -116,7 +118,8 @@ class Pegawai extends CI_Controller
 			'pegawai_alamat' => set_value('pegawai_alamat'),
 			'pegawai_telp' => set_value('pegawai_telp'),
 			'pegawai_foto' => set_value('pegawai_foto'),
-			'create_date' => set_value('create_date'),
+			'jabatan' => set_value('jabatan'),
+			'user_id' => set_value('user_id'),
 		);
         $this->template->load('template','pegawai/v_pegawai_form', $data);
     }
@@ -139,7 +142,8 @@ class Pegawai extends CI_Controller
 				'pegawai_alamat' => $this->input->post('pegawai_alamat',TRUE),
 				'pegawai_telp' => $this->input->post('pegawai_telp',TRUE),
 				'pegawai_foto' => $this->input->post('pegawai_foto',TRUE),
-				'create_date' => $this->input->post('create_date',TRUE),
+				'jabatan' => $this->input->post('jabatan',TRUE),
+				'user_id' => $this->input->post('user_id',TRUE),
 			);
 
             $this->M_pegawai->insert($data);
@@ -167,7 +171,8 @@ class Pegawai extends CI_Controller
 				'pegawai_alamat' => set_value('pegawai_alamat', $row->pegawai_alamat),
 				'pegawai_telp' => set_value('pegawai_telp', $row->pegawai_telp),
 				'pegawai_foto' => set_value('pegawai_foto', $row->pegawai_foto),
-				'create_date' => set_value('create_date', $row->create_date),
+				'jabatan' => set_value('jabatan', $row->jabatan),
+				'user_id' => set_value('user_id', $row->user_id),
 			);
             $this->template->load('template','pegawai/v_pegawai_form', $data);
         } else {
@@ -194,7 +199,8 @@ class Pegawai extends CI_Controller
 				'pegawai_alamat' => $this->input->post('pegawai_alamat',TRUE),
 				'pegawai_telp' => $this->input->post('pegawai_telp',TRUE),
 				'pegawai_foto' => $this->input->post('pegawai_foto',TRUE),
-				'create_date' => $this->input->post('create_date',TRUE),
+				'jabatan' => $this->input->post('jabatan',TRUE),
+				'user_id' => $this->input->post('user_id',TRUE),
 		    );
 
             $this->M_pegawai->update($data,$this->input->post('pegawai_id', TRUE));
@@ -244,7 +250,8 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('pegawai_alamat', 'pegawai alamat', 'trim|required');
 		$this->form_validation->set_rules('pegawai_telp', 'pegawai telp', 'trim|required');
 		$this->form_validation->set_rules('pegawai_foto', 'pegawai foto', 'trim|required');
-		$this->form_validation->set_rules('create_date', 'create date', 'trim|required');
+		$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
+		$this->form_validation->set_rules('user_id', 'user id', 'trim|required');
 
 		$this->form_validation->set_rules('pegawai_id', 'pegawai_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -282,7 +289,8 @@ class Pegawai extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Alamat");
 		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Telp");
 		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Foto");
-		xlsWriteLabel($tablehead, $kolomhead++, "Create Date");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jabatan");
+		xlsWriteLabel($tablehead, $kolomhead++, "User Id");
 
 		foreach ($this->M_pegawai->get_all() as $data) {
             $kolombody = 0;
@@ -294,12 +302,13 @@ class Pegawai extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_jk);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_tgl_lahir);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_golongan);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->kota_id);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->kecamatan_id);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->kota_id);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_id);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_alamat);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_telp);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_foto);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->create_date);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->jabatan);
+		    xlsWriteNumber($tablebody, $kolombody++, $data->user_id);
 
 		    $tablebody++;
             $nourut++;
@@ -309,10 +318,38 @@ class Pegawai extends CI_Controller
         exit();
     }
 
+    public function word()
+    {
+        header("Content-type: application/vnd.ms-word");
+        header("Content-Disposition: attachment;Filename=pegawai.doc");
+
+        $data = array(
+            'pegawai_data' => $this->M_pegawai->get_all(),
+            'start' => 0
+        );
+        
+        $this->load->view('pegawai/v_pegawai_doc',$data);
+    }
+
+    function pdf()
+    {
+        $data = array(
+            'pegawai_data' => $this->M_pegawai->get_all(),
+            'start' => 0
+        );
+        
+        ini_set('memory_limit', '32M');
+        $html = $this->load->view('pegawai/v_pegawai_pdf', $data, true);
+        $this->load->library('pdf');
+        $pdf = $this->pdf->load();
+        $pdf->WriteHTML($html);
+        $pdf->Output('pegawai.pdf', 'D'); 
+    }
+
 }
 
 /* End of file Pegawai.php */
 /* Location: ./application/controllers/Pegawai.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 08:05:50 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 10:49:33 */
 /* http://harviacode.com */

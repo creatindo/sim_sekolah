@@ -26,7 +26,7 @@ foreach ($non_pk as $row) {
     
     if ($row["data_type"] == 'text') {
         $string .= "
-                  <div class='col-md-12'>
+                  <div class='col-md-6'>
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
@@ -55,6 +55,33 @@ foreach ($non_pk as $row) {
                                   );
                               \$this->load->view('form/v_dropdown_ajax', array('ddajax' => \$ddajax ), FALSE);
                             ?> 
+                            <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  ";
+    } else if($row["data_type"] == 'date'){
+        $string .= "
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                        <div class='col-md-9'>
+                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='dd-mm-yyyy' data-date-startView='decade'>
+                                <input type='text' class='form-control ' readonly name=\"" . $row["column_name"] . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\">
+                                <span class='input-group-btn'>
+                                    <button class='btn default' type='button'>
+                                        <i class='fa fa-calendar'></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <script type='text/javascript'>
+                                $(document).ready(function () {
+                                    $('#tanggal').datepicker({
+                                      startView: 'decade' , 
+                                      autoclose:true 
+                                    });
+                                })
+                            </script>
                             <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
                         </div>
                     </div>
