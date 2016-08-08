@@ -94,6 +94,12 @@ class MY_Model extends CI_Model
     public $primary_key = 'id';
 
     /**
+     * @var null
+     * Sets Label
+     */
+    public $label = 'name';
+
+    /**
      * @var array
      * You can establish the fields of the table. If you won't these fields will be filled by MY_Model (with one query)
      */

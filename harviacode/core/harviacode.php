@@ -116,7 +116,7 @@ class Harviacode
         $stmt->bind_result($column_name, $referenced_table_name, $referenced_column_name);
         $stmt->execute();
         while ($stmt->fetch()) {
-            $fields[$column_name] = array('column_name' => $column_name, 'referenced_table_name' => $referenced_table_name, 'referenced_column_name' => $referenced_column_name);
+            $fields[$column_name] = array('column_name' => $column_name, 'r_table' => $referenced_table_name, 'r_column' => $referenced_column_name);
         }
         return $fields;
         $stmt->close();

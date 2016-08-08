@@ -40,14 +40,18 @@ foreach ($non_pk as $row) {
         $string .= "
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>aa". label($row["column_name"]) . "</label>
+                        <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
                             <?php 
+                              \$v_name_".$i." = '';
+                              if (!empty($".$row["column_name"].")) {                                
+                                \$v_name_".$i." = \$this->".$reference[$row["column_name"]]["r_table"]."->get($" . $row["column_name"] . ")->{\$this->".$reference[$row["column_name"]]["r_table"]."->label};
+                              }
                               \$ddajax = array(
-                                  'url' => site_url('form/dd/".$reference[$row["column_name"]]["referenced_table_name"]."'), 
+                                  'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_table"]."'), 
                                   'name' =>'".$row["column_name"]."',
                                   'current_selected_id' => $" . $row["column_name"] . ", 
-                                  'current_selected_name' => $" . $row["column_name"] . ", 
+                                  'current_selected_name' => \$v_name_".$i.", 
                                   );
                               \$this->load->view('form/v_dropdown_ajax', array('ddajax' => \$ddajax ), FALSE);
                             ?> 

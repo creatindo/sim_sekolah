@@ -13,7 +13,7 @@
 	$ddajax=array_replace($ddajax_default, $ddajax);
 ?>
 
-<select name="<?php echo $ddajax['name'] ?>" id ="<?php echo $ddajax['id'] ?>" class="form-control js-data-dropdown-ajax <?php echo $ddajax['class'] ?>">
+<select name="<?php echo $ddajax['name'] ?>" id ="<?php echo $ddajax['id'] ?>" class="form-control select2 js-data-dropdown-ajax <?php echo $ddajax['class'] ?>">
   <option value="<?php echo $ddajax['current_selected_id'] ?>" selected="selected"><?php echo $ddajax['current_selected_name'] ?></option>
 </select>
 
@@ -47,7 +47,7 @@ var dd_<?php echo $ddajax['id'] ?> = function() {
         return repo.title || repo.text;
     }
     dd_object.select2({
-        width: "off",
+        width: "100%",
         ajax: {
             url: "<?php echo $ddajax['url'] ?>",
             dataType: 'json',

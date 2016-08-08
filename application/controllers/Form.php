@@ -8,19 +8,23 @@ class Form extends CI_Controller {
 			
 	}
 
-	public function dd($dd='')
+	public function dd($m='')
 	{
-		$this->load->model($dd);
-		$data_db=$this->{$dd}->as_dropdown('jabatan_nama')->get_all();
+
+		$this->load->model($m);
+		$data_db=$this->{$m}->get_all();
 		$output=array();
-		foreach ($data_db as $key=>$v) {
-			$res[$key]['id'] = $key;
-			$res[$key]['title'] = $v;
-			// $res[$key]['desc'] = $v['pegawai_no'];
-			// $res[$key]['img'] = get_tenagamedis_gambar($v['pegawai_img']);
+		if ($data_db) {
+			foreach ($data_db as $r) {
+				$item=array();
+				$item['id']    = $r->{$this->$m->primary_key};
+				$item['title'] = $r->{$this->$m->label};
+
+				$res[] = $item;
+			}
 		}
 		$output["items"]=$res;
-		$output["total_count"]=$this->{$dd}->count_rows();
+		$output["total_count"]=$this->{$m}->count_rows();
 		$this->output->set_content_type('application/json')->set_output(json_encode($output));
 	}
 

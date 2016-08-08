@@ -13,7 +13,11 @@ class " . $c . " extends CI_Controller
     {
         parent::__construct();
         \$this->load->model('$m');
-        \$this->load->library('form_validation');
+        \$this->load->library('form_validation');";
+foreach ($reference as $refer) {
+$string .="\n\t\t\$this->load->model('".$refer["r_table"]."');";    
+}        
+$string .="        
     }";
 
 if ($jenis_tabel == 'reguler_table') {

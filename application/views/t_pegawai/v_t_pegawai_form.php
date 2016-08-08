@@ -15,14 +15,18 @@
                 <div class='row'>
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>aaPagawai Id</label>
+                        <label class='col-md-3 control-label'>Pagawai Id</label>
                         <div class='col-md-9'>
                             <?php 
+                              $v_name_1 = '';
+                              if (!empty($pagawai_id)) {                                
+                                $v_name_1 = $this->m_pegawai->get($pagawai_id)->{$this->m_pegawai->label};
+                              }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_pegawai'), 
                                   'name' =>'pagawai_id',
                                   'current_selected_id' => $pagawai_id, 
-                                  'current_selected_name' => 'Pilih', 
+                                  'current_selected_name' => $v_name_1, 
                                   );
                               $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                             ?> 
@@ -33,14 +37,18 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>aaJabatan Id</label>
+                        <label class='col-md-3 control-label'>Jabatan Id</label>
                         <div class='col-md-9'>
                             <?php 
+                              $v_name_2 = '';
+                              if (!empty($jabatan_id)) {                                
+                                $v_name_2 = $this->m_jabatan->get($jabatan_id)->{$this->m_jabatan->label};
+                              }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_jabatan'), 
                                   'name' =>'jabatan_id',
                                   'current_selected_id' => $jabatan_id, 
-                                  'current_selected_name' => 'pilih', 
+                                  'current_selected_name' => $v_name_2, 
                                   );
                               $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                             ?> 
