@@ -39,7 +39,19 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Jk</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="siswa_jk" id="siswa_jk" placeholder="Siswa Jk" value="<?php echo $siswa_jk; ?>" />
+                            <?php 
+                              $v_name_3 = '';
+                              if (!empty($siswa_jk)) {                                
+                                $v_name_3 = $this->m_gender->get($siswa_jk)->{$this->m_gender->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_gender'), 
+                                  'name' =>'siswa_jk',
+                                  'current_selected_id' => $siswa_jk, 
+                                  'current_selected_name' => $v_name_3, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
                             <span class='help-block'> <?php echo form_error('siswa_jk') ?> </span>
                         </div>
                     </div>
@@ -49,20 +61,22 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Tgl Lahir</label>
                         <div class='col-md-9'>
-                            <div id = "user_birthday" class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-startView="decade">
-                                <input type="text" class="form-control " readonly name="siswa_tgl_lahir" value="<?php echo $siswa_tgl_lahir ?>">
-                                <span class="input-group-btn">
-                                    <button class="btn default" type="button">
-                                        <i class="fa fa-calendar"></i>
+                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='yyyy-mm-dd' data-date-startView='decade'>
+                                <input type='text' class='form-control ' readonly name="siswa_tgl_lahir" value="<?php echo $siswa_tgl_lahir; ?>">
+                                <span class='input-group-btn'>
+                                    <button class='btn default' type='button'>
+                                        <i class='fa fa-calendar'></i>
                                     </button>
                                 </span>
                             </div>
-                            <script type="text/javascript"> 
+                            <script type='text/javascript'>
                                 $(document).ready(function () {
-                                    $('#user_birthday').datepicker({startView: "decade" , autoclose:true});
+                                    $('#tanggal').datepicker({
+                                      startView: 'decade' , 
+                                      autoclose:true 
+                                    });
                                 })
                             </script>
-
                             <span class='help-block'> <?php echo form_error('siswa_tgl_lahir') ?> </span>
                         </div>
                     </div>
@@ -74,7 +88,19 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Id</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_id" id="kota_id" placeholder="Kota Id" value="<?php echo $kota_id; ?>" />
+                            <?php 
+                              $v_name_5 = '';
+                              if (!empty($kota_id)) {                                
+                                $v_name_5 = $this->m_kota->get($kota_id)->{$this->m_kota->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_kota'), 
+                                  'name' =>'kota_id',
+                                  'current_selected_id' => $kota_id, 
+                                  'current_selected_name' => $v_name_5, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
                             <span class='help-block'> <?php echo form_error('kota_id') ?> </span>
                         </div>
                     </div>
@@ -84,7 +110,19 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kecamatan Id</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kecamatan_id" id="kecamatan_id" placeholder="Kecamatan Id" value="<?php echo $kecamatan_id; ?>" />
+                            <?php 
+                              $v_name_6 = '';
+                              if (!empty($kecamatan_id)) {                                
+                                $v_name_6 = $this->m_kecamatan->get($kecamatan_id)->{$this->m_kecamatan->label};
+                              }
+                              $ddajax = array(
+                                  'url' => site_url('form/dd/m_kecamatan'), 
+                                  'name' =>'kecamatan_id',
+                                  'current_selected_id' => $kecamatan_id, 
+                                  'current_selected_name' => $v_name_6, 
+                                  );
+                              $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                            ?> 
                             <span class='help-block'> <?php echo form_error('kecamatan_id') ?> </span>
                         </div>
                     </div>
@@ -96,7 +134,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Alamat</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="siswa_alamat" id="siswa_alamat" placeholder="Siswa Alamat" value="<?php echo $siswa_alamat; ?>" />
+                            <textarea class="form-control" rows="3" name="siswa_alamat" id="siswa_alamat" placeholder="Siswa Alamat"><?php echo $siswa_alamat; ?></textarea>
                             <span class='help-block'> <?php echo form_error('siswa_alamat') ?> </span>
                         </div>
                     </div>

@@ -44,23 +44,20 @@ class Kecamatan extends CI_Controller
         $i=$iDisplayStart+1;
         if ($get_data) {
             foreach ($get_data as $d) {
-                $checkbok= '<input type="checkbox" name="id[]" value="'.$d['kecamatan_id'].'">';
-                $view    = anchor(site_url('kecamatan/read/'.$d['kecamatan_id']),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
-                $edit    = anchor(site_url('kecamatan/update/'.$d['kecamatan_id']),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('kecamatan/delete/'.$d['kecamatan_id']),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
+                $checkbok= '<input type="checkbox" name="id[]" value="'.$d->kecamatan_id.'">';
+                $view    = anchor(site_url('kecamatan/read/'.$d->kecamatan_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
+                $edit    = anchor(site_url('kecamatan/update/'.$d->kecamatan_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
+                $delete  = anchor(site_url('kecamatan/delete/'.$d->kecamatan_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red'));
 
                 $records["data"][] = array(
                     $checkbok,
                 
-					$d['kecamatan_kode'], 
-					$d['m_kota_id'], 
-					$d['kecamatan_nama'], 
-					$d['kecamatan_aktif'], 
-					$d['kecamatan_created_by'], 
-					$d['kecamatan_created_date'], 
-					$d['kecamatan_updated_by'], 
-					$d['kecamatan_updated_date'], 
-					$d['kecamatan_revised'], 
+					$d->kecamatan_kode, 
+					$d->m_kota_id, 
+					$d->kecamatan_nama, 
+					$d->kecamatan_aktif, 
+					$d->kecamatan_created_by, 
+					$d->kecamatan_revised, 
                     $view.$edit.$delete
                 );
             }
@@ -83,9 +80,6 @@ class Kecamatan extends CI_Controller
 			'kecamatan_nama' => $row->kecamatan_nama,
 			'kecamatan_aktif' => $row->kecamatan_aktif,
 			'kecamatan_created_by' => $row->kecamatan_created_by,
-			'kecamatan_created_date' => $row->kecamatan_created_date,
-			'kecamatan_updated_by' => $row->kecamatan_updated_by,
-			'kecamatan_updated_date' => $row->kecamatan_updated_date,
 			'kecamatan_revised' => $row->kecamatan_revised,
 		);
             $data['id'] = $id;
@@ -107,9 +101,6 @@ class Kecamatan extends CI_Controller
 			'kecamatan_nama' => set_value('kecamatan_nama'),
 			'kecamatan_aktif' => set_value('kecamatan_aktif'),
 			'kecamatan_created_by' => set_value('kecamatan_created_by'),
-			'kecamatan_created_date' => set_value('kecamatan_created_date'),
-			'kecamatan_updated_by' => set_value('kecamatan_updated_by'),
-			'kecamatan_updated_date' => set_value('kecamatan_updated_date'),
 			'kecamatan_revised' => set_value('kecamatan_revised'),
 		);
         $this->template->load('template','kecamatan/v_kecamatan_form', $data);
@@ -128,9 +119,6 @@ class Kecamatan extends CI_Controller
 				'kecamatan_nama' => $this->input->post('kecamatan_nama',TRUE),
 				'kecamatan_aktif' => $this->input->post('kecamatan_aktif',TRUE),
 				'kecamatan_created_by' => $this->input->post('kecamatan_created_by',TRUE),
-				'kecamatan_created_date' => $this->input->post('kecamatan_created_date',TRUE),
-				'kecamatan_updated_by' => $this->input->post('kecamatan_updated_by',TRUE),
-				'kecamatan_updated_date' => $this->input->post('kecamatan_updated_date',TRUE),
 				'kecamatan_revised' => $this->input->post('kecamatan_revised',TRUE),
 			);
 
@@ -154,9 +142,6 @@ class Kecamatan extends CI_Controller
 				'kecamatan_nama' => set_value('kecamatan_nama', $row->kecamatan_nama),
 				'kecamatan_aktif' => set_value('kecamatan_aktif', $row->kecamatan_aktif),
 				'kecamatan_created_by' => set_value('kecamatan_created_by', $row->kecamatan_created_by),
-				'kecamatan_created_date' => set_value('kecamatan_created_date', $row->kecamatan_created_date),
-				'kecamatan_updated_by' => set_value('kecamatan_updated_by', $row->kecamatan_updated_by),
-				'kecamatan_updated_date' => set_value('kecamatan_updated_date', $row->kecamatan_updated_date),
 				'kecamatan_revised' => set_value('kecamatan_revised', $row->kecamatan_revised),
 			);
             $this->template->load('template','kecamatan/v_kecamatan_form', $data);
@@ -179,9 +164,6 @@ class Kecamatan extends CI_Controller
 				'kecamatan_nama' => $this->input->post('kecamatan_nama',TRUE),
 				'kecamatan_aktif' => $this->input->post('kecamatan_aktif',TRUE),
 				'kecamatan_created_by' => $this->input->post('kecamatan_created_by',TRUE),
-				'kecamatan_created_date' => $this->input->post('kecamatan_created_date',TRUE),
-				'kecamatan_updated_by' => $this->input->post('kecamatan_updated_by',TRUE),
-				'kecamatan_updated_date' => $this->input->post('kecamatan_updated_date',TRUE),
 				'kecamatan_revised' => $this->input->post('kecamatan_revised',TRUE),
 		    );
 
@@ -227,9 +209,6 @@ class Kecamatan extends CI_Controller
 		$this->form_validation->set_rules('kecamatan_nama', 'kecamatan nama', 'trim|required');
 		$this->form_validation->set_rules('kecamatan_aktif', 'kecamatan aktif', 'trim|required');
 		$this->form_validation->set_rules('kecamatan_created_by', 'kecamatan created by', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_created_date', 'kecamatan created date', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_updated_by', 'kecamatan updated by', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_updated_date', 'kecamatan updated date', 'trim|required');
 		$this->form_validation->set_rules('kecamatan_revised', 'kecamatan revised', 'trim|required');
 
 		$this->form_validation->set_rules('kecamatan_id', 'kecamatan_id', 'trim');
@@ -263,9 +242,6 @@ class Kecamatan extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Nama");
 		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Aktif");
 		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Created By");
-		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Created Date");
-		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Updated By");
-		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Updated Date");
 		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Revised");
 
 		foreach ($this->M_kecamatan->get_all() as $data) {
@@ -278,9 +254,6 @@ class Kecamatan extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_nama);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_aktif);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_created_by);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_created_date);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_updated_by);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_updated_date);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->kecamatan_revised);
 
 		    $tablebody++;
@@ -291,38 +264,10 @@ class Kecamatan extends CI_Controller
         exit();
     }
 
-    public function word()
-    {
-        header("Content-type: application/vnd.ms-word");
-        header("Content-Disposition: attachment;Filename=kecamatan.doc");
-
-        $data = array(
-            'kecamatan_data' => $this->M_kecamatan->get_all(),
-            'start' => 0
-        );
-        
-        $this->load->view('kecamatan/v_kecamatan_doc',$data);
-    }
-
-    function pdf()
-    {
-        $data = array(
-            'kecamatan_data' => $this->M_kecamatan->get_all(),
-            'start' => 0
-        );
-        
-        ini_set('memory_limit', '32M');
-        $html = $this->load->view('kecamatan/v_kecamatan_pdf', $data, true);
-        $this->load->library('pdf');
-        $pdf = $this->pdf->load();
-        $pdf->WriteHTML($html);
-        $pdf->Output('kecamatan.pdf', 'D'); 
-    }
-
 }
 
 /* End of file Kecamatan.php */
 /* Location: ./application/controllers/Kecamatan.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 11:08:23 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-08 15:12:15 */
 /* http://harviacode.com */

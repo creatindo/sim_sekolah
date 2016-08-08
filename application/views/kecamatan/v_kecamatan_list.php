@@ -23,12 +23,6 @@
                         <li>
                             <?php echo anchor(site_url('kecamatan/excel'), ' Export to Excel', ''); ?>
                         </li>
-                        <li>
-                            <?php echo anchor(site_url('kecamatan/word'), ' Export to Word', ''); ?>
-                        </li>
-                        <li>
-                            <?php echo anchor(site_url('kecamatan/pdf'), ' Export to PDF', ''); ?>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -53,9 +47,6 @@
                     <th>Kecamatan Nama</th>
                     <th>Kecamatan Aktif</th>
                     <th>Kecamatan Created By</th>
-                    <th>Kecamatan Created Date</th>
-                    <th>Kecamatan Updated By</th>
-                    <th>Kecamatan Updated Date</th>
                     <th>Kecamatan Revised</th>
                     <th>Action</th>
                 </tr>
@@ -67,9 +58,6 @@
                     <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_nama"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_aktif"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_created_by"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_created_date"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_updated_by"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_updated_date"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_revised"></td>
                     <td>
                         <div class="margin-bottom-5">

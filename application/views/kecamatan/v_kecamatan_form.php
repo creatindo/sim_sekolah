@@ -69,40 +69,6 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Kecamatan Created Date</label>
-                        <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kecamatan_created_date" id="kecamatan_created_date" placeholder="Kecamatan Created Date" value="<?php echo $kecamatan_created_date; ?>" />
-                            <span class='help-block'> <?php echo form_error('kecamatan_created_date') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class='row'>
-                  <div class='col-md-6'>
-                    <div class='form-group'>
-                        <label class='col-md-3 control-label'>Kecamatan Updated By</label>
-                        <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kecamatan_updated_by" id="kecamatan_updated_by" placeholder="Kecamatan Updated By" value="<?php echo $kecamatan_updated_by; ?>" />
-                            <span class='help-block'> <?php echo form_error('kecamatan_updated_by') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                  <div class='col-md-6'>
-                    <div class='form-group'>
-                        <label class='col-md-3 control-label'>Kecamatan Updated Date</label>
-                        <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kecamatan_updated_date" id="kecamatan_updated_date" placeholder="Kecamatan Updated Date" value="<?php echo $kecamatan_updated_date; ?>" />
-                            <span class='help-block'> <?php echo form_error('kecamatan_updated_date') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class='row'>
-                  <div class='col-md-6'>
-                    <div class='form-group'>
                         <label class='col-md-3 control-label'>Kecamatan Revised</label>
                         <div class='col-md-9'>
                             <input type="text" class="form-control" name="kecamatan_revised" id="kecamatan_revised" placeholder="Kecamatan Revised" value="<?php echo $kecamatan_revised; ?>" />

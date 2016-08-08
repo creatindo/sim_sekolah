@@ -66,7 +66,7 @@ foreach ($non_pk as $row) {
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
-                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='dd-mm-yyyy' data-date-startView='decade'>
+                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='yyyy-mm-dd' data-date-startView='decade'>
                                 <input type='text' class='form-control ' readonly name=\"" . $row["column_name"] . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\">
                                 <span class='input-group-btn'>
                                     <button class='btn default' type='button'>
