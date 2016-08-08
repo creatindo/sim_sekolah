@@ -102,6 +102,27 @@ class Harviacode
         $this->sql->close();
     }
 
+    function reference_field($table)
+    {
+        $query = "  SELECT column_name,referenced_table_name,referenced_column_name 
+                    FROM
+                        information_schema.key_column_usage
+                    WHERE
+                        referenced_table_name is not null
+                        and table_schema = ? 
+                        and table_name = ?";
+        $stmt = $this->sql->prepare($query) OR die("Error code :" . $this->sql->errno . " (not_primary_field)");
+        $stmt->bind_param('ss', $this->database, $table);
+        $stmt->bind_result($column_name, $referenced_table_name, $referenced_column_name);
+        $stmt->execute();
+        while ($stmt->fetch()) {
+            $fields[$column_name] = array('column_name' => $column_name, 'referenced_table_name' => $referenced_table_name, 'referenced_column_name' => $referenced_column_name);
+        }
+        return $fields;
+        $stmt->close();
+        $this->sql->close();
+    }
+
 }
 
 $hc = new Harviacode();

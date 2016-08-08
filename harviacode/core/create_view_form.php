@@ -36,6 +36,26 @@ foreach ($non_pk as $row) {
                     </div>
                   </div>
                   ";
+    } else if(array_key_exists($row["column_name"], $reference) ) {
+        $string .= "
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>aa". label($row["column_name"]) . "</label>
+                        <div class='col-md-9'>
+                            <?php 
+                              \$ddajax = array(
+                                  'url' => site_url('form/dd/".$reference[$row["column_name"]]["referenced_table_name"]."'), 
+                                  'name' =>'".$row["column_name"]."',
+                                  'current_selected_id' => $" . $row["column_name"] . ", 
+                                  'current_selected_name' => $" . $row["column_name"] . ", 
+                                  );
+                              \$this->load->view('form/v_dropdown_ajax', array('ddajax' => \$ddajax ), FALSE);
+                            ?> 
+                            <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  ";
     } else {
         $string .= "
                   <div class='col-md-6'>

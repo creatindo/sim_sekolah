@@ -48,6 +48,7 @@ if (isset($_POST['generate']))
         $pk = $hc->primary_field($table_name);
         $non_pk = $hc->not_primary_field($table_name);
         $all = $hc->all_field($table_name);
+        $reference = $hc->reference_field($table_name);
         
         // create view direktory
         mkdir($target_view);
