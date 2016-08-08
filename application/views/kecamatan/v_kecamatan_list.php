@@ -7,11 +7,11 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">JABATAN  </span>
+                <span class="caption-subject font-dark sbold uppercase">KECAMATAN  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
-                        <?php echo anchor('jabatan/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
+                        <?php echo anchor('kecamatan/create/','<i class="fa fa-pencil"></i> Create',array('class'=>'btn btn-circle btn-info btn-sm'));?>
                 </div>
                 <div class="btn-group">
                     <a class="btn red btn-circle" href="javascript:;" data-toggle="dropdown">
@@ -21,13 +21,13 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <?php echo anchor(site_url('jabatan/excel'), ' Export to Excel', ''); ?>
+                            <?php echo anchor(site_url('kecamatan/excel'), ' Export to Excel', ''); ?>
                         </li>
                         <li>
-                            <?php echo anchor(site_url('jabatan/word'), ' Export to Word', ''); ?>
+                            <?php echo anchor(site_url('kecamatan/word'), ' Export to Word', ''); ?>
                         </li>
                         <li>
-                            <?php echo anchor(site_url('jabatan/pdf'), ' Export to PDF', ''); ?>
+                            <?php echo anchor(site_url('kecamatan/pdf'), ' Export to PDF', ''); ?>
                         </li>
                     </ul>
                 </div>
@@ -48,13 +48,29 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Jabatan Nama</th>
+                    <th>Kecamatan Kode</th>
+                    <th>M Kota Id</th>
+                    <th>Kecamatan Nama</th>
+                    <th>Kecamatan Aktif</th>
+                    <th>Kecamatan Created By</th>
+                    <th>Kecamatan Created Date</th>
+                    <th>Kecamatan Updated By</th>
+                    <th>Kecamatan Updated Date</th>
+                    <th>Kecamatan Revised</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="jabatan_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_kode"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="m_kota_id"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_nama"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_aktif"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_created_by"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_created_date"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_updated_by"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_updated_date"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_revised"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
@@ -75,7 +91,7 @@
                     src: $("#mytable"),
                     dataTable: {  
                         "ajax": {
-                            "url": "<?php echo site_url('jabatan/getDatatable/') ?>", // ajax source
+                            "url": "<?php echo site_url('kecamatan/getDatatable/') ?>", // ajax source
                         },
                         "order": [
                             [1, "asc"]
