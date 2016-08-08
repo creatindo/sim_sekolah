@@ -16,7 +16,7 @@
                       <td></td>
                       <td>
                         <a href="<?php echo site_url('hari') ?>" class="btn btn-default">Cancel</a>
-                        <a href="<?php echo site_url('hari/update/'.$id) ?>" class="btn btn-default">Edit</a>
+                        <a href="<?php echo site_url('hari/update/'.$id) ?>" class="btn btn-info">Edit</a>
                       </td>
                     </tr>
                   </table>

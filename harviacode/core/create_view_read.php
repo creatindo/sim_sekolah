@@ -22,7 +22,7 @@ $string = "
                       <td></td>
                       <td>
                         <a href=\"<?php echo site_url('".$c_url."') ?>\" class=\"btn btn-default\">Cancel</a>
-                        <a href=\"<?php echo site_url('".$c_url."/update/'.\$id) ?>\" class=\"btn btn-default\">Edit</a>
+                        <a href=\"<?php echo site_url('".$c_url."/update/'.\$id) ?>\" class=\"btn btn-info\">Edit</a>
                       </td>
                     </tr>";
                       $string .= "
