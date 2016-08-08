@@ -22,7 +22,7 @@
                                   'url' => site_url('form/dd/m_pegawai'), 
                                   'name' =>'pagawai_id',
                                   'current_selected_id' => $pagawai_id, 
-                                  'current_selected_name' => $pagawai_id, 
+                                  'current_selected_name' => 'Pilih', 
                                   );
                               $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                             ?> 
@@ -40,7 +40,7 @@
                                   'url' => site_url('form/dd/m_jabatan'), 
                                   'name' =>'jabatan_id',
                                   'current_selected_id' => $jabatan_id, 
-                                  'current_selected_name' => $jabatan_id, 
+                                  'current_selected_name' => 'pilih', 
                                   );
                               $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                             ?> 
