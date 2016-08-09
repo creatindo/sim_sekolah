@@ -23,7 +23,7 @@
                                 $v_name_1 = $this->M_jam_model->get($jam_id)->{$this->M_jam_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_jam'), 
+                                  'url' => site_url('form/dd/M_jam_model'), 
                                   'name' =>'jam_id',
                                   'current_selected_id' => $jam_id, 
                                   'current_selected_name' => $v_name_1, 
@@ -45,7 +45,7 @@
                                 $v_name_2 = $this->M_hari_model->get($hari_id)->{$this->M_hari_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_hari'), 
+                                  'url' => site_url('form/dd/M_hari_model'), 
                                   'name' =>'hari_id',
                                   'current_selected_id' => $hari_id, 
                                   'current_selected_name' => $v_name_2, 
@@ -69,7 +69,7 @@
                                 $v_name_3 = $this->M_mapel_model->get($mapel_id)->{$this->M_mapel_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_mapel'), 
+                                  'url' => site_url('form/dd/M_mapel_model'), 
                                   'name' =>'mapel_id',
                                   'current_selected_id' => $mapel_id, 
                                   'current_selected_name' => $v_name_3, 
@@ -91,7 +91,7 @@
                                 $v_name_4 = $this->T_kelas_model->get($t_kelas_id)->{$this->T_kelas_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/t_kelas'), 
+                                  'url' => site_url('form/dd/T_kelas_model'), 
                                   'name' =>'t_kelas_id',
                                   'current_selected_id' => $t_kelas_id, 
                                   'current_selected_name' => $v_name_4, 
@@ -115,7 +115,7 @@
                                 $v_name_5 = $this->M_pegawai_model->get($pegawai_id)->{$this->M_pegawai_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_pegawai'), 
+                                  'url' => site_url('form/dd/M_pegawai_model'), 
                                   'name' =>'pegawai_id',
                                   'current_selected_id' => $pegawai_id, 
                                   'current_selected_name' => $v_name_5, 

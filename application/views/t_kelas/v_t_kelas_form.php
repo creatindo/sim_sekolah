@@ -33,7 +33,7 @@
                                 $v_name_2 = $this->M_kelas_model->get($kelas_id)->{$this->M_kelas_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_kelas'), 
+                                  'url' => site_url('form/dd/M_kelas_model'), 
                                   'name' =>'kelas_id',
                                   'current_selected_id' => $kelas_id, 
                                   'current_selected_name' => $v_name_2, 
@@ -57,7 +57,7 @@
                                 $v_name_3 = $this->M_jurusan_model->get($jurusan_id)->{$this->M_jurusan_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_jurusan'), 
+                                  'url' => site_url('form/dd/M_jurusan_model'), 
                                   'name' =>'jurusan_id',
                                   'current_selected_id' => $jurusan_id, 
                                   'current_selected_name' => $v_name_3, 
@@ -79,7 +79,7 @@
                                 $v_name_4 = $this->M_semester_model->get($semester_id)->{$this->M_semester_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_semester'), 
+                                  'url' => site_url('form/dd/M_semester_model'), 
                                   'name' =>'semester_id',
                                   'current_selected_id' => $semester_id, 
                                   'current_selected_name' => $v_name_4, 

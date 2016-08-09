@@ -33,7 +33,7 @@
                                 $v_name_2 = $this->M_siswa_model->get($siswa_id)->{$this->M_siswa_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_siswa'), 
+                                  'url' => site_url('form/dd/M_siswa_model'), 
                                   'name' =>'siswa_id',
                                   'current_selected_id' => $siswa_id, 
                                   'current_selected_name' => $v_name_2, 
@@ -57,7 +57,7 @@
                                 $v_name_3 = $this->T_kelas_model->get($t_kelas_id)->{$this->T_kelas_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/t_kelas'), 
+                                  'url' => site_url('form/dd/T_kelas_model'), 
                                   'name' =>'t_kelas_id',
                                   'current_selected_id' => $t_kelas_id, 
                                   'current_selected_name' => $v_name_3, 

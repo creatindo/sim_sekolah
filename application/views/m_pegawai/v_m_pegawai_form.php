@@ -45,7 +45,7 @@
                                 $v_name_3 = $this->M_gender_model->get($pegawai_jk)->{$this->M_gender_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_gender'), 
+                                  'url' => site_url('form/dd/M_gender_model'), 
                                   'name' =>'pegawai_jk',
                                   'current_selected_id' => $pegawai_jk, 
                                   'current_selected_name' => $v_name_3, 
@@ -104,7 +104,7 @@
                                 $v_name_6 = $this->M_kota_model->get($kota_id)->{$this->M_kota_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_kota'), 
+                                  'url' => site_url('form/dd/M_kota_model'), 
                                   'name' =>'kota_id',
                                   'current_selected_id' => $kota_id, 
                                   'current_selected_name' => $v_name_6, 
@@ -128,7 +128,7 @@
                                 $v_name_7 = $this->M_kecamatan_model->get($kecamatan_id)->{$this->M_kecamatan_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_kecamatan'), 
+                                  'url' => site_url('form/dd/M_kecamatan_model'), 
                                   'name' =>'kecamatan_id',
                                   'current_selected_id' => $kecamatan_id, 
                                   'current_selected_name' => $v_name_7, 
@@ -194,7 +194,7 @@
                                 $v_name_12 = $this->M_user_model->get($user_id)->{$this->M_user_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_user'), 
+                                  'url' => site_url('form/dd/M_user_model'), 
                                   'name' =>'user_id',
                                   'current_selected_id' => $user_id, 
                                   'current_selected_name' => $v_name_12, 
