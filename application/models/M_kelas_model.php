@@ -16,7 +16,7 @@ class M_kelas_model extends MY_Model
     {
         parent::__construct();
         $this->soft_deletes = TRUE;
-        $this->has_one['m_status'] = array('M_status','status_id','kelas_active');
+        $this->has_one['m_status'] = array('M_status_model','status_id','kelas_active');
     }
     
     // get total rows

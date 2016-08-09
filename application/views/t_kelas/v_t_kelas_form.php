@@ -30,7 +30,7 @@
                             <?php 
                               $v_name_2 = '';
                               if (!empty($kelas_id)) {                                
-                                $v_name_2 = $this->m_kelas->get($kelas_id)->{$this->m_kelas->label};
+                                $v_name_2 = $this->M_kelas_model->get($kelas_id)->{$this->M_kelas_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_kelas'), 
@@ -54,7 +54,7 @@
                             <?php 
                               $v_name_3 = '';
                               if (!empty($jurusan_id)) {                                
-                                $v_name_3 = $this->m_jurusan->get($jurusan_id)->{$this->m_jurusan->label};
+                                $v_name_3 = $this->M_jurusan_model->get($jurusan_id)->{$this->M_jurusan_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_jurusan'), 
@@ -76,7 +76,7 @@
                             <?php 
                               $v_name_4 = '';
                               if (!empty($semester_id)) {                                
-                                $v_name_4 = $this->m_semester->get($semester_id)->{$this->m_semester->label};
+                                $v_name_4 = $this->M_semester_model->get($semester_id)->{$this->M_semester_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_semester'), 

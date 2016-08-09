@@ -45,7 +45,7 @@ foreach ($non_pk as $row) {
                             <?php 
                               \$v_name_".$i." = '';
                               if (!empty($".$row["column_name"].")) {                                
-                                \$v_name_".$i." = \$this->".$reference[$row["column_name"]]["r_table"]."->get($" . $row["column_name"] . ")->{\$this->".$reference[$row["column_name"]]["r_table"]."->label};
+                                \$v_name_".$i." = \$this->".$reference[$row["column_name"]]["r_model"]."->get($" . $row["column_name"] . ")->{\$this->".$reference[$row["column_name"]]["r_model"]."->label};
                               }
                               \$ddajax = array(
                                   'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_table"]."'), 

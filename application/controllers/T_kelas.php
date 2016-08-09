@@ -12,9 +12,9 @@ class T_kelas extends CI_Controller
         parent::__construct();
         $this->load->model('T_kelas_model');
         $this->load->library('form_validation');
-		$this->load->model('m_jurusan');
-		$this->load->model('m_semester');
-		$this->load->model('m_kelas');        
+		$this->load->model('M_jurusan_model');
+		$this->load->model('M_semester_model');
+		$this->load->model('M_kelas_model');        
     }
 
     public function index()
@@ -56,9 +56,9 @@ class T_kelas extends CI_Controller
                     $checkbok,
                 
 					$d->t_kelas_nama, 
-					(isset($d->m_kelas->{$this->m_kelas->label})) ? $d->m_kelas->{$this->m_kelas->label} : '', 
-					(isset($d->m_jurusan->{$this->m_jurusan->label})) ? $d->m_jurusan->{$this->m_jurusan->label} : '', 
-					(isset($d->m_semester->{$this->m_semester->label})) ? $d->m_semester->{$this->m_semester->label} : '', 
+					(isset($d->m_kelas->{$this->M_kelas_model->label})) ? $d->m_kelas->{$this->M_kelas_model->label} : '', 
+					(isset($d->m_jurusan->{$this->M_jurusan_model->label})) ? $d->m_jurusan->{$this->M_jurusan_model->label} : '', 
+					(isset($d->m_semester->{$this->M_semester_model->label})) ? $d->m_semester->{$this->M_semester_model->label} : '', 
 					$d->tahun, 
                     $view.$edit.$delete
                 );

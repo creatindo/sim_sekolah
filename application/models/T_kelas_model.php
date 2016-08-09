@@ -16,9 +16,9 @@ class T_kelas_model extends MY_Model
     {
         parent::__construct();
         $this->soft_deletes = TRUE;
-        $this->has_one['m_jurusan'] = array('M_jurusan','jurusan_id','jurusan_id');
-        $this->has_one['m_semester'] = array('M_semester','semester_id','semester_id');
-        $this->has_one['m_kelas'] = array('M_kelas','kelas_id','kelas_id');
+        $this->has_one['m_jurusan'] = array('M_jurusan_model','jurusan_id','jurusan_id');
+        $this->has_one['m_semester'] = array('M_semester_model','semester_id','semester_id');
+        $this->has_one['m_kelas'] = array('M_kelas_model','kelas_id','kelas_id');
     }
     
     // get total rows

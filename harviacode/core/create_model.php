@@ -20,7 +20,7 @@ class " . $m . " extends MY_Model
         \$this->soft_deletes = TRUE;";
 foreach ($reference as $row) {
     $string .= "
-        \$this->has_one['". $row['r_table'] ."'] = array('". ucfirst($row['r_table']) ."','".$row['r_column']."','".$row['column_name']."');";
+        \$this->has_one['". $row['r_table'] ."'] = array('". ucfirst($row['r_model']) ."','".$row['r_column']."','".$row['column_name']."');";
 }
 $string .="
     }

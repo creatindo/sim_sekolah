@@ -16,7 +16,7 @@ class M_jurusan_model extends MY_Model
     {
         parent::__construct();
         $this->soft_deletes = TRUE;
-        $this->has_one['m_status'] = array('M_status','status_id','jurusan_active');
+        $this->has_one['m_status'] = array('M_status_model','status_id','jurusan_active');
     }
     
     // get total rows

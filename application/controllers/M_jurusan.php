@@ -12,7 +12,7 @@ class M_jurusan extends CI_Controller
         parent::__construct();
         $this->load->model('M_jurusan_model');
         $this->load->library('form_validation');
-		$this->load->model('m_status');        
+		$this->load->model('M_status_model');        
     }
 
     public function index()
@@ -54,7 +54,7 @@ class M_jurusan extends CI_Controller
                     $checkbok,
                 
 					$d->jurusan_nama, 
-					(isset($d->m_status->{$this->m_status->label})) ? $d->m_status->{$this->m_status->label} : '', 
+					(isset($d->m_status->{$this->M_status_model->label})) ? $d->m_status->{$this->M_status_model->label} : '', 
                     $view.$edit.$delete
                 );
             }
