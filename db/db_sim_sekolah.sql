@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2016-08-08 16:23:22
+Date: 2016-08-09 14:52:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,37 +29,38 @@ CREATE TABLE `menu` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
+  `controller` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES ('15', 'Menu Management', 'menu', 'fa', '1', '21', '2016-08-07 14:41:31', '2016-07-26 05:34:08', null);
-INSERT INTO `menu` VALUES ('20', 'Siswa', 'siswa', 'fa', '1', '47', '2016-08-07 14:41:35', '2016-08-07 08:42:37', null);
-INSERT INTO `menu` VALUES ('21', 'Setting', '#', 'fa fa-cog', '1', '0', '2016-07-25 09:33:30', null, null);
-INSERT INTO `menu` VALUES ('23', 'Hari', 'hari', 'fa', '1', '46', '2016-07-26 05:33:46', '2016-08-07 08:45:57', null);
-INSERT INTO `menu` VALUES ('24', 'Semester', 'semester', 'fa', '1', '45', '2016-07-26 05:41:12', '2016-08-07 08:36:04', null);
-INSERT INTO `menu` VALUES ('26', 'Jam Pelajaran', 'jam', 'fa', '1', '46', '2016-07-28 18:58:53', '2016-08-07 08:45:23', null);
-INSERT INTO `menu` VALUES ('27', 'Mata Pelajaran', 'mapel', 'fa', '1', '46', '2016-07-28 19:02:20', '2016-08-07 08:46:06', null);
-INSERT INTO `menu` VALUES ('28', 'Jurusan', 'jurusan', 'fa', '1', '45', '2016-07-28 19:03:02', '2016-08-07 08:37:12', null);
-INSERT INTO `menu` VALUES ('29', 'Jabatan', 'jabatan', 'fa', '1', '44', '2016-07-28 19:04:55', '2016-07-28 19:16:32', null);
-INSERT INTO `menu` VALUES ('30', 'Pegawai', 'pegawai', 'fa', '1', '44', '2016-07-28 19:05:29', '2016-07-28 19:16:07', null);
-INSERT INTO `menu` VALUES ('31', 'Jenis Ujian', 'ujian', 'fa', '1', '48', '2016-07-28 19:07:50', '2016-07-28 19:17:59', null);
-INSERT INTO `menu` VALUES ('32', 'Kelas', 'kelas', 'fa', '1', '45', '2016-07-28 19:09:17', '2016-08-07 08:39:09', null);
-INSERT INTO `menu` VALUES ('33', 'Jadwal Pelajaran', 'jadwal', 'fa', '1', '46', '2016-07-28 19:11:38', '2016-07-28 19:21:48', null);
-INSERT INTO `menu` VALUES ('34', 'Data Siswa', 't_siswa', 'fa', '1', '47', '2016-07-28 19:12:13', '2016-08-07 08:42:43', null);
-INSERT INTO `menu` VALUES ('35', 'Data Ujian', 't_ujian', 'fa', '1', '48', '2016-07-28 19:13:18', '2016-08-07 08:43:45', null);
-INSERT INTO `menu` VALUES ('36', 'Absensi', 't_absensi', 'fa', '1', '49', '2016-07-28 19:14:58', '2016-08-07 09:32:22', null);
-INSERT INTO `menu` VALUES ('39', 'Nilai', 't_ujian_nilai', 'fa', '1', '48', '2016-07-28 19:29:44', '2016-07-31 04:40:34', null);
-INSERT INTO `menu` VALUES ('40', 'Data Kelas', 't_kelas', 'fa', '1', '45', '2016-07-31 05:47:52', '2016-08-07 08:41:34', null);
-INSERT INTO `menu` VALUES ('42', 'Data Pegawai', 't_pegawai', 'fa', '1', '44', '2016-08-07 08:48:39', '2016-08-07 08:48:58', null);
-INSERT INTO `menu` VALUES ('44', 'Pegawai', '#', 'fa fa-user', '1', '0', '2016-07-28 19:15:23', null, null);
-INSERT INTO `menu` VALUES ('45', 'Kelas', '#', 'fa fa-list', '1', '0', '2016-08-07 08:34:59', null, null);
-INSERT INTO `menu` VALUES ('46', 'Jadwal Pelajaran', '#', 'fa fa-home', '1', '0', '2016-07-26 05:42:16', '2016-08-07 08:44:50', null);
-INSERT INTO `menu` VALUES ('47', 'Siswa', '#', 'fa fa-th-large', '1', '0', '2016-07-26 05:29:29', '2016-07-28 19:19:41', null);
-INSERT INTO `menu` VALUES ('48', 'Ujian', '#', 'fa fa-pencil', '1', '0', '2016-07-28 19:16:53', null, null);
-INSERT INTO `menu` VALUES ('49', 'Absensi', '#', 'fa fa-calendar', '1', '0', '2016-08-07 09:32:08', null, null);
+INSERT INTO `menu` VALUES ('15', 'Menu Management', 'menu', 'fa', '1', '21', '2016-08-07 14:41:31', '2016-07-26 05:34:08', null, 'menu');
+INSERT INTO `menu` VALUES ('20', 'Siswa', 'siswa', 'fa', '1', '47', '2016-08-07 14:41:35', '2016-08-07 08:42:37', null, 'm_siswa');
+INSERT INTO `menu` VALUES ('21', 'Setting', '#', 'fa fa-cog', '0', '0', '2016-07-25 09:33:30', '2016-08-08 16:00:21', null, null);
+INSERT INTO `menu` VALUES ('23', 'Hari', 'hari', 'fa', '1', '46', '2016-07-26 05:33:46', '2016-08-07 08:45:57', null, 'm_hari');
+INSERT INTO `menu` VALUES ('24', 'Semester', 'semester', 'fa', '1', '45', '2016-07-26 05:41:12', '2016-08-07 08:36:04', null, 'm_semester');
+INSERT INTO `menu` VALUES ('26', 'Jam Pelajaran', 'jam', 'fa', '1', '46', '2016-07-28 18:58:53', '2016-08-07 08:45:23', null, 'm_jam');
+INSERT INTO `menu` VALUES ('27', 'Mata Pelajaran', 'mapel', 'fa', '1', '46', '2016-07-28 19:02:20', '2016-08-07 08:46:06', null, 'm_mapel');
+INSERT INTO `menu` VALUES ('28', 'Jurusan', 'jurusan', 'fa', '1', '45', '2016-07-28 19:03:02', '2016-08-07 08:37:12', null, 'm_jurusan');
+INSERT INTO `menu` VALUES ('29', 'Jabatan', 'jabatan', 'fa', '1', '44', '2016-07-28 19:04:55', '2016-07-28 19:16:32', null, 'm_jabatan');
+INSERT INTO `menu` VALUES ('30', 'Pegawai', 'pegawai', 'fa', '1', '44', '2016-07-28 19:05:29', '2016-07-28 19:16:07', null, 'm_pegawai');
+INSERT INTO `menu` VALUES ('31', 'Jenis Ujian', 'ujian', 'fa', '1', '48', '2016-07-28 19:07:50', '2016-07-28 19:17:59', null, 'm_ujian');
+INSERT INTO `menu` VALUES ('32', 'Kelas', 'kelas', 'fa', '1', '45', '2016-07-28 19:09:17', '2016-08-07 08:39:09', null, 'm_kelas');
+INSERT INTO `menu` VALUES ('33', 'Jadwal Pelajaran', 'jadwal', 'fa', '1', '46', '2016-07-28 19:11:38', '2016-07-28 19:21:48', null, 't_jadwal');
+INSERT INTO `menu` VALUES ('34', 'Data Siswa', 't_siswa', 'fa', '1', '47', '2016-07-28 19:12:13', '2016-08-07 08:42:43', null, 't_siswa');
+INSERT INTO `menu` VALUES ('35', 'Data Ujian', 't_ujian', 'fa', '1', '48', '2016-07-28 19:13:18', '2016-08-07 08:43:45', null, 't_ujian');
+INSERT INTO `menu` VALUES ('36', 'Absensi', 't_absensi', 'fa', '1', '49', '2016-07-28 19:14:58', '2016-08-07 09:32:22', null, 't_absensi');
+INSERT INTO `menu` VALUES ('39', 'Nilai', 't_ujian_nilai', 'fa', '1', '48', '2016-07-28 19:29:44', '2016-07-31 04:40:34', null, 't_ujian_nilai');
+INSERT INTO `menu` VALUES ('40', 'Data Kelas', 't_kelas', 'fa', '1', '45', '2016-07-31 05:47:52', '2016-08-07 08:41:34', null, 't_kelas');
+INSERT INTO `menu` VALUES ('42', 'Data Pegawai', 't_pegawai', 'fa', '1', '44', '2016-08-07 08:48:39', '2016-08-07 08:48:58', null, 't_pegawai');
+INSERT INTO `menu` VALUES ('44', 'Pegawai', '#', 'fa fa-user', '1', '0', '2016-07-28 19:15:23', null, null, null);
+INSERT INTO `menu` VALUES ('45', 'Kelas', '#', 'fa fa-list', '1', '0', '2016-08-07 08:34:59', null, null, null);
+INSERT INTO `menu` VALUES ('46', 'Jadwal Pelajaran', '#', 'fa fa-home', '1', '0', '2016-07-26 05:42:16', '2016-08-07 08:44:50', null, null);
+INSERT INTO `menu` VALUES ('47', 'Siswa', '#', 'fa fa-th-large', '1', '0', '2016-07-26 05:29:29', '2016-07-28 19:19:41', null, null);
+INSERT INTO `menu` VALUES ('48', 'Ujian', '#', 'fa fa-pencil', '1', '0', '2016-07-28 19:16:53', null, null, null);
+INSERT INTO `menu` VALUES ('49', 'Absensi', '#', 'fa fa-calendar', '1', '0', '2016-08-07 09:32:08', null, null, null);
 
 -- ----------------------------
 -- Table structure for m_gender
@@ -142,11 +143,19 @@ CREATE TABLE `m_jam` (
   PRIMARY KEY (`jam_id`),
   KEY `jam-active` (`jam_active`),
   CONSTRAINT `m_jam_ibfk_1` FOREIGN KEY (`jam_active`) REFERENCES `m_status` (`status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of m_jam
 -- ----------------------------
+INSERT INTO `m_jam` VALUES ('1', 'Jam 1', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('2', 'Jam 2', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('3', 'Jam 3', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('4', 'Jam 4', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('5', 'Jam 5', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('6', 'Jam 6', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('7', 'Jam 7', '1', null, null, null);
+INSERT INTO `m_jam` VALUES ('8', 'Jam 8', '1', null, null, null);
 
 -- ----------------------------
 -- Table structure for m_jurusan
@@ -8645,7 +8654,7 @@ CREATE TABLE `m_pegawai` (
 -- Records of m_pegawai
 -- ----------------------------
 INSERT INTO `m_pegawai` VALUES ('1', '1', '1', 'l', '0000-00-00', '1', null, null, '1', '1', '1', null, null, '2016-08-08 06:57:34', null, null);
-INSERT INTO `m_pegawai` VALUES ('2', '123', 'bulyan', 'l', '0000-00-00', 'a', '11.11', '11.01.08', 'jalan imam bonjol', '123456', '1234', 'a', '1', '2016-08-08 11:14:32', '2016-08-08 11:15:07', null);
+INSERT INTO `m_pegawai` VALUES ('2', '123', 'bulyan', 'l', '0000-00-00', 'a', '11.11', '11.01.08', 'jalan imam bonjol', '123456', '1234', 'a', '1', '2016-08-08 11:14:32', '2016-08-08 11:43:24', null);
 
 -- ----------------------------
 -- Table structure for m_semester
@@ -8685,7 +8694,7 @@ CREATE TABLE `m_siswa` (
   `siswa_nis` varchar(255) DEFAULT NULL,
   `siswa_nama` varchar(255) DEFAULT NULL,
   `siswa_jk` varchar(1) DEFAULT 'l',
-  `siswa_tgl_lahir` varchar(255) DEFAULT NULL,
+  `siswa_tgl_lahir` date DEFAULT NULL,
   `kota_id` varchar(11) DEFAULT NULL,
   `kecamatan_id` varchar(11) DEFAULT NULL,
   `siswa_alamat` text,
@@ -8708,8 +8717,8 @@ CREATE TABLE `m_siswa` (
 -- ----------------------------
 -- Records of m_siswa
 -- ----------------------------
-INSERT INTO `m_siswa` VALUES ('1', '1', '1', 'l', '1', null, null, '1', '1', '1', '1', null, '2016-07-25 09:06:47', null, '2016-07-25 14:09:09');
-INSERT INTO `m_siswa` VALUES ('2', '123', 'bulyan', 'l', '11-01-1993', null, null, 'sumenep', 'abdullah', 'tulani', 'wali', '456789', '2016-07-31 05:22:04', null, '2016-08-08 08:59:10');
+INSERT INTO `m_siswa` VALUES ('1', '1', '1', 'l', '1905-08-19', '11.01', '11.01.03', '1', '1', '1', '1', 'a', '2016-07-25 09:06:47', null, '2016-08-08 15:29:43');
+INSERT INTO `m_siswa` VALUES ('2', '123', 'bulyan', 'l', '2002-07-10', '11.01', '11.01.08', 'sumenep', 'abdullah', 'tulani', 'wali', '456789', '2016-07-31 05:22:04', null, '2016-08-08 15:29:18');
 
 -- ----------------------------
 -- Table structure for m_status
@@ -8853,7 +8862,7 @@ CREATE TABLE `t_kelas` (
 -- ----------------------------
 -- Records of t_kelas
 -- ----------------------------
-INSERT INTO `t_kelas` VALUES ('1', null, '1', '1', '1', '2016', '2016-07-31 06:10:21', '2016-07-31 06:54:38', null);
+INSERT INTO `t_kelas` VALUES ('1', 'kelas a', '1', '1', '1', '2016', '2016-07-31 06:10:21', '2016-08-09 05:15:04', null);
 INSERT INTO `t_kelas` VALUES ('2', null, '2', '1', '1', '2016', '2016-07-31 06:28:37', null, null);
 
 -- ----------------------------
