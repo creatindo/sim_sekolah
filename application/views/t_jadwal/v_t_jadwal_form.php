@@ -131,8 +131,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Jadwal Active</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('jadwal_active') ?> </span>
                             <input type="text" class="form-control" name="jadwal_active" id="jadwal_active" placeholder="Jadwal Active" value="<?php echo $jadwal_active; ?>" />
+                            <span class='help-block'> <?php echo form_error('jadwal_active') ?> </span>
                         </div>
                     </div>
                   </div>

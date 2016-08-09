@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Semester Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('semester_nama') ?> </span>
                             <input type="text" class="form-control" name="semester_nama" id="semester_nama" placeholder="Semester Nama" value="<?php echo $semester_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('semester_nama') ?> </span>
                         </div>
                     </div>
                   </div>

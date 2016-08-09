@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Absensi Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('absensi_nama') ?> </span>
                             <input type="text" class="form-control" name="absensi_nama" id="absensi_nama" placeholder="Absensi Nama" value="<?php echo $absensi_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('absensi_nama') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -73,8 +73,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('siswa') ?> </span>
                             <input type="text" class="form-control" name="siswa" id="siswa" placeholder="Siswa" value="<?php echo $siswa; ?>" />
+                            <span class='help-block'> <?php echo form_error('siswa') ?> </span>
                         </div>
                     </div>
                   </div>

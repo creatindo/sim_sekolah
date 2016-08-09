@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Nip</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('pegawai_nip') ?> </span>
                             <input type="text" class="form-control" name="pegawai_nip" id="pegawai_nip" placeholder="Pegawai Nip" value="<?php echo $pegawai_nip; ?>" />
+                            <span class='help-block'> <?php echo form_error('pegawai_nip') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -27,8 +27,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('pegawai_nama') ?> </span>
                             <input type="text" class="form-control" name="pegawai_nama" id="pegawai_nama" placeholder="Pegawai Nama" value="<?php echo $pegawai_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('pegawai_nama') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -88,8 +88,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Golongan</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('pegawai_golongan') ?> </span>
                             <input type="text" class="form-control" name="pegawai_golongan" id="pegawai_golongan" placeholder="Pegawai Golongan" value="<?php echo $pegawai_golongan; ?>" />
+                            <span class='help-block'> <?php echo form_error('pegawai_golongan') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -156,8 +156,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Telp</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('pegawai_telp') ?> </span>
                             <input type="text" class="form-control" name="pegawai_telp" id="pegawai_telp" placeholder="Pegawai Telp" value="<?php echo $pegawai_telp; ?>" />
+                            <span class='help-block'> <?php echo form_error('pegawai_telp') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -166,8 +166,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Pegawai Foto</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('pegawai_foto') ?> </span>
                             <input type="text" class="form-control" name="pegawai_foto" id="pegawai_foto" placeholder="Pegawai Foto" value="<?php echo $pegawai_foto; ?>" />
+                            <span class='help-block'> <?php echo form_error('pegawai_foto') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -178,8 +178,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Jabatan</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('jabatan') ?> </span>
                             <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Jabatan" value="<?php echo $jabatan; ?>" />
+                            <span class='help-block'> <?php echo form_error('jabatan') ?> </span>
                         </div>
                     </div>
                   </div>

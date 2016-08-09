@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Jam Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('jam_nama') ?> </span>
                             <input type="text" class="form-control" name="jam_nama" id="jam_nama" placeholder="Jam Nama" value="<?php echo $jam_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('jam_nama') ?> </span>
                         </div>
                     </div>
                   </div>
