@@ -48,7 +48,7 @@ foreach ($non_pk as $row) {
                                 \$v_name_".$i." = \$this->".$reference[$row["column_name"]]["r_model"]."->get($" . $row["column_name"] . ")->{\$this->".$reference[$row["column_name"]]["r_model"]."->label};
                               }
                               \$ddajax = array(
-                                  'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_table"]."'), 
+                                  'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_model"]."'), 
                                   'name' =>'".$row["column_name"]."',
                                   'current_selected_id' => $" . $row["column_name"] . ", 
                                   'current_selected_name' => \$v_name_".$i.", 

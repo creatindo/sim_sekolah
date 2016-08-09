@@ -33,7 +33,7 @@
                                 $v_name_2 = $this->M_status_model->get($jurusan_active)->{$this->M_status_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_status'), 
+                                  'url' => site_url('form/dd/M_status_model'), 
                                   'name' =>'jurusan_active',
                                   'current_selected_id' => $jurusan_active, 
                                   'current_selected_name' => $v_name_2, 

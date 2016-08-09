@@ -45,7 +45,7 @@
                                 $v_name_3 = $this->M_gender_model->get($siswa_jk)->{$this->M_gender_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_gender'), 
+                                  'url' => site_url('form/dd/M_gender_model'), 
                                   'name' =>'siswa_jk',
                                   'current_selected_id' => $siswa_jk, 
                                   'current_selected_name' => $v_name_3, 
@@ -94,7 +94,7 @@
                                 $v_name_5 = $this->M_kota_model->get($kota_id)->{$this->M_kota_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_kota'), 
+                                  'url' => site_url('form/dd/M_kota_model'), 
                                   'name' =>'kota_id',
                                   'current_selected_id' => $kota_id, 
                                   'current_selected_name' => $v_name_5, 
@@ -116,7 +116,7 @@
                                 $v_name_6 = $this->M_kecamatan_model->get($kecamatan_id)->{$this->M_kecamatan_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_kecamatan'), 
+                                  'url' => site_url('form/dd/M_kecamatan_model'), 
                                   'name' =>'kecamatan_id',
                                   'current_selected_id' => $kecamatan_id, 
                                   'current_selected_name' => $v_name_6, 

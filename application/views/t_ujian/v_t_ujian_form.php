@@ -33,7 +33,7 @@
                                 $v_name_2 = $this->M_ujian_model->get($ujian_id)->{$this->M_ujian_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_ujian'), 
+                                  'url' => site_url('form/dd/M_ujian_model'), 
                                   'name' =>'ujian_id',
                                   'current_selected_id' => $ujian_id, 
                                   'current_selected_name' => $v_name_2, 
@@ -57,7 +57,7 @@
                                 $v_name_3 = $this->T_jadwal_model->get($t_jadwal_id)->{$this->T_jadwal_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/t_jadwal'), 
+                                  'url' => site_url('form/dd/T_jadwal_model'), 
                                   'name' =>'t_jadwal_id',
                                   'current_selected_id' => $t_jadwal_id, 
                                   'current_selected_name' => $v_name_3, 
@@ -106,7 +106,7 @@
                                 $v_name_5 = $this->M_status_model->get($t_ujian_active)->{$this->M_status_model->label};
                               }
                               $ddajax = array(
-                                  'url' => site_url('form/dd/m_status'), 
+                                  'url' => site_url('form/dd/M_status_model'), 
                                   'name' =>'t_ujian_active',
                                   'current_selected_id' => $t_ujian_active, 
                                   'current_selected_name' => $v_name_5, 
