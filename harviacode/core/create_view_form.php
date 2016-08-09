@@ -93,8 +93,8 @@ foreach ($non_pk as $row) {
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
                             <input type=\"text\" class=\"form-control\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
+                            <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
                         </div>
                     </div>
                   </div>

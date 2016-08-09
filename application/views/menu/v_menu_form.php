@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Menu Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('menu_nama') ?> </span>
                             <input type="text" class="form-control" name="menu_nama" id="menu_nama" placeholder="Menu Nama" value="<?php echo $menu_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('menu_nama') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -27,8 +27,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Link</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('link') ?> </span>
                             <input type="text" class="form-control" name="link" id="link" placeholder="Link" value="<?php echo $link; ?>" />
+                            <span class='help-block'> <?php echo form_error('link') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -39,8 +39,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Icon</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('icon') ?> </span>
                             <input type="text" class="form-control" name="icon" id="icon" placeholder="Icon" value="<?php echo $icon; ?>" />
+                            <span class='help-block'> <?php echo form_error('icon') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -49,8 +49,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Is Active</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('is_active') ?> </span>
                             <input type="text" class="form-control" name="is_active" id="is_active" placeholder="Is Active" value="<?php echo $is_active; ?>" />
+                            <span class='help-block'> <?php echo form_error('is_active') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -61,8 +61,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Is Parent</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('is_parent') ?> </span>
                             <input type="text" class="form-control" name="is_parent" id="is_parent" placeholder="Is Parent" value="<?php echo $is_parent; ?>" />
+                            <span class='help-block'> <?php echo form_error('is_parent') ?> </span>
                         </div>
                     </div>
                   </div>
