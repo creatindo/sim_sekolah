@@ -31,6 +31,18 @@ class Form extends CI_Controller {
 		$this->output->set_content_type('application/json')->set_output(json_encode($output));
 	}
 
+	public function route()
+	{
+		$this->load->model('Menu_model');
+		$w = array('controller IS NOT NULL' => NULL );
+		$s=$this->Menu_model->get_all($w);
+		if ($s) {
+			foreach ($s as $r) {
+				echo '$route[\''.$r->link.'\'] = \''.$r->controller.'\'; <br/>';
+			}
+		}
+	}
+
 }
 
 /* End of file Form.php */
