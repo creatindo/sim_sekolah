@@ -55,8 +55,8 @@ class T_ujian_nilai extends CI_Controller
                     $checkbok,
                 
 					$d->nilai_nama, 
-					(isset($d->t_ujian->{$this->T_ujian_model->label})) ? $d->t_ujian->{$this->T_ujian_model->label} : '', 
-					(isset($d->t_siswa->{$this->T_siswa_model->label})) ? $d->t_siswa->{$this->T_siswa_model->label} : '', 
+					@$d->t_ujian->{$this->T_ujian_model->label}, 
+					@$d->t_siswa->{$this->T_siswa_model->label}, 
 					$d->nilai, 
                     $view.$edit.$delete
                 );
@@ -71,13 +71,16 @@ class T_ujian_nilai extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->T_ujian_nilai_model->get($id);
+        $row = $this->T_ujian_nilai_model
+                    ->with_t_siswa()
+                    ->with_t_ujian()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'nilai_id' => $row->nilai_id,
 			'nilai_nama' => $row->nilai_nama,
-			't_ujian_id' => $row->t_ujian_id,
-			't_siswa_id' => $row->t_siswa_id,
+			't_ujian_id' => @$row->t_ujian->{$this->T_ujian_model->label},
+			't_siswa_id' => @$row->t_siswa->{$this->T_siswa_model->label},
 			'nilai' => $row->nilai,
 		);
             $data['id'] = $id;

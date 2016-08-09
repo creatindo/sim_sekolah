@@ -54,7 +54,7 @@ class M_jurusan extends CI_Controller
                     $checkbok,
                 
 					$d->jurusan_nama, 
-					(isset($d->m_status->{$this->M_status_model->label})) ? $d->m_status->{$this->M_status_model->label} : '', 
+					@$d->m_status->{$this->M_status_model->label}, 
                     $view.$edit.$delete
                 );
             }
@@ -68,12 +68,14 @@ class M_jurusan extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_jurusan_model->get($id);
+        $row = $this->M_jurusan_model
+                    ->with_m_status()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'jurusan_id' => $row->jurusan_id,
 			'jurusan_nama' => $row->jurusan_nama,
-			'jurusan_active' => $row->jurusan_active,
+			'jurusan_active' => @$row->m_status->{$this->M_status_model->label},
 		);
             $data['id'] = $id;
             $this->template->load('template','m_jurusan/v_m_jurusan_read', $data);

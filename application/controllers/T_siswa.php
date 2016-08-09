@@ -55,8 +55,8 @@ class T_siswa extends CI_Controller
                     $checkbok,
                 
 					$d->t_siswa_nama, 
-					(isset($d->m_siswa->{$this->M_siswa_model->label})) ? $d->m_siswa->{$this->M_siswa_model->label} : '', 
-					(isset($d->t_kelas->{$this->T_kelas_model->label})) ? $d->t_kelas->{$this->T_kelas_model->label} : '', 
+					@$d->m_siswa->{$this->M_siswa_model->label}, 
+					@$d->t_kelas->{$this->T_kelas_model->label}, 
 					$d->tahun, 
 					$d->t_siswa_active, 
                     $view.$edit.$delete
@@ -72,13 +72,16 @@ class T_siswa extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->T_siswa_model->get($id);
+        $row = $this->T_siswa_model
+                    ->with_t_kelas()
+                    ->with_m_siswa()
+                    ->get($id);
         if ($row) {
             $data = array(
 			't_siswa_id' => $row->t_siswa_id,
 			't_siswa_nama' => $row->t_siswa_nama,
-			'siswa_id' => $row->siswa_id,
-			't_kelas_id' => $row->t_kelas_id,
+			'siswa_id' => @$row->m_siswa->{$this->M_siswa_model->label},
+			't_kelas_id' => @$row->t_kelas->{$this->T_kelas_model->label},
 			'tahun' => $row->tahun,
 			't_siswa_active' => $row->t_siswa_active,
 		);

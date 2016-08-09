@@ -56,10 +56,10 @@ class T_ujian extends CI_Controller
                     $checkbok,
                 
 					$d->t_ujian_nama, 
-					(isset($d->m_ujian->{$this->M_ujian_model->label})) ? $d->m_ujian->{$this->M_ujian_model->label} : '', 
-					(isset($d->t_jadwal->{$this->T_jadwal_model->label})) ? $d->t_jadwal->{$this->T_jadwal_model->label} : '', 
+					@$d->m_ujian->{$this->M_ujian_model->label}, 
+					@$d->t_jadwal->{$this->T_jadwal_model->label}, 
 					$d->t_ujian_tanggal, 
-					(isset($d->m_status->{$this->M_status_model->label})) ? $d->m_status->{$this->M_status_model->label} : '', 
+					@$d->m_status->{$this->M_status_model->label}, 
                     $view.$edit.$delete
                 );
             }
@@ -73,15 +73,19 @@ class T_ujian extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->T_ujian_model->get($id);
+        $row = $this->T_ujian_model
+                    ->with_t_jadwal()
+                    ->with_m_ujian()
+                    ->with_m_status()
+                    ->get($id);
         if ($row) {
             $data = array(
 			't_ujian_id' => $row->t_ujian_id,
 			't_ujian_nama' => $row->t_ujian_nama,
-			'ujian_id' => $row->ujian_id,
-			't_jadwal_id' => $row->t_jadwal_id,
+			'ujian_id' => @$row->m_ujian->{$this->M_ujian_model->label},
+			't_jadwal_id' => @$row->t_jadwal->{$this->T_jadwal_model->label},
 			't_ujian_tanggal' => $row->t_ujian_tanggal,
-			't_ujian_active' => $row->t_ujian_active,
+			't_ujian_active' => @$row->m_status->{$this->M_status_model->label},
 		);
             $data['id'] = $id;
             $this->template->load('template','t_ujian/v_t_ujian_read', $data);

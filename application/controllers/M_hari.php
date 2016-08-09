@@ -66,7 +66,8 @@ class M_hari extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_hari_model->get($id);
+        $row = $this->M_hari_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'hari_id' => $row->hari_id,

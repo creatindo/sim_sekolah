@@ -73,7 +73,8 @@ class M_kota extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_kota_model->get($id);
+        $row = $this->M_kota_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'kota_id' => $row->kota_id,

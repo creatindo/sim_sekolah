@@ -71,7 +71,8 @@ class M_kecamatan extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_kecamatan_model->get($id);
+        $row = $this->M_kecamatan_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'kecamatan_id' => $row->kecamatan_id,

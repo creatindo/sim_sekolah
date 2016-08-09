@@ -67,7 +67,8 @@ class M_status extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_status_model->get($id);
+        $row = $this->M_status_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'status_id' => $row->status_id,

@@ -70,7 +70,8 @@ class Menu extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->Menu_model->get($id);
+        $row = $this->Menu_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'id' => $row->id,

@@ -58,16 +58,16 @@ class M_pegawai extends CI_Controller
                 
 					$d->pegawai_nip, 
 					$d->pegawai_nama, 
-					(isset($d->m_gender->{$this->M_gender_model->label})) ? $d->m_gender->{$this->M_gender_model->label} : '', 
+					@$d->m_gender->{$this->M_gender_model->label}, 
 					$d->pegawai_tgl_lahir, 
 					$d->pegawai_golongan, 
-					(isset($d->m_kota->{$this->M_kota_model->label})) ? $d->m_kota->{$this->M_kota_model->label} : '', 
-					(isset($d->m_kecamatan->{$this->M_kecamatan_model->label})) ? $d->m_kecamatan->{$this->M_kecamatan_model->label} : '', 
+					@$d->m_kota->{$this->M_kota_model->label}, 
+					@$d->m_kecamatan->{$this->M_kecamatan_model->label}, 
 					$d->pegawai_alamat, 
 					$d->pegawai_telp, 
 					$d->pegawai_foto, 
 					$d->jabatan, 
-					(isset($d->m_user->{$this->M_user_model->label})) ? $d->m_user->{$this->M_user_model->label} : '', 
+					@$d->m_user->{$this->M_user_model->label}, 
                     $view.$edit.$delete
                 );
             }
@@ -81,22 +81,27 @@ class M_pegawai extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_pegawai_model->get($id);
+        $row = $this->M_pegawai_model
+                    ->with_m_user()
+                    ->with_m_gender()
+                    ->with_m_kota()
+                    ->with_m_kecamatan()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'pegawai_id' => $row->pegawai_id,
 			'pegawai_nip' => $row->pegawai_nip,
 			'pegawai_nama' => $row->pegawai_nama,
-			'pegawai_jk' => $row->pegawai_jk,
+			'pegawai_jk' => @$row->m_gender->{$this->M_gender_model->label},
 			'pegawai_tgl_lahir' => $row->pegawai_tgl_lahir,
 			'pegawai_golongan' => $row->pegawai_golongan,
-			'kota_id' => $row->kota_id,
-			'kecamatan_id' => $row->kecamatan_id,
+			'kota_id' => @$row->m_kota->{$this->M_kota_model->label},
+			'kecamatan_id' => @$row->m_kecamatan->{$this->M_kecamatan_model->label},
 			'pegawai_alamat' => $row->pegawai_alamat,
 			'pegawai_telp' => $row->pegawai_telp,
 			'pegawai_foto' => $row->pegawai_foto,
 			'jabatan' => $row->jabatan,
-			'user_id' => $row->user_id,
+			'user_id' => @$row->m_user->{$this->M_user_model->label},
 		);
             $data['id'] = $id;
             $this->template->load('template','m_pegawai/v_m_pegawai_read', $data);

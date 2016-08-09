@@ -57,10 +57,10 @@ class M_siswa extends CI_Controller
                 
 					$d->siswa_nis, 
 					$d->siswa_nama, 
-					(isset($d->m_gender->{$this->M_gender_model->label})) ? $d->m_gender->{$this->M_gender_model->label} : '', 
+					@$d->m_gender->{$this->M_gender_model->label}, 
 					$d->siswa_tgl_lahir, 
-					(isset($d->m_kota->{$this->M_kota_model->label})) ? $d->m_kota->{$this->M_kota_model->label} : '', 
-					(isset($d->m_kecamatan->{$this->M_kecamatan_model->label})) ? $d->m_kecamatan->{$this->M_kecamatan_model->label} : '', 
+					@$d->m_kota->{$this->M_kota_model->label}, 
+					@$d->m_kecamatan->{$this->M_kecamatan_model->label}, 
 					$d->siswa_alamat, 
 					$d->siswa_ayah, 
 					$d->siswa_ibu, 
@@ -79,16 +79,20 @@ class M_siswa extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_siswa_model->get($id);
+        $row = $this->M_siswa_model
+                    ->with_m_gender()
+                    ->with_m_kota()
+                    ->with_m_kecamatan()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'siswa_id' => $row->siswa_id,
 			'siswa_nis' => $row->siswa_nis,
 			'siswa_nama' => $row->siswa_nama,
-			'siswa_jk' => $row->siswa_jk,
+			'siswa_jk' => @$row->m_gender->{$this->M_gender_model->label},
 			'siswa_tgl_lahir' => $row->siswa_tgl_lahir,
-			'kota_id' => $row->kota_id,
-			'kecamatan_id' => $row->kecamatan_id,
+			'kota_id' => @$row->m_kota->{$this->M_kota_model->label},
+			'kecamatan_id' => @$row->m_kecamatan->{$this->M_kecamatan_model->label},
 			'siswa_alamat' => $row->siswa_alamat,
 			'siswa_ayah' => $row->siswa_ayah,
 			'siswa_ibu' => $row->siswa_ibu,

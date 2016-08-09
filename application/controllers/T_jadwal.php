@@ -57,11 +57,11 @@ class T_jadwal extends CI_Controller
                 $records["data"][] = array(
                     $checkbok,
                 
-					(isset($d->m_jam->{$this->M_jam_model->label})) ? $d->m_jam->{$this->M_jam_model->label} : '', 
-					(isset($d->m_hari->{$this->M_hari_model->label})) ? $d->m_hari->{$this->M_hari_model->label} : '', 
-					(isset($d->m_mapel->{$this->M_mapel_model->label})) ? $d->m_mapel->{$this->M_mapel_model->label} : '', 
-					(isset($d->t_kelas->{$this->T_kelas_model->label})) ? $d->t_kelas->{$this->T_kelas_model->label} : '', 
-					(isset($d->m_pegawai->{$this->M_pegawai_model->label})) ? $d->m_pegawai->{$this->M_pegawai_model->label} : '', 
+					@$d->m_jam->{$this->M_jam_model->label}, 
+					@$d->m_hari->{$this->M_hari_model->label}, 
+					@$d->m_mapel->{$this->M_mapel_model->label}, 
+					@$d->t_kelas->{$this->T_kelas_model->label}, 
+					@$d->m_pegawai->{$this->M_pegawai_model->label}, 
 					$d->jadwal_active, 
                     $view.$edit.$delete
                 );
@@ -76,15 +76,21 @@ class T_jadwal extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->T_jadwal_model->get($id);
+        $row = $this->T_jadwal_model
+                    ->with_m_jam()
+                    ->with_m_hari()
+                    ->with_m_mapel()
+                    ->with_t_kelas()
+                    ->with_m_pegawai()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'jadwal_id' => $row->jadwal_id,
-			'jam_id' => $row->jam_id,
-			'hari_id' => $row->hari_id,
-			'mapel_id' => $row->mapel_id,
-			't_kelas_id' => $row->t_kelas_id,
-			'pegawai_id' => $row->pegawai_id,
+			'jam_id' => @$row->m_jam->{$this->M_jam_model->label},
+			'hari_id' => @$row->m_hari->{$this->M_hari_model->label},
+			'mapel_id' => @$row->m_mapel->{$this->M_mapel_model->label},
+			't_kelas_id' => @$row->t_kelas->{$this->T_kelas_model->label},
+			'pegawai_id' => @$row->m_pegawai->{$this->M_pegawai_model->label},
 			'jadwal_active' => $row->jadwal_active,
 		);
             $data['id'] = $id;
