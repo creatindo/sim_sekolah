@@ -67,6 +67,16 @@
                     </div>
                   </div>
                   
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>Controller</label>
+                        <div class='col-md-9'>
+                            <input type="text" class="form-control" name="controller" id="controller" placeholder="Controller" value="<?php echo $controller; ?>" />
+                            <span class='help-block'> <?php echo form_error('controller') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  
                 </div>
                   <input type="hidden" name="id" value="<?php echo $id; ?>" />
                 </div>

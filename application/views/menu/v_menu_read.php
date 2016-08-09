@@ -16,6 +16,7 @@
                     <tr><td>Icon</td><td><?php echo $icon; ?></td></tr>
                     <tr><td>Is Active</td><td><?php echo $is_active; ?></td></tr>
                     <tr><td>Is Parent</td><td><?php echo $is_parent; ?></td></tr>
+                    <tr><td>Controller</td><td><?php echo $controller; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>

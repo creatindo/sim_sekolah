@@ -271,6 +271,10 @@ var Datatable = function() {
             $('input.form-filter[type="checkbox"]', table).each(function() {
                 $(this).attr("checked", false);
             });
+            $('select.select2', table).each(function() {
+                $(this).select2("val", "");
+            });
+            // $('.select2',table).select2("val", "");
             the.clearAjaxParams();
             the.addAjaxParam("action", tableOptions.filterCancelAction);
             dataTable.ajax.reload();

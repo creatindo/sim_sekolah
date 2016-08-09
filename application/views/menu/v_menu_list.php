@@ -47,6 +47,7 @@
                     <th>Icon</th>
                     <th>Is Active</th>
                     <th>Is Parent</th>
+                    <th>Controller</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
@@ -57,6 +58,7 @@
                     <td><input type="text" class="form-control form-filter input-sm" name="icon"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="is_active"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="is_parent"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="controller"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">

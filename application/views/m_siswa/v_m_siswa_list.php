@@ -60,10 +60,37 @@
                     
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_nis"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_nama"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_jk"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_gender_model'), 
+                          'name' =>'siswa_jk',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_tgl_lahir"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kota_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_id"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_kota_model'), 
+                          'name' =>'kota_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_kecamatan_model'), 
+                          'name' =>'kecamatan_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_alamat"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_ayah"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_ibu"></td>

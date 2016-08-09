@@ -50,7 +50,16 @@
                     <td></td>
                     
                     <td><input type="text" class="form-control form-filter input-sm" name="ujian_nama"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="ujian_active"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_status_model'), 
+                          'name' =>'ujian_active',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">

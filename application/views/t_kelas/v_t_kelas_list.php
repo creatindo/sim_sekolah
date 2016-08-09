@@ -53,9 +53,36 @@
                     <td></td>
                     
                     <td><input type="text" class="form-control form-filter input-sm" name="t_kelas_nama"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kelas_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="jurusan_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="semester_id"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_kelas_model'), 
+                          'name' =>'kelas_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_jurusan_model'), 
+                          'name' =>'jurusan_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_semester_model'), 
+                          'name' =>'semester_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="tahun"></td>
                     <td>
                         <div class="margin-bottom-5">

@@ -72,8 +72,22 @@ $string .= "
                     <td></td>
                     ";
 foreach ($non_pk as $row) {
-    $string .= "
+    if(array_key_exists($row["column_name"], $reference) ) {
+        $string .= "
+                    <td>
+                    <?php 
+                      \$ddajax = array(
+                          'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_model"]."'), 
+                          'name' =>'".$row["column_name"]."',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      \$this->load->view('form/v_dropdown_ajax', array('ddajax' => \$ddajax ), FALSE);
+                    ?>
+                    </td>";
+    }else{
+        $string .= "
                     <td><input type=\"text\" class=\"form-control form-filter input-sm\" name=\"" . $row['column_name'] . "\"></td>";
+    }
 }
 $string .= "
                     <td>

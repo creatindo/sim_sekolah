@@ -57,6 +57,7 @@ class Menu extends CI_Controller
 					$d->icon, 
 					$d->is_active, 
 					$d->is_parent, 
+					$d->controller, 
                     $view.$edit.$delete
                 );
             }
@@ -80,6 +81,7 @@ class Menu extends CI_Controller
 			'icon' => $row->icon,
 			'is_active' => $row->is_active,
 			'is_parent' => $row->is_parent,
+			'controller' => $row->controller,
 		);
             $data['id'] = $id;
             $this->template->load('template','menu/v_menu_read', $data);
@@ -100,6 +102,7 @@ class Menu extends CI_Controller
 			'icon' => set_value('icon'),
 			'is_active' => set_value('is_active'),
 			'is_parent' => set_value('is_parent'),
+			'controller' => set_value('controller'),
 		);
         $this->template->load('template','menu/v_menu_form', $data);
     }
@@ -117,6 +120,7 @@ class Menu extends CI_Controller
 				'icon' => $this->input->post('icon',TRUE),
 				'is_active' => $this->input->post('is_active',TRUE),
 				'is_parent' => $this->input->post('is_parent',TRUE),
+				'controller' => $this->input->post('controller',TRUE),
 			);
 
             $this->Menu_model->insert($data);
@@ -139,6 +143,7 @@ class Menu extends CI_Controller
 				'icon' => set_value('icon', $row->icon),
 				'is_active' => set_value('is_active', $row->is_active),
 				'is_parent' => set_value('is_parent', $row->is_parent),
+				'controller' => set_value('controller', $row->controller),
 			);
             $this->template->load('template','menu/v_menu_form', $data);
         } else {
@@ -160,6 +165,7 @@ class Menu extends CI_Controller
 				'icon' => $this->input->post('icon',TRUE),
 				'is_active' => $this->input->post('is_active',TRUE),
 				'is_parent' => $this->input->post('is_parent',TRUE),
+				'controller' => $this->input->post('controller',TRUE),
 		    );
 
             $this->Menu_model->update($data,$this->input->post('id', TRUE));
@@ -204,6 +210,7 @@ class Menu extends CI_Controller
 		$this->form_validation->set_rules('icon', 'icon', 'trim|required');
 		$this->form_validation->set_rules('is_active', 'is active', 'trim|required');
 		$this->form_validation->set_rules('is_parent', 'is parent', 'trim|required');
+		$this->form_validation->set_rules('controller', 'controller', 'trim|required');
 
 		$this->form_validation->set_rules('id', 'id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -236,6 +243,7 @@ class Menu extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Icon");
 		xlsWriteLabel($tablehead, $kolomhead++, "Is Active");
 		xlsWriteLabel($tablehead, $kolomhead++, "Is Parent");
+		xlsWriteLabel($tablehead, $kolomhead++, "Controller");
 
 		foreach ($this->Menu_model->get_all() as $data) {
             $kolombody = 0;
@@ -247,6 +255,7 @@ class Menu extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->icon);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->is_active);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->is_parent);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->controller);
 
 		    $tablebody++;
             $nourut++;
