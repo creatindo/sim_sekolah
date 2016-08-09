@@ -15,7 +15,7 @@ class " . $c . " extends CI_Controller
         \$this->load->model('$m');
         \$this->load->library('form_validation');";
 foreach ($reference as $refer) {
-$string .="\n\t\t\$this->load->model('".$refer["r_table"]."');";    
+$string .="\n\t\t\$this->load->model('".$refer["r_model"]."');";    
 }        
 $string .="        
     }";
@@ -96,7 +96,7 @@ $string .="\n\n    public function getDatatable()
                 ";
                 foreach ($non_pk as $row) {
                     if(array_key_exists($row["column_name"], $reference) ) {
-                        $string .= "\n\t\t\t\t\t(isset(\$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_table"]."->label})) ? \$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_table"]."->label} : '', ";
+                        $string .= "\n\t\t\t\t\t(isset(\$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label})) ? \$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label} : '', ";
                     }else{
                         $string .= "\n\t\t\t\t\t\$d->". $row['column_name'] .", ";
                     }
