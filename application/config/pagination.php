@@ -36,4 +36,3 @@ $config['num_tag_close'] = '</li>';
 /* End of file pagination.php */
 /* Location: ./application/config/pagination.php */
 /* Please DO NOT modify this information : */
-/* http://harviacode.com */
