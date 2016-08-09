@@ -66,7 +66,8 @@ class M_jabatan extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_jabatan_model->get($id);
+        $row = $this->M_jabatan_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'jabatan_id' => $row->jabatan_id,

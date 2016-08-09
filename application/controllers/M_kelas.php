@@ -54,7 +54,7 @@ class M_kelas extends CI_Controller
                     $checkbok,
                 
 					$d->kelas_nama, 
-					(isset($d->m_status->{$this->M_status_model->label})) ? $d->m_status->{$this->M_status_model->label} : '', 
+					@$d->m_status->{$this->M_status_model->label}, 
                     $view.$edit.$delete
                 );
             }
@@ -68,12 +68,14 @@ class M_kelas extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_kelas_model->get($id);
+        $row = $this->M_kelas_model
+                    ->with_m_status()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'kelas_id' => $row->kelas_id,
 			'kelas_nama' => $row->kelas_nama,
-			'kelas_active' => $row->kelas_active,
+			'kelas_active' => @$row->m_status->{$this->M_status_model->label},
 		);
             $data['id'] = $id;
             $this->template->load('template','m_kelas/v_m_kelas_read', $data);

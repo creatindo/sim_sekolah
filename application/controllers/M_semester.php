@@ -66,7 +66,8 @@ class M_semester extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_semester_model->get($id);
+        $row = $this->M_semester_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'semester_id' => $row->semester_id,

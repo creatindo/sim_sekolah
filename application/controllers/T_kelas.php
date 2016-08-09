@@ -56,9 +56,9 @@ class T_kelas extends CI_Controller
                     $checkbok,
                 
 					$d->t_kelas_nama, 
-					(isset($d->m_kelas->{$this->M_kelas_model->label})) ? $d->m_kelas->{$this->M_kelas_model->label} : '', 
-					(isset($d->m_jurusan->{$this->M_jurusan_model->label})) ? $d->m_jurusan->{$this->M_jurusan_model->label} : '', 
-					(isset($d->m_semester->{$this->M_semester_model->label})) ? $d->m_semester->{$this->M_semester_model->label} : '', 
+					@$d->m_kelas->{$this->M_kelas_model->label}, 
+					@$d->m_jurusan->{$this->M_jurusan_model->label}, 
+					@$d->m_semester->{$this->M_semester_model->label}, 
 					$d->tahun, 
                     $view.$edit.$delete
                 );
@@ -73,14 +73,18 @@ class T_kelas extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->T_kelas_model->get($id);
+        $row = $this->T_kelas_model
+                    ->with_m_jurusan()
+                    ->with_m_semester()
+                    ->with_m_kelas()
+                    ->get($id);
         if ($row) {
             $data = array(
 			't_kelas_id' => $row->t_kelas_id,
 			't_kelas_nama' => $row->t_kelas_nama,
-			'kelas_id' => $row->kelas_id,
-			'jurusan_id' => $row->jurusan_id,
-			'semester_id' => $row->semester_id,
+			'kelas_id' => @$row->m_kelas->{$this->M_kelas_model->label},
+			'jurusan_id' => @$row->m_jurusan->{$this->M_jurusan_model->label},
+			'semester_id' => @$row->m_semester->{$this->M_semester_model->label},
 			'tahun' => $row->tahun,
 		);
             $data['id'] = $id;

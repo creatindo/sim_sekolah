@@ -96,7 +96,7 @@ $string .="\n\n    public function getDatatable()
                 ";
                 foreach ($non_pk as $row) {
                     if(array_key_exists($row["column_name"], $reference) ) {
-                        $string .= "\n\t\t\t\t\t(isset(\$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label})) ? \$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label} : '', ";
+                        $string .= "\n\t\t\t\t\t@\$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label}, ";
                     }else{
                         $string .= "\n\t\t\t\t\t\$d->". $row['column_name'] .", ";
                     }
@@ -115,11 +115,21 @@ $string .="\n\n    public function getDatatable()
     
 $string .= "\n\n    public function read(\$id) 
     {
-        \$row = \$this->" . $m . "->get(\$id);
+        \$row = \$this->" . $m ;
+foreach ($reference as $row) {
+    $string .= "
+                    ->with_".$row['r_table']."()";
+}
+$string.="
+                    ->get(\$id);
         if (\$row) {
             \$data = array(";
 foreach ($all as $row) {
+    if(array_key_exists($row["column_name"], $reference) ) {
+    $string .= "\n\t\t\t'" . $row['column_name'] . "' => @\$row->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label},";
+    }else{
     $string .= "\n\t\t\t'" . $row['column_name'] . "' => \$row->" . $row['column_name'] . ",";
+    }
 }
 $string .= "\n\t\t);
             \$data['id'] = \$id;

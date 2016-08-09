@@ -67,7 +67,8 @@ class M_gender extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_gender_model->get($id);
+        $row = $this->M_gender_model
+                    ->get($id);
         if ($row) {
             $data = array(
 			'gender_id' => $row->gender_id,

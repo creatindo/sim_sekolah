@@ -55,8 +55,8 @@ class T_absensi extends CI_Controller
                     $checkbok,
                 
 					$d->absensi_nama, 
-					(isset($d->t_jadwal->{$this->T_jadwal_model->label})) ? $d->t_jadwal->{$this->T_jadwal_model->label} : '', 
-					(isset($d->t_siswa->{$this->T_siswa_model->label})) ? $d->t_siswa->{$this->T_siswa_model->label} : '', 
+					@$d->t_jadwal->{$this->T_jadwal_model->label}, 
+					@$d->t_siswa->{$this->T_siswa_model->label}, 
 					$d->siswa, 
                     $view.$edit.$delete
                 );
@@ -71,13 +71,16 @@ class T_absensi extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->T_absensi_model->get($id);
+        $row = $this->T_absensi_model
+                    ->with_t_jadwal()
+                    ->with_t_siswa()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'absensi_id' => $row->absensi_id,
 			'absensi_nama' => $row->absensi_nama,
-			'jadwal_id' => $row->jadwal_id,
-			't_siswa_id' => $row->t_siswa_id,
+			'jadwal_id' => @$row->t_jadwal->{$this->T_jadwal_model->label},
+			't_siswa_id' => @$row->t_siswa->{$this->T_siswa_model->label},
 			'siswa' => $row->siswa,
 		);
             $data['id'] = $id;

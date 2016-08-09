@@ -54,7 +54,7 @@ class M_mapel extends CI_Controller
                     $checkbok,
                 
 					$d->mapel_nama, 
-					(isset($d->m_status->{$this->M_status_model->label})) ? $d->m_status->{$this->M_status_model->label} : '', 
+					@$d->m_status->{$this->M_status_model->label}, 
                     $view.$edit.$delete
                 );
             }
@@ -68,12 +68,14 @@ class M_mapel extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_mapel_model->get($id);
+        $row = $this->M_mapel_model
+                    ->with_m_status()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'mapel_id' => $row->mapel_id,
 			'mapel_nama' => $row->mapel_nama,
-			'mapel_active' => $row->mapel_active,
+			'mapel_active' => @$row->m_status->{$this->M_status_model->label},
 		);
             $data['id'] = $id;
             $this->template->load('template','m_mapel/v_m_mapel_read', $data);

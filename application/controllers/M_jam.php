@@ -54,7 +54,7 @@ class M_jam extends CI_Controller
                     $checkbok,
                 
 					$d->jam_nama, 
-					(isset($d->m_status->{$this->M_status_model->label})) ? $d->m_status->{$this->M_status_model->label} : '', 
+					@$d->m_status->{$this->M_status_model->label}, 
                     $view.$edit.$delete
                 );
             }
@@ -68,12 +68,14 @@ class M_jam extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->M_jam_model->get($id);
+        $row = $this->M_jam_model
+                    ->with_m_status()
+                    ->get($id);
         if ($row) {
             $data = array(
 			'jam_id' => $row->jam_id,
 			'jam_nama' => $row->jam_nama,
-			'jam_active' => $row->jam_active,
+			'jam_active' => @$row->m_status->{$this->M_status_model->label},
 		);
             $data['id'] = $id;
             $this->template->load('template','m_jam/v_m_jam_read', $data);
