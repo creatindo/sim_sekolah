@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Gender Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('gender_nama') ?> </span>
                             <input type="text" class="form-control" name="gender_nama" id="gender_nama" placeholder="Gender Nama" value="<?php echo $gender_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('gender_nama') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -27,8 +27,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Gender Kode</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('gender_kode') ?> </span>
                             <input type="text" class="form-control" name="gender_kode" id="gender_kode" placeholder="Gender Kode" value="<?php echo $gender_kode; ?>" />
+                            <span class='help-block'> <?php echo form_error('gender_kode') ?> </span>
                         </div>
                     </div>
                   </div>

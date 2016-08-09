@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Status Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('status_nama') ?> </span>
                             <input type="text" class="form-control" name="status_nama" id="status_nama" placeholder="Status Nama" value="<?php echo $status_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('status_nama') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -27,8 +27,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Status Kode</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('status_kode') ?> </span>
                             <input type="text" class="form-control" name="status_kode" id="status_kode" placeholder="Status Kode" value="<?php echo $status_kode; ?>" />
+                            <span class='help-block'> <?php echo form_error('status_kode') ?> </span>
                         </div>
                     </div>
                   </div>

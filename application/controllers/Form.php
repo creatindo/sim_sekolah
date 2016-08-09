@@ -12,11 +12,14 @@ class Form extends CI_Controller {
 	{
 
 		$this->load->model($m);
-		$limit=$this->input->post('limit');
-		$page=$this->input->post('page')-1;
+		$limit   =$this->input->post('limit');
+		$page    =$this->input->post('page')-1;
+		if ($this->input->post('q')) {
+			$this->db->like($this->$m->label, $this->input->post('q'));
+		}
 		$this->db->limit($limit,($page*$limit));
-		$data_db=$this->{$m}->get_all();
-		$output=array();
+		$data_db =$this->{$m}->get_all();
+		$res     =array();
 		if ($data_db) {
 			foreach ($data_db as $r) {
 				$item=array();

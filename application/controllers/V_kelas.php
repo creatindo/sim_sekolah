@@ -65,7 +65,8 @@ class V_kelas extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->V_kelas_model->get($id);
+        $row = $this->V_kelas_model
+                    ->get($id);
         if ($row) {
             $data = array(
 		);

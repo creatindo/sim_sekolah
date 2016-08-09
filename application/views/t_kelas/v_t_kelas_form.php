@@ -17,8 +17,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>T Kelas Nama</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('t_kelas_nama') ?> </span>
                             <input type="text" class="form-control" name="t_kelas_nama" id="t_kelas_nama" placeholder="T Kelas Nama" value="<?php echo $t_kelas_nama; ?>" />
+                            <span class='help-block'> <?php echo form_error('t_kelas_nama') ?> </span>
                         </div>
                     </div>
                   </div>
@@ -97,8 +97,8 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Tahun</label>
                         <div class='col-md-9'>
-                            <span class='help-block'> <?php echo form_error('tahun') ?> </span>
                             <input type="text" class="form-control" name="tahun" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
+                            <span class='help-block'> <?php echo form_error('tahun') ?> </span>
                         </div>
                     </div>
                   </div>
