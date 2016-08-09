@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2016-08-09 14:52:05
+Date: 2016-08-09 15:05:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -8942,28 +8942,3 @@ CREATE TABLE `t_ujian_nilai` (
 -- ----------------------------
 -- Records of t_ujian_nilai
 -- ----------------------------
-
--- ----------------------------
--- View structure for v_kelas
--- ----------------------------
-DROP VIEW IF EXISTS `v_kelas`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `v_kelas` AS SELECT
-t_kelas.t_kelas_id,
-t_kelas.kelas_id,
-t_kelas.jurusan_id,
-t_kelas.semester_id,
-t_kelas.t_kelas_active,
-t_kelas.tahun,
-t_kelas.created_at,
-t_kelas.updated_at,
-t_kelas.deleted_at,
-m_jurusan.jurusan_nama,
-m_kelas.kelas_nama,
-m_semester.semester_nama,
-m_status.status_nama
-FROM
-t_kelas
-left JOIN m_semester ON t_kelas.semester_id = m_semester.semester_id
-left JOIN m_kelas ON t_kelas.kelas_id = m_kelas.kelas_id
-left JOIN m_jurusan ON t_kelas.jurusan_id = m_jurusan.jurusan_id
-left JOIN m_status ON t_kelas.t_kelas_active = m_status.status_id ;
