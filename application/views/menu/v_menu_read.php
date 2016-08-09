@@ -1,6 +1,4 @@
-<?php 
 
-$string = "
         <!-- Main content -->
         <section class='content'>
           <div class='row'>
@@ -8,38 +6,31 @@ $string = "
               <div class='portlet light'>
                 <div class='portlet-title'>
                   <div class='caption font-green'>
-                    <span class='caption-subject bold uppercase'>".ucfirst($c)."</span>
+                    <span class='caption-subject bold uppercase'>Menu</span>
                   </div>
                 </div><!-- /.title -->
                 <div class='portlet-body'>
-                  <table class=\"table table-bordered\">";
-                    foreach ($non_pk as $row) {
-                      $string .= "
-                    <tr><td>".label($row["column_name"])."</td><td><?php echo $".$row["column_name"]."; ?></td></tr>";
-                    }
-                      $string .= "
+                  <table class="table table-bordered">
+                    <tr><td>Menu Nama</td><td><?php echo $menu_nama; ?></td></tr>
+                    <tr><td>Link</td><td><?php echo $link; ?></td></tr>
+                    <tr><td>Icon</td><td><?php echo $icon; ?></td></tr>
+                    <tr><td>Is Active</td><td><?php echo $is_active; ?></td></tr>
+                    <tr><td>Is Parent</td><td><?php echo $is_parent; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>
                           <div class='row'>
                             <div class='col-md-offset-5 col-md-7'>
-                                <a href=\"<?php echo site_url('".$c_url."') ?>\" class=\"btn default\">Cancel</a>
-                                <a href=\"<?php echo site_url('".$c_url."/update/'.\$id) ?>\" class=\"btn btn-success\">Edit</a>
+                                <a href="<?php echo site_url('menu') ?>" class="btn default">Cancel</a>
+                                <a href="<?php echo site_url('menu/update/'.$id) ?>" class="btn btn-success">Edit</a>
                             </div>
                           </div>
                         </div>
                       </td>
-                    </tr>";
-                      $string .= "
+                    </tr>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.col -->
             </div><!-- /.col -->
           </div><!-- /.row -->
-        </section><!-- /.content -->";
-
-
-
-$hasil_view_read = createFile($string, $target_view. $v_read_file);
-
-?>
+        </section><!-- /.content -->

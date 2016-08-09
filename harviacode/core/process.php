@@ -23,7 +23,7 @@ if (isset($_POST['generate']))
         $c_url = strtolower($c);
 
         // set data 2
-        $m = $model <> '' ? ucfirst($model) : "M_" . $c_url;
+        $m = $model <> '' ? ucfirst($model) : ucfirst($table_name) . "_model";
         $v_list = "v_". $c_url . "_list";
         $v_read = "v_". $c_url . "_read";
         $v_form = "v_". $c_url . "_form";
@@ -50,6 +50,9 @@ if (isset($_POST['generate']))
         $all = $hc->all_field($table_name);
         $reference = $hc->reference_field($table_name);
         
+        // create view direktory
+        mkdir($target_view);
+
         //find label
         $label = $pk;
         foreach ($non_pk as $row) {
@@ -59,8 +62,6 @@ if (isset($_POST['generate']))
             }
         }
 
-        // create view direktory
-        mkdir($target_view);
         
         // generate
         include 'core/create_config_pagination.php';
@@ -106,11 +107,11 @@ if (isset($_POST['generateall'])) {
         $table_name = $row['table_name'];
         $c = ucfirst($table_name);
         $m = ucfirst($table_name) . '_model';
-        $v_list = $table_name . "_list";
-        $v_read = $table_name . "_read";
-        $v_form = $table_name . "_form";
-        $v_doc = $table_name . "_doc";
-        $v_pdf = $table_name . "_pdf";
+        $v_list = "v_" . $table_name . "_list";
+        $v_read = "v_" . $table_name . "_read";
+        $v_form = "v_" . $table_name . "_form";
+        $v_doc = "v_" . $table_name . "_doc";
+        $v_pdf = "v_" . $table_name . "_pdf";
         
         // url
         $c_url = strtolower($c);
@@ -127,11 +128,26 @@ if (isset($_POST['generateall'])) {
         // read setting
         $get_setting = readJSON('core/settingjson.cfg');
         $target = $get_setting->target;
+        $target_view = $target."views/".$c_url."/";
+        
+        // create view direktory
+        mkdir($target_view);
         
         $pk = $hc->primary_field($table_name);
         $non_pk = $hc->not_primary_field($table_name);
         $all = $hc->all_field($table_name);
+        $reference = $hc->reference_field($table_name);
         
+        //find label
+        $label = $pk;
+        foreach ($non_pk as $row) {
+            if (strpos($row['column_name'], '_nama') !== false) {
+                $label = $row['column_name'];
+                break;
+            }
+        }
+
+
         // generate
         include 'core/create_config_pagination.php';
         include 'core/create_controller.php';

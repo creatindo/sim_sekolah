@@ -50,7 +50,7 @@ require_once 'core/process.php';
                             <div class="col-md-6">
                                 <div class="radio" style="margin-bottom: 0px; margin-top: 0px">
                                     <label>
-                                        <input type="radio" name="jenis_tabel" value="datatables" <?php echo $jenis_tabel == 'datatables' ? 'checked' : ''; ?>>
+                                        <input type="radio" name="jenis_tabel" checked value="datatables" <?php echo $jenis_tabel == 'datatables' ? 'checked' : ''; ?>>
                                         Datatables
                                     </label>
                                 </div>
@@ -60,7 +60,7 @@ require_once 'core/process.php';
 
                     <div class="form-group">
                         <div class="checkbox">
-                            <?php $export_excel = isset($_POST['export_excel']) ? $_POST['export_excel'] : ''; ?>
+                            <?php $export_excel = isset($_POST['export_excel']) ? $_POST['export_excel'] : '1'; ?>
                             <label>
                                 <input type="checkbox" name="export_excel" value="1" <?php echo $export_excel == '1' ? 'checked' : '' ?>>
                                 Export Excel
@@ -201,8 +201,8 @@ require_once 'core/process.php';
                 var table_name = document.getElementById('table_name').value.toLowerCase();
                 if (table_name != '') {
                     document.getElementById('controller').value = capitalize(table_name);
-                    document.getElementById('model').value = '';
-                    // document.getElementById('model').value = 'M_' + table_name;
+                    // document.getElementById('model').value = '';
+                    document.getElementById('model').value = table_name + '_model';
                 } else {
                     document.getElementById('controller').value = '';
                     document.getElementById('model').value = '';
