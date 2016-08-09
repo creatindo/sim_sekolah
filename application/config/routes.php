@@ -52,4 +52,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'menu';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['jabatan'] = 'm_jabatan'; 
+
+$route['menu'] = 'menu';
+$route['siswa'] = 'm_siswa';
+$route['hari'] = 'm_hari';
+$route['semester'] = 'm_semester';
+$route['jam'] = 'm_jam';
+$route['mapel'] = 'm_mapel';
+$route['jurusan'] = 'm_jurusan';
+$route['jabatan'] = 'm_jabatan';
+$route['pegawai'] = 'm_pegawai';
+$route['ujian'] = 'm_ujian';
+$route['kelas'] = 'm_kelas';
+$route['jadwal'] = 't_jadwal';
+$route['t_siswa'] = 't_siswa';
+$route['t_ujian'] = 't_ujian';
+$route['t_absensi'] = 't_absensi';
+$route['t_ujian_nilai'] = 't_ujian_nilai';
+$route['t_kelas'] = 't_kelas';
+$route['t_pegawai'] = 't_pegawai'; 
+
