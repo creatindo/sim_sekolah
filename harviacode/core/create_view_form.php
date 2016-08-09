@@ -93,8 +93,8 @@ foreach ($non_pk as $row) {
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
-                            <input type=\"text\" class=\"form-control\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
                             <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
+                            <input type=\"text\" class=\"form-control\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
                         </div>
                     </div>
                   </div>
@@ -116,8 +116,8 @@ $string .= "
                 <div class='form-actions'>
                   <div class='row'>
                       <div class='col-md-offset-5 col-md-7'>
-                        <button type='submit' class='btn green'>Submit</button>
                         <a href=\"<?php echo site_url('" . $c_url . "') ?>\" class=\"btn default\">Cancel</a>
+                        <button type='submit' class='btn green'>Submit</button>
                     </div>
                   </div>
                 </div>
