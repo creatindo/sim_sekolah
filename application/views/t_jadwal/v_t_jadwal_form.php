@@ -20,7 +20,7 @@
                             <?php 
                               $v_name_1 = '';
                               if (!empty($jam_id)) {                                
-                                $v_name_1 = $this->m_jam->get($jam_id)->{$this->m_jam->label};
+                                $v_name_1 = $this->M_jam_model->get($jam_id)->{$this->M_jam_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_jam'), 
@@ -42,7 +42,7 @@
                             <?php 
                               $v_name_2 = '';
                               if (!empty($hari_id)) {                                
-                                $v_name_2 = $this->m_hari->get($hari_id)->{$this->m_hari->label};
+                                $v_name_2 = $this->M_hari_model->get($hari_id)->{$this->M_hari_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_hari'), 
@@ -66,7 +66,7 @@
                             <?php 
                               $v_name_3 = '';
                               if (!empty($mapel_id)) {                                
-                                $v_name_3 = $this->m_mapel->get($mapel_id)->{$this->m_mapel->label};
+                                $v_name_3 = $this->M_mapel_model->get($mapel_id)->{$this->M_mapel_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_mapel'), 
@@ -88,7 +88,7 @@
                             <?php 
                               $v_name_4 = '';
                               if (!empty($t_kelas_id)) {                                
-                                $v_name_4 = $this->t_kelas->get($t_kelas_id)->{$this->t_kelas->label};
+                                $v_name_4 = $this->T_kelas_model->get($t_kelas_id)->{$this->T_kelas_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/t_kelas'), 
@@ -112,7 +112,7 @@
                             <?php 
                               $v_name_5 = '';
                               if (!empty($pegawai_id)) {                                
-                                $v_name_5 = $this->m_pegawai->get($pegawai_id)->{$this->m_pegawai->label};
+                                $v_name_5 = $this->M_pegawai_model->get($pegawai_id)->{$this->M_pegawai_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_pegawai'), 

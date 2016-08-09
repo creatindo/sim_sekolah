@@ -42,7 +42,7 @@
                             <?php 
                               $v_name_3 = '';
                               if (!empty($pegawai_jk)) {                                
-                                $v_name_3 = $this->m_gender->get($pegawai_jk)->{$this->m_gender->label};
+                                $v_name_3 = $this->M_gender_model->get($pegawai_jk)->{$this->M_gender_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_gender'), 
@@ -101,7 +101,7 @@
                             <?php 
                               $v_name_6 = '';
                               if (!empty($kota_id)) {                                
-                                $v_name_6 = $this->m_kota->get($kota_id)->{$this->m_kota->label};
+                                $v_name_6 = $this->M_kota_model->get($kota_id)->{$this->M_kota_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_kota'), 
@@ -125,7 +125,7 @@
                             <?php 
                               $v_name_7 = '';
                               if (!empty($kecamatan_id)) {                                
-                                $v_name_7 = $this->m_kecamatan->get($kecamatan_id)->{$this->m_kecamatan->label};
+                                $v_name_7 = $this->M_kecamatan_model->get($kecamatan_id)->{$this->M_kecamatan_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_kecamatan'), 
@@ -191,7 +191,7 @@
                             <?php 
                               $v_name_12 = '';
                               if (!empty($user_id)) {                                
-                                $v_name_12 = $this->m_user->get($user_id)->{$this->m_user->label};
+                                $v_name_12 = $this->M_user_model->get($user_id)->{$this->M_user_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_user'), 

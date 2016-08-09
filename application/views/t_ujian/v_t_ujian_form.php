@@ -30,7 +30,7 @@
                             <?php 
                               $v_name_2 = '';
                               if (!empty($ujian_id)) {                                
-                                $v_name_2 = $this->m_ujian->get($ujian_id)->{$this->m_ujian->label};
+                                $v_name_2 = $this->M_ujian_model->get($ujian_id)->{$this->M_ujian_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_ujian'), 
@@ -54,7 +54,7 @@
                             <?php 
                               $v_name_3 = '';
                               if (!empty($t_jadwal_id)) {                                
-                                $v_name_3 = $this->t_jadwal->get($t_jadwal_id)->{$this->t_jadwal->label};
+                                $v_name_3 = $this->T_jadwal_model->get($t_jadwal_id)->{$this->T_jadwal_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/t_jadwal'), 
@@ -103,7 +103,7 @@
                             <?php 
                               $v_name_5 = '';
                               if (!empty($t_ujian_active)) {                                
-                                $v_name_5 = $this->m_status->get($t_ujian_active)->{$this->m_status->label};
+                                $v_name_5 = $this->M_status_model->get($t_ujian_active)->{$this->M_status_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_status'), 

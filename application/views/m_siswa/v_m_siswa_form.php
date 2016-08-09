@@ -42,7 +42,7 @@
                             <?php 
                               $v_name_3 = '';
                               if (!empty($siswa_jk)) {                                
-                                $v_name_3 = $this->m_gender->get($siswa_jk)->{$this->m_gender->label};
+                                $v_name_3 = $this->M_gender_model->get($siswa_jk)->{$this->M_gender_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_gender'), 
@@ -76,7 +76,7 @@
                             <?php 
                               $v_name_5 = '';
                               if (!empty($kota_id)) {                                
-                                $v_name_5 = $this->m_kota->get($kota_id)->{$this->m_kota->label};
+                                $v_name_5 = $this->M_kota_model->get($kota_id)->{$this->M_kota_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_kota'), 
@@ -98,7 +98,7 @@
                             <?php 
                               $v_name_6 = '';
                               if (!empty($kecamatan_id)) {                                
-                                $v_name_6 = $this->m_kecamatan->get($kecamatan_id)->{$this->m_kecamatan->label};
+                                $v_name_6 = $this->M_kecamatan_model->get($kecamatan_id)->{$this->M_kecamatan_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_kecamatan'), 

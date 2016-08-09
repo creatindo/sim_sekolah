@@ -30,7 +30,7 @@
                             <?php 
                               $v_name_2 = '';
                               if (!empty($siswa_id)) {                                
-                                $v_name_2 = $this->m_siswa->get($siswa_id)->{$this->m_siswa->label};
+                                $v_name_2 = $this->M_siswa_model->get($siswa_id)->{$this->M_siswa_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_siswa'), 
@@ -54,7 +54,7 @@
                             <?php 
                               $v_name_3 = '';
                               if (!empty($t_kelas_id)) {                                
-                                $v_name_3 = $this->t_kelas->get($t_kelas_id)->{$this->t_kelas->label};
+                                $v_name_3 = $this->T_kelas_model->get($t_kelas_id)->{$this->T_kelas_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/t_kelas'), 

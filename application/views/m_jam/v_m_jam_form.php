@@ -30,7 +30,7 @@
                             <?php 
                               $v_name_2 = '';
                               if (!empty($jam_active)) {                                
-                                $v_name_2 = $this->m_status->get($jam_active)->{$this->m_status->label};
+                                $v_name_2 = $this->M_status_model->get($jam_active)->{$this->M_status_model->label};
                               }
                               $ddajax = array(
                                   'url' => site_url('form/dd/m_status'), 
