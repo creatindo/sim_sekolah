@@ -36,7 +36,7 @@ foreach ($non_pk as $row) {
                     </div>
                   </div>
                   ";
-    } else if(array_key_exists($row["column_name"], $reference) ) {
+    } else if($row['r_table'] ) {
         $string .= "
                   <div class='col-md-6'>
                     <div class='form-group'>
@@ -45,10 +45,10 @@ foreach ($non_pk as $row) {
                             <?php 
                               \$v_name_".$i." = '';
                               if (!empty($".$row["column_name"].")) {                                
-                                \$v_name_".$i." = \$this->".$reference[$row["column_name"]]["r_model"]."->get($" . $row["column_name"] . ")->{\$this->".$reference[$row["column_name"]]["r_model"]."->label};
+                                \$v_name_".$i." = \$this->".$row["r_model"]."->get($" . $row["column_name"] . ")->{".$row["r_label"]."};
                               }
                               \$ddajax = array(
-                                  'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_model"]."'), 
+                                  'url' => site_url('form/dd/".$row["r_model"]."'), 
                                   'name' =>'".$row["column_name"]."',
                                   'current_selected_id' => $" . $row["column_name"] . ", 
                                   'current_selected_name' => \$v_name_".$i.", 

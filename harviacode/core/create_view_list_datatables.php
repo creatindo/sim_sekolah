@@ -72,12 +72,12 @@ $string .= "
                     <td></td>
                     ";
 foreach ($non_pk as $row) {
-    if(array_key_exists($row["column_name"], $reference) ) {
+    if( $row['r_table'] ) {
         $string .= "
                     <td>
                     <?php 
                       \$ddajax = array(
-                          'url' => site_url('form/dd/".$reference[$row["column_name"]]["r_model"]."'), 
+                          'url' => site_url('form/dd/".$row["r_model"]."'), 
                           'name' =>'".$row["column_name"]."',
                           'class' => 'form-control form-filter input-sm',
                           );
