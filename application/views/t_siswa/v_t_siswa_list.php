@@ -45,7 +45,6 @@
                     <th>T Siswa Nama</th>
                     <th>Siswa Id</th>
                     <th>T Kelas Id</th>
-                    <th>Tahun</th>
                     <th>T Siswa Active</th>
                     <th>Action</th>
                 </tr>
@@ -55,7 +54,6 @@
                     <td><input type="text" class="form-control form-filter input-sm" name="t_siswa_nama"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_id"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="t_kelas_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="tahun"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="t_siswa_active"></td>
                     <td>
                         <div class="margin-bottom-5">

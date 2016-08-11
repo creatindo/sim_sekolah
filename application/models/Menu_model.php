@@ -31,6 +31,7 @@ class Menu_model extends MY_Model
         $dataorder[$i++] = 'icon';
         $dataorder[$i++] = 'is_active';
         $dataorder[$i++] = 'is_parent';
+        $dataorder[$i++] = 'controller';
         if(!empty($this->input->post('menu_nama'))){
             $where['LOWER(menu_nama) LIKE'] = '%'.strtolower($this->input->post('menu_nama')).'%';
         }
@@ -45,6 +46,9 @@ class Menu_model extends MY_Model
         }
         if(!empty($this->input->post('is_parent'))){
             $where['LOWER(is_parent) LIKE'] = '%'.strtolower($this->input->post('is_parent')).'%';
+        }
+        if(!empty($this->input->post('controller'))){
+            $where['LOWER(controller) LIKE'] = '%'.strtolower($this->input->post('controller')).'%';
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

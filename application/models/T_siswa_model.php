@@ -31,7 +31,6 @@ class T_siswa_model extends MY_Model
         $dataorder[$i++] = 't_siswa_nama';
         $dataorder[$i++] = 'siswa_id';
         $dataorder[$i++] = 't_kelas_id';
-        $dataorder[$i++] = 'tahun';
         $dataorder[$i++] = 't_siswa_active';
         if(!empty($this->input->post('t_siswa_nama'))){
             $where['LOWER(t_siswa_nama) LIKE'] = '%'.strtolower($this->input->post('t_siswa_nama')).'%';
@@ -41,9 +40,6 @@ class T_siswa_model extends MY_Model
         }
         if(!empty($this->input->post('t_kelas_id'))){
             $where['LOWER(t_kelas_id) LIKE'] = '%'.strtolower($this->input->post('t_kelas_id')).'%';
-        }
-        if(!empty($this->input->post('tahun'))){
-            $where['LOWER(tahun) LIKE'] = '%'.strtolower($this->input->post('tahun')).'%';
         }
         if(!empty($this->input->post('t_siswa_active'))){
             $where['LOWER(t_siswa_active) LIKE'] = '%'.strtolower($this->input->post('t_siswa_active')).'%';
