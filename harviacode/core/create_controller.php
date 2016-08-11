@@ -95,8 +95,8 @@ $string .="\n\n    public function getDatatable()
                     \$checkbok,
                 ";
                 foreach ($non_pk as $row) {
-                    if(array_key_exists($row["column_name"], $reference) ) {
-                        $string .= "\n\t\t\t\t\t@\$d->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label}, ";
+                    if($row['r_table'] ) {
+                        $string .= "\n\t\t\t\t\t@\$d->". $row["r_table"] ."->{".$row["r_label"]."}, ";
                     }else{
                         $string .= "\n\t\t\t\t\t\$d->". $row['column_name'] .", ";
                     }
@@ -125,8 +125,8 @@ $string.="
         if (\$row) {
             \$data = array(";
 foreach ($all as $row) {
-    if(array_key_exists($row["column_name"], $reference) ) {
-    $string .= "\n\t\t\t'" . $row['column_name'] . "' => @\$row->". $reference[$row["column_name"]]["r_table"] ."->{\$this->".$reference[$row["column_name"]]["r_model"]."->label},";
+    if($row['r_table'] ) {
+    $string .= "\n\t\t\t'" . $row['column_name'] . "' => @\$row->". $row["r_table"] ."->{".$row["r_label"]."},";
     }else{
     $string .= "\n\t\t\t'" . $row['column_name'] . "' => \$row->" . $row['column_name'] . ",";
     }

@@ -45,10 +45,13 @@ if (isset($_POST['generate']))
         $target = $get_setting->target;
         $target_view = $target."views/".$c_url."/";
         
-        $pk = $hc->primary_field($table_name);
-        $non_pk = $hc->not_primary_field($table_name);
-        $all = $hc->all_field($table_name);
+        $pk        = $hc->primary_field($table_name);
+        $non_pk    = $hc->not_primary_field($table_name);
+        $all       = $hc->all_field($table_name);
         $reference = $hc->reference_field($table_name);
+        
+        $non_pk    = $hc->with_reference($non_pk,$reference);
+        $all       = $hc->with_reference($all,$reference);
         
         // create view direktory
         mkdir($target_view);
@@ -133,10 +136,13 @@ if (isset($_POST['generateall'])) {
         // create view direktory
         mkdir($target_view);
         
-        $pk = $hc->primary_field($table_name);
-        $non_pk = $hc->not_primary_field($table_name);
-        $all = $hc->all_field($table_name);
+        $pk        = $hc->primary_field($table_name);
+        $non_pk    = $hc->not_primary_field($table_name);
+        $all       = $hc->all_field($table_name);
         $reference = $hc->reference_field($table_name);
+        
+        $non_pk    = $hc->with_reference($non_pk,$reference);
+        $all       = $hc->with_reference($all,$reference);
         
         //find label
         $label = $pk;

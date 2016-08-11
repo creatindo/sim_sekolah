@@ -128,6 +128,26 @@ class Harviacode
         $this->sql->close();
     }
 
+    public function with_reference($all,$reference)
+    {
+        foreach ($all as $key => $row) {
+
+            if(array_key_exists($row["column_name"], $reference) ) {
+                $all[$key]['r_table']=$reference[$row["column_name"]]["r_table"];
+                $all[$key]['r_column']=$reference[$row["column_name"]]["r_column"];
+                $all[$key]['r_model']=$reference[$row["column_name"]]["r_model"];
+                $all[$key]['r_label']='$this->'.$reference[$row["column_name"]]["r_model"].'->label';
+                
+            }else{
+                $all[$key]['r_table']=false;
+                $all[$key]['r_column']=false;
+                $all[$key]['r_model']=false;
+                $all[$key]['r_label']=false;
+            }
+        }
+        return $all;
+    }
+
 }
 
 $hc = new Harviacode();

@@ -61,16 +61,52 @@
                     
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_nip"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_nama"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_jk"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_gender_model'), 
+                          'name' =>'pegawai_jk',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_tgl_lahir"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_golongan"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kota_id"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="kecamatan_id"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_kota_model'), 
+                          'name' =>'kota_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_kecamatan_model'), 
+                          'name' =>'kecamatan_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_alamat"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_telp"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_foto"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="jabatan"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="user_id"></td>
+                    <td>
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_user_model'), 
+                          'name' =>'user_id',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
+                    </td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
