@@ -120,8 +120,13 @@ class T_ujian_nilai extends CI_Controller
 			);
 
             $this->T_ujian_nilai_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('t_ujian_nilai'));
+            if ($this->input->post('mode') == 'new') {
+                redirect(site_url('t_ujian_nilai/create'));
+                
+            } else {
+                $this->session->set_flashdata('message', 'Create Record Success');
+                redirect(site_url('t_ujian_nilai'));
+            }
         }
     }
     
@@ -184,10 +189,10 @@ class T_ujian_nilai extends CI_Controller
     {
         $id_array=$this->input->post('id[]');
         foreach ($id_array as $id) {
-            $row = $this->Person_model->get($id);
+            $row = $this->T_ujian_nilai_model->get($id);
 
             if ($row) {
-                $this->Person_model->delete($id);
+                $this->T_ujian_nilai_model->delete($id);
             } 
         }
         $result["customActionStatus"]="OK";

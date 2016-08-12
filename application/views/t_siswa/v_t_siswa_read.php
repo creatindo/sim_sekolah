@@ -14,14 +14,13 @@
                     <tr><td>T Siswa Nama</td><td><?php echo $t_siswa_nama; ?></td></tr>
                     <tr><td>Siswa Id</td><td><?php echo $siswa_id; ?></td></tr>
                     <tr><td>T Kelas Id</td><td><?php echo $t_kelas_id; ?></td></tr>
-                    <tr><td>Tahun</td><td><?php echo $tahun; ?></td></tr>
                     <tr><td>T Siswa Active</td><td><?php echo $t_siswa_active; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>
                           <div class='row'>
                             <div class='col-md-offset-5 col-md-7'>
-                                <a href="<?php echo site_url('t_siswa') ?>" class="btn default">Cancel</a>
+                                <a href="<?php echo site_url('t_siswa') ?>" class="btn default">Kembali</a>
                                 <a href="<?php echo site_url('t_siswa/update/'.$id) ?>" class="btn btn-success">Edit</a>
                             </div>
                           </div>

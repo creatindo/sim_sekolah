@@ -21,7 +21,7 @@
                         <div class='form-actions'>
                           <div class='row'>
                             <div class='col-md-offset-5 col-md-7'>
-                                <a href="<?php echo site_url('t_ujian') ?>" class="btn default">Cancel</a>
+                                <a href="<?php echo site_url('t_ujian') ?>" class="btn default">Kembali</a>
                                 <a href="<?php echo site_url('t_ujian/update/'.$id) ?>" class="btn btn-success">Edit</a>
                             </div>
                           </div>

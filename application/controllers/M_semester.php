@@ -104,8 +104,13 @@ class M_semester extends CI_Controller
 			);
 
             $this->M_semester_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('m_semester'));
+            if ($this->input->post('mode') == 'new') {
+                redirect(site_url('m_semester/create'));
+                
+            } else {
+                $this->session->set_flashdata('message', 'Create Record Success');
+                redirect(site_url('m_semester'));
+            }
         }
     }
     
@@ -162,10 +167,10 @@ class M_semester extends CI_Controller
     {
         $id_array=$this->input->post('id[]');
         foreach ($id_array as $id) {
-            $row = $this->Person_model->get($id);
+            $row = $this->M_semester_model->get($id);
 
             if ($row) {
-                $this->Person_model->delete($id);
+                $this->M_semester_model->delete($id);
             } 
         }
         $result["customActionStatus"]="OK";
