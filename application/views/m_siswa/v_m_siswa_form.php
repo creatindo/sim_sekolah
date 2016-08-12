@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form M_SISWA </span>
+            <span class='caption-subject bold uppercase'>Form M SISWA </span>
           </div>
         </div>
         <div class='portlet-body form'>
@@ -61,7 +61,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Siswa Tgl Lahir</label>
                         <div class='col-md-9'>
-                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='yyyy-mm-dd' data-date-startView='decade'>
+                            <div class='input-group date date-decade' >
                                 <input type='text' class='form-control ' readonly name="siswa_tgl_lahir" value="<?php echo $siswa_tgl_lahir; ?>">
                                 <span class='input-group-btn'>
                                     <button class='btn default' type='button'>
@@ -69,14 +69,6 @@
                                     </button>
                                 </span>
                             </div>
-                            <script type='text/javascript'>
-                                $(document).ready(function () {
-                                    $('#tanggal').datepicker({
-                                      startView: 'decade' , 
-                                      autoclose:true 
-                                    });
-                                })
-                            </script>
                             <span class='help-block'> <?php echo form_error('siswa_tgl_lahir') ?> </span>
                         </div>
                     </div>

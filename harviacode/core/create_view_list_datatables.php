@@ -9,7 +9,7 @@ $string .= "
         <div class='portlet-title'>
             <div class=\"caption\">
                 <i class=\"icon-settings font-dark\"></i>
-                <span class=\"caption-subject font-dark sbold uppercase\">".  strtoupper($c)."  </span>
+                <span class=\"caption-subject font-dark sbold uppercase\">".  label(strtoupper($c))."  </span>
             </div>
             <div class=\"actions\">
                 <div class=\"btn-group\" >
@@ -72,7 +72,24 @@ $string .= "
                     <td></td>
                     ";
 foreach ($non_pk as $row) {
-    if( $row['r_table'] ) {
+    if ($row["data_type"] == 'numeric') {
+        $string .= "
+                    <td>
+                        <input type=\"text\" class=\"form-control form-filter input-sm\" name=\"" . $row['column_name'] . "_start\">
+                        <input type=\"text\" class=\"form-control form-filter input-sm\" name=\"" . $row['column_name'] . "_end\">
+                    </td>";
+    } else if($row["data_type"] == 'date' || $row["data_type"] == 'year'){
+        if ($row["data_type"] == 'date') {
+          $class_date ='date-decade';
+        }elseif($row["data_type"] == 'year'){
+          $class_date ='date-year';
+        }
+        $string .= "
+                    <td>
+                        <input class=\"form-control form-control form-filter input-sm ".$class_date." \" readonly name=\"" . $row["column_name"] . "_start\"  type=\"text\" value=\"\" />
+                        <input class=\"form-control form-control form-filter input-sm ".$class_date." \" readonly name=\"" . $row["column_name"] . "_end\"  type=\"text\" value=\"\" />
+                    </td>";
+    }else if( $row['r_table'] ) {
         $string .= "
                     <td>
                     <?php 

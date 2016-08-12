@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form T_JADWAL </span>
+            <span class='caption-subject bold uppercase'>Form T JADWAL </span>
           </div>
         </div>
         <div class='portlet-body form'>

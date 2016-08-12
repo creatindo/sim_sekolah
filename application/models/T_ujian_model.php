@@ -38,16 +38,19 @@ class T_ujian_model extends MY_Model
             $where['LOWER(t_ujian_nama) LIKE'] = '%'.strtolower($this->input->post('t_ujian_nama')).'%';
         }
         if(!empty($this->input->post('ujian_id'))){
-            $where['LOWER(ujian_id) LIKE'] = '%'.strtolower($this->input->post('ujian_id')).'%';
+            $where['ujian_id'] = $this->input->post('ujian_id');
         }
         if(!empty($this->input->post('t_jadwal_id'))){
-            $where['LOWER(t_jadwal_id) LIKE'] = '%'.strtolower($this->input->post('t_jadwal_id')).'%';
+            $where['t_jadwal_id'] = $this->input->post('t_jadwal_id');
         }
-        if(!empty($this->input->post('t_ujian_tanggal'))){
-            $where['LOWER(t_ujian_tanggal) LIKE'] = '%'.strtolower($this->input->post('t_ujian_tanggal')).'%';
+        if(!empty($this->input->post('t_ujian_tanggal_start'))){
+            $where['t_ujian_tanggal >='] = $this->input->post('t_ujian_tanggal_start');
+        }
+        if(!empty($this->input->post('t_ujian_tanggal_end'))){
+            $where['t_ujian_tanggal <='] = $this->input->post('t_ujian_tanggal_end');
         }
         if(!empty($this->input->post('t_ujian_active'))){
-            $where['LOWER(t_ujian_active) LIKE'] = '%'.strtolower($this->input->post('t_ujian_active')).'%';
+            $where['t_ujian_active'] = $this->input->post('t_ujian_active');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

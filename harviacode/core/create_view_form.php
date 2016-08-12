@@ -8,7 +8,7 @@ $string = "
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form ".  strtoupper($c)." </span>
+            <span class='caption-subject bold uppercase'>Form ".  label(strtoupper($c))." </span>
           </div>
         </div>
         <div class='portlet-body form'>";
@@ -60,13 +60,19 @@ foreach ($non_pk as $row) {
                     </div>
                   </div>
                   ";
-    } else if($row["data_type"] == 'date'){
+    } else if($row["data_type"] == 'date' || $row["data_type"] == 'year' ){
+        if ($row["data_type"] == 'date') {
+          $class_date ='date-decade';
+        }elseif($row["data_type"] == 'year'){
+          $class_date ='date-year';
+        }
+        
         $string .= "
                   <div class='col-md-6'>
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
-                            <div id = 'tanggal' class='input-group date date-picker' data-date-format='yyyy-mm-dd' data-date-startView='decade'>
+                            <div class='input-group date ".$class_date."' >
                                 <input type='text' class='form-control ' readonly name=\"" . $row["column_name"] . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\">
                                 <span class='input-group-btn'>
                                     <button class='btn default' type='button'>
@@ -74,14 +80,6 @@ foreach ($non_pk as $row) {
                                     </button>
                                 </span>
                             </div>
-                            <script type='text/javascript'>
-                                $(document).ready(function () {
-                                    $('#tanggal').datepicker({
-                                      startView: 'decade' , 
-                                      autoclose:true 
-                                    });
-                                })
-                            </script>
                             <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
                         </div>
                     </div>

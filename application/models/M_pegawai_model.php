@@ -49,19 +49,22 @@ class M_pegawai_model extends MY_Model
             $where['LOWER(pegawai_nama) LIKE'] = '%'.strtolower($this->input->post('pegawai_nama')).'%';
         }
         if(!empty($this->input->post('pegawai_jk'))){
-            $where['LOWER(pegawai_jk) LIKE'] = '%'.strtolower($this->input->post('pegawai_jk')).'%';
+            $where['pegawai_jk'] = $this->input->post('pegawai_jk');
         }
-        if(!empty($this->input->post('pegawai_tgl_lahir'))){
-            $where['LOWER(pegawai_tgl_lahir) LIKE'] = '%'.strtolower($this->input->post('pegawai_tgl_lahir')).'%';
+        if(!empty($this->input->post('pegawai_tgl_lahir_start'))){
+            $where['pegawai_tgl_lahir >='] = $this->input->post('pegawai_tgl_lahir_start');
+        }
+        if(!empty($this->input->post('pegawai_tgl_lahir_end'))){
+            $where['pegawai_tgl_lahir <='] = $this->input->post('pegawai_tgl_lahir_end');
         }
         if(!empty($this->input->post('pegawai_golongan'))){
             $where['LOWER(pegawai_golongan) LIKE'] = '%'.strtolower($this->input->post('pegawai_golongan')).'%';
         }
         if(!empty($this->input->post('kota_id'))){
-            $where['LOWER(kota_id) LIKE'] = '%'.strtolower($this->input->post('kota_id')).'%';
+            $where['kota_id'] = $this->input->post('kota_id');
         }
         if(!empty($this->input->post('kecamatan_id'))){
-            $where['LOWER(kecamatan_id) LIKE'] = '%'.strtolower($this->input->post('kecamatan_id')).'%';
+            $where['kecamatan_id'] = $this->input->post('kecamatan_id');
         }
         if(!empty($this->input->post('pegawai_alamat'))){
             $where['LOWER(pegawai_alamat) LIKE'] = '%'.strtolower($this->input->post('pegawai_alamat')).'%';
@@ -76,7 +79,7 @@ class M_pegawai_model extends MY_Model
             $where['LOWER(jabatan) LIKE'] = '%'.strtolower($this->input->post('jabatan')).'%';
         }
         if(!empty($this->input->post('user_id'))){
-            $where['LOWER(user_id) LIKE'] = '%'.strtolower($this->input->post('user_id')).'%';
+            $where['user_id'] = $this->input->post('user_id');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

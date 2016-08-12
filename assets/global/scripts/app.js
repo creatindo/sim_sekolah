@@ -548,6 +548,35 @@ var App = function() {
         }
     };
 
+    var handleDatePickers = function () {
+
+        if (jQuery().datepicker) {
+            $('.date-picker').datepicker({
+                rtl: App.isRTL(),
+                orientation: "left",
+                format:'yyyy-mm-dd',
+                autoclose: true
+            });
+            $('.date-decade').datepicker({
+                rtl: App.isRTL(),
+                orientation: "left",
+                format:'yyyy-mm-dd',
+                startView: 'decade' ,
+                autoclose: true
+            });
+            $('.date-year').datepicker({
+                rtl: App.isRTL(),
+                orientation: "left",
+                format:'yyyy',
+                minViewMode:'years',
+                autoclose: true
+            });
+            //$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
+        }
+
+        /* Workaround to restrict daterange past date select: http://stackoverflow.com/questions/11933173/how-to-restrict-the-selectable-date-ranges-in-bootstrap-datepicker */
+    }
+
     // handle group element heights
    var handleHeight = function() {
        $('[data-auto-height]').each(function() {
@@ -606,6 +635,7 @@ var App = function() {
             handleScrollers(); // handles slim scrolling contents 
             handleFancybox(); // handle fancy box
             handleSelect2(); // handle custom Select2 dropdowns
+            handleDatePickers();
             handlePortletTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
             handleAlerts(); //handle closabled alerts
             handleDropdowns(); // handle dropdowns

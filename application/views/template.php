@@ -74,7 +74,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="<?php echo base_url(); ?>assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/scripts/app.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
 

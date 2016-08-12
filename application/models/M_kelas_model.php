@@ -33,7 +33,7 @@ class M_kelas_model extends MY_Model
             $where['LOWER(kelas_nama) LIKE'] = '%'.strtolower($this->input->post('kelas_nama')).'%';
         }
         if(!empty($this->input->post('kelas_active'))){
-            $where['LOWER(kelas_active) LIKE'] = '%'.strtolower($this->input->post('kelas_active')).'%';
+            $where['kelas_active'] = $this->input->post('kelas_active');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

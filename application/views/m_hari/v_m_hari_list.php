@@ -7,7 +7,7 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">M_HARI  </span>
+                <span class="caption-subject font-dark sbold uppercase">M HARI  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >

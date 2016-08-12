@@ -37,13 +37,16 @@ class T_siswa_model extends MY_Model
             $where['LOWER(t_siswa_nama) LIKE'] = '%'.strtolower($this->input->post('t_siswa_nama')).'%';
         }
         if(!empty($this->input->post('siswa_id'))){
-            $where['LOWER(siswa_id) LIKE'] = '%'.strtolower($this->input->post('siswa_id')).'%';
+            $where['siswa_id'] = $this->input->post('siswa_id');
         }
         if(!empty($this->input->post('t_kelas_id'))){
-            $where['LOWER(t_kelas_id) LIKE'] = '%'.strtolower($this->input->post('t_kelas_id')).'%';
+            $where['t_kelas_id'] = $this->input->post('t_kelas_id');
         }
-        if(!empty($this->input->post('tahun'))){
-            $where['LOWER(tahun) LIKE'] = '%'.strtolower($this->input->post('tahun')).'%';
+        if(!empty($this->input->post('tahun_start'))){
+            $where['tahun >='] = $this->input->post('tahun_start');
+        }
+        if(!empty($this->input->post('tahun_end'))){
+            $where['tahun <='] = $this->input->post('tahun_end');
         }
         if(!empty($this->input->post('t_siswa_active'))){
             $where['LOWER(t_siswa_active) LIKE'] = '%'.strtolower($this->input->post('t_siswa_active')).'%';

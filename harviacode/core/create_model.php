@@ -38,10 +38,33 @@ foreach ($non_pk as $row) {
         \$dataorder[\$i++] = '". $row['column_name'] ."';";
 }
 foreach ($non_pk as $row) {
-    $string .= "
+    if ($row["data_type"] == 'numeric') {
+        $string .= "
+        if(!empty(\$this->input->post('" . $row['column_name'] ."_start'))){
+            \$where['" . $row['column_name'] ." >='] = \$this->input->post('" . $row['column_name'] ."_start');
+        }
+        if(!empty(\$this->input->post('" . $row['column_name'] ."_end'))){
+            \$where['" . $row['column_name'] ." <='] = \$this->input->post('" . $row['column_name'] ."_end');
+        }";
+    }else if ($row["data_type"] == 'date' || $row["data_type"] == 'year' ) {
+        $string .= "
+        if(!empty(\$this->input->post('" . $row['column_name'] ."_start'))){
+            \$where['" . $row['column_name'] ." >='] = \$this->input->post('" . $row['column_name'] ."_start');
+        }
+        if(!empty(\$this->input->post('" . $row['column_name'] ."_end'))){
+            \$where['" . $row['column_name'] ." <='] = \$this->input->post('" . $row['column_name'] ."_end');
+        }";
+    }else if ($row['r_table']){
+        $string .= "
+        if(!empty(\$this->input->post('" . $row['column_name'] ."'))){
+            \$where['" . $row['column_name'] ."'] = \$this->input->post('" . $row['column_name'] ."');
+        }";
+    }else{
+        $string .= "
         if(!empty(\$this->input->post('" . $row['column_name'] ."'))){
             \$where['LOWER(" . $row['column_name'] .") LIKE'] = '%'.strtolower(\$this->input->post('" . $row['column_name'] ."')).'%';
         }";
+    }
 }    
 
 $string .= "

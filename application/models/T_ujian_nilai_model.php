@@ -36,10 +36,10 @@ class T_ujian_nilai_model extends MY_Model
             $where['LOWER(nilai_nama) LIKE'] = '%'.strtolower($this->input->post('nilai_nama')).'%';
         }
         if(!empty($this->input->post('t_ujian_id'))){
-            $where['LOWER(t_ujian_id) LIKE'] = '%'.strtolower($this->input->post('t_ujian_id')).'%';
+            $where['t_ujian_id'] = $this->input->post('t_ujian_id');
         }
         if(!empty($this->input->post('t_siswa_id'))){
-            $where['LOWER(t_siswa_id) LIKE'] = '%'.strtolower($this->input->post('t_siswa_id')).'%';
+            $where['t_siswa_id'] = $this->input->post('t_siswa_id');
         }
         if(!empty($this->input->post('nilai'))){
             $where['LOWER(nilai) LIKE'] = '%'.strtolower($this->input->post('nilai')).'%';

@@ -47,16 +47,19 @@ class M_siswa_model extends MY_Model
             $where['LOWER(siswa_nama) LIKE'] = '%'.strtolower($this->input->post('siswa_nama')).'%';
         }
         if(!empty($this->input->post('siswa_jk'))){
-            $where['LOWER(siswa_jk) LIKE'] = '%'.strtolower($this->input->post('siswa_jk')).'%';
+            $where['siswa_jk'] = $this->input->post('siswa_jk');
         }
-        if(!empty($this->input->post('siswa_tgl_lahir'))){
-            $where['LOWER(siswa_tgl_lahir) LIKE'] = '%'.strtolower($this->input->post('siswa_tgl_lahir')).'%';
+        if(!empty($this->input->post('siswa_tgl_lahir_start'))){
+            $where['siswa_tgl_lahir >='] = $this->input->post('siswa_tgl_lahir_start');
+        }
+        if(!empty($this->input->post('siswa_tgl_lahir_end'))){
+            $where['siswa_tgl_lahir <='] = $this->input->post('siswa_tgl_lahir_end');
         }
         if(!empty($this->input->post('kota_id'))){
-            $where['LOWER(kota_id) LIKE'] = '%'.strtolower($this->input->post('kota_id')).'%';
+            $where['kota_id'] = $this->input->post('kota_id');
         }
         if(!empty($this->input->post('kecamatan_id'))){
-            $where['LOWER(kecamatan_id) LIKE'] = '%'.strtolower($this->input->post('kecamatan_id')).'%';
+            $where['kecamatan_id'] = $this->input->post('kecamatan_id');
         }
         if(!empty($this->input->post('siswa_alamat'))){
             $where['LOWER(siswa_alamat) LIKE'] = '%'.strtolower($this->input->post('siswa_alamat')).'%';

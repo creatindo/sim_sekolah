@@ -33,7 +33,7 @@ class M_jurusan_model extends MY_Model
             $where['LOWER(jurusan_nama) LIKE'] = '%'.strtolower($this->input->post('jurusan_nama')).'%';
         }
         if(!empty($this->input->post('jurusan_active'))){
-            $where['LOWER(jurusan_active) LIKE'] = '%'.strtolower($this->input->post('jurusan_active')).'%';
+            $where['jurusan_active'] = $this->input->post('jurusan_active');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

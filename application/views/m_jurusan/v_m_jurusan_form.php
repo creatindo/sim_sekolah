@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form M_JURUSAN </span>
+            <span class='caption-subject bold uppercase'>Form M JURUSAN </span>
           </div>
         </div>
         <div class='portlet-body form'>

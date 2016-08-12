@@ -33,7 +33,7 @@ class M_ujian_model extends MY_Model
             $where['LOWER(ujian_nama) LIKE'] = '%'.strtolower($this->input->post('ujian_nama')).'%';
         }
         if(!empty($this->input->post('ujian_active'))){
-            $where['LOWER(ujian_active) LIKE'] = '%'.strtolower($this->input->post('ujian_active')).'%';
+            $where['ujian_active'] = $this->input->post('ujian_active');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

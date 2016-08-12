@@ -38,19 +38,19 @@ class T_jadwal_model extends MY_Model
         $dataorder[$i++] = 'pegawai_id';
         $dataorder[$i++] = 'jadwal_active';
         if(!empty($this->input->post('jam_id'))){
-            $where['LOWER(jam_id) LIKE'] = '%'.strtolower($this->input->post('jam_id')).'%';
+            $where['jam_id'] = $this->input->post('jam_id');
         }
         if(!empty($this->input->post('hari_id'))){
-            $where['LOWER(hari_id) LIKE'] = '%'.strtolower($this->input->post('hari_id')).'%';
+            $where['hari_id'] = $this->input->post('hari_id');
         }
         if(!empty($this->input->post('mapel_id'))){
-            $where['LOWER(mapel_id) LIKE'] = '%'.strtolower($this->input->post('mapel_id')).'%';
+            $where['mapel_id'] = $this->input->post('mapel_id');
         }
         if(!empty($this->input->post('t_kelas_id'))){
-            $where['LOWER(t_kelas_id) LIKE'] = '%'.strtolower($this->input->post('t_kelas_id')).'%';
+            $where['t_kelas_id'] = $this->input->post('t_kelas_id');
         }
         if(!empty($this->input->post('pegawai_id'))){
-            $where['LOWER(pegawai_id) LIKE'] = '%'.strtolower($this->input->post('pegawai_id')).'%';
+            $where['pegawai_id'] = $this->input->post('pegawai_id');
         }
         if(!empty($this->input->post('jadwal_active'))){
             $where['LOWER(jadwal_active) LIKE'] = '%'.strtolower($this->input->post('jadwal_active')).'%';

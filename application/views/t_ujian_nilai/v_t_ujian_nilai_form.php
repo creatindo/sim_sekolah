@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form T_UJIAN_NILAI </span>
+            <span class='caption-subject bold uppercase'>Form T UJIAN NILAI </span>
           </div>
         </div>
         <div class='portlet-body form'>

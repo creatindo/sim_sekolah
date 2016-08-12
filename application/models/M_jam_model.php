@@ -33,7 +33,7 @@ class M_jam_model extends MY_Model
             $where['LOWER(jam_nama) LIKE'] = '%'.strtolower($this->input->post('jam_nama')).'%';
         }
         if(!empty($this->input->post('jam_active'))){
-            $where['LOWER(jam_active) LIKE'] = '%'.strtolower($this->input->post('jam_active')).'%';
+            $where['jam_active'] = $this->input->post('jam_active');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

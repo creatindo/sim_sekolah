@@ -6,7 +6,7 @@
       <div class='portlet light'>
         <div class='portlet-title'>
           <div class='caption font-green'>
-            <span class='caption-subject bold uppercase'>Form T_KELAS </span>
+            <span class='caption-subject bold uppercase'>Form T KELAS </span>
           </div>
         </div>
         <div class='portlet-body form'>
@@ -97,7 +97,14 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Tahun</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="tahun" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
+                            <div class='input-group date date-year' >
+                                <input type='text' class='form-control ' readonly name="tahun" value="<?php echo $tahun; ?>">
+                                <span class='input-group-btn'>
+                                    <button class='btn default' type='button'>
+                                        <i class='fa fa-calendar'></i>
+                                    </button>
+                                </span>
+                            </div>
                             <span class='help-block'> <?php echo form_error('tahun') ?> </span>
                         </div>
                     </div>

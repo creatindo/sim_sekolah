@@ -7,7 +7,7 @@
         <div class='portlet-title'>
             <div class="caption">
                 <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">T_SISWA  </span>
+                <span class="caption-subject font-dark sbold uppercase">T SISWA  </span>
             </div>
             <div class="actions">
                 <div class="btn-group" >
@@ -73,7 +73,10 @@
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                     ?>
                     </td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="tahun"></td>
+                    <td>
+                        <input class="form-control form-control form-filter input-sm date-decade " readonly name="tahun_start"  type="text" value="" />
+                        <input class="form-control form-control form-filter input-sm date-decade " readonly name="tahun_end"  type="text" value="" />
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="t_siswa_active"></td>
                     <td>
                         <div class="margin-bottom-5">

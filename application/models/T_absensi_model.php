@@ -36,10 +36,10 @@ class T_absensi_model extends MY_Model
             $where['LOWER(absensi_nama) LIKE'] = '%'.strtolower($this->input->post('absensi_nama')).'%';
         }
         if(!empty($this->input->post('jadwal_id'))){
-            $where['LOWER(jadwal_id) LIKE'] = '%'.strtolower($this->input->post('jadwal_id')).'%';
+            $where['jadwal_id'] = $this->input->post('jadwal_id');
         }
         if(!empty($this->input->post('t_siswa_id'))){
-            $where['LOWER(t_siswa_id) LIKE'] = '%'.strtolower($this->input->post('t_siswa_id')).'%';
+            $where['t_siswa_id'] = $this->input->post('t_siswa_id');
         }
         if(!empty($this->input->post('siswa'))){
             $where['LOWER(siswa) LIKE'] = '%'.strtolower($this->input->post('siswa')).'%';

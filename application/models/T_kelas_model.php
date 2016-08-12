@@ -38,16 +38,19 @@ class T_kelas_model extends MY_Model
             $where['LOWER(t_kelas_nama) LIKE'] = '%'.strtolower($this->input->post('t_kelas_nama')).'%';
         }
         if(!empty($this->input->post('kelas_id'))){
-            $where['LOWER(kelas_id) LIKE'] = '%'.strtolower($this->input->post('kelas_id')).'%';
+            $where['kelas_id'] = $this->input->post('kelas_id');
         }
         if(!empty($this->input->post('jurusan_id'))){
-            $where['LOWER(jurusan_id) LIKE'] = '%'.strtolower($this->input->post('jurusan_id')).'%';
+            $where['jurusan_id'] = $this->input->post('jurusan_id');
         }
         if(!empty($this->input->post('semester_id'))){
-            $where['LOWER(semester_id) LIKE'] = '%'.strtolower($this->input->post('semester_id')).'%';
+            $where['semester_id'] = $this->input->post('semester_id');
         }
-        if(!empty($this->input->post('tahun'))){
-            $where['LOWER(tahun) LIKE'] = '%'.strtolower($this->input->post('tahun')).'%';
+        if(!empty($this->input->post('tahun_start'))){
+            $where['tahun >='] = $this->input->post('tahun_start');
+        }
+        if(!empty($this->input->post('tahun_end'))){
+            $where['tahun <='] = $this->input->post('tahun_end');
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
