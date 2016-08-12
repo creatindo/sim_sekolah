@@ -84,8 +84,12 @@
                         },
                         "order": [
                             [1, "asc"]
-                        ]// set first column as a default sort by asc
-                    }
+                        ],// set first column as a default sort by asc
+                        fixedColumns:   {
+                            leftColumns: 1,
+                            rightColumns: 1
+                        }
+                    },
                 });
             }
             jQuery(document).ready(function() {

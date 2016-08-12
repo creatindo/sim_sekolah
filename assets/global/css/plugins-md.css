@@ -935,7 +935,22 @@ Extended pagination
   .dataTables_extended_wrapper .seperator {
     padding: 0 2px; }
   .dataTables_extended_wrapper .table.dataTable {
-    margin: 20px 0 !important; }
+    /*margin: 20px 0 !important; */
+  }
+  .table-responsive {
+      min-height: 0.01%;
+      overflow-x: hidden;
+  }
+/*  .portlet-datatable .dataTables_wrapper .table-responsive {
+    overflow-x: hidden !important;
+    padding: 0 2px !important;
+}*/
+  /*.dataTables_extended_wrapper .DTFC_ScrollWrapper {
+    margin-top: 20px !important; 
+  }
+  .dataTables_extended_wrapper .DTFC_ScrollWrapper .table.dataTable {
+    margin-top: 0 !important; 
+  }*/
   .dataTables_extended_wrapper div.dataTables_paginate,
   .dataTables_extended_wrapper div.dataTables_length,
   .dataTables_extended_wrapper div.dataTables_info {

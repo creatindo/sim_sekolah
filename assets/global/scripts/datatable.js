@@ -64,6 +64,16 @@ var Datatable = function() {
                             "pageOf": "of"
                         }
                     },
+                    // "scrollY":        "300px",
+                    // "fixedColumns": true,
+                    "scrollX":        true,
+                    // "bScrollAutoCss": true, 
+                    // "bScrollCollapse": true, 
+                    // "scrollCollapse": true,
+                    "fixedColumns":   {
+                        "leftColumns": 1,
+                        "rightColumns": 1
+                    },
 
                     "orderCellsTop": true,
                     "columnDefs": [{ // define columns sorting options(by default all columns are sortable extept the first checkbox column)
