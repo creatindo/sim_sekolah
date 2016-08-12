@@ -110,8 +110,13 @@ class M_kelas extends CI_Controller
 			);
 
             $this->M_kelas_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('m_kelas'));
+            if ($this->input->post('mode') == 'new') {
+                redirect(site_url('m_kelas/create'));
+                
+            } else {
+                $this->session->set_flashdata('message', 'Create Record Success');
+                redirect(site_url('m_kelas'));
+            }
         }
     }
     
@@ -170,10 +175,10 @@ class M_kelas extends CI_Controller
     {
         $id_array=$this->input->post('id[]');
         foreach ($id_array as $id) {
-            $row = $this->Person_model->get($id);
+            $row = $this->M_kelas_model->get($id);
 
             if ($row) {
-                $this->Person_model->delete($id);
+                $this->M_kelas_model->delete($id);
             } 
         }
         $result["customActionStatus"]="OK";

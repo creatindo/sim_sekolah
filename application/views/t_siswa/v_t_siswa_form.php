@@ -71,25 +71,6 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Tahun</label>
-                        <div class='col-md-9'>
-                            <div class='input-group date date-decade' >
-                                <input type='text' class='form-control ' readonly name="tahun" value="<?php echo $tahun; ?>">
-                                <span class='input-group-btn'>
-                                    <button class='btn default' type='button'>
-                                        <i class='fa fa-calendar'></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <span class='help-block'> <?php echo form_error('tahun') ?> </span>
-                        </div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class='row'>
-                  <div class='col-md-6'>
-                    <div class='form-group'>
                         <label class='col-md-3 control-label'>T Siswa Active</label>
                         <div class='col-md-9'>
                             <input type="text" class="form-control" name="t_siswa_active" id="t_siswa_active" placeholder="T Siswa Active" value="<?php echo $t_siswa_active; ?>" />
@@ -104,8 +85,11 @@
                 <div class='form-actions'>
                   <div class='row'>
                       <div class='col-md-offset-5 col-md-7'>
-                        <a href="<?php echo site_url('t_siswa') ?>" class="btn default">Cancel</a>
-                        <button type='submit' class='btn green'>Submit</button>
+                        <a href="<?php echo site_url('t_siswa') ?>" class="btn default">Kembali</a>
+                        <?php if ($button == 'Create'): ?>
+                        <button type='submit' class='btn green' name='mode' value='new' >Simpan</button>
+                        <?php endif ?>
+                        <button type='submit' class='btn blue' >Selesai</button>
                     </div>
                   </div>
                 </div>

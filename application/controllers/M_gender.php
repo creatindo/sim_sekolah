@@ -108,8 +108,13 @@ class M_gender extends CI_Controller
 			);
 
             $this->M_gender_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('m_gender'));
+            if ($this->input->post('mode') == 'new') {
+                redirect(site_url('m_gender/create'));
+                
+            } else {
+                $this->session->set_flashdata('message', 'Create Record Success');
+                redirect(site_url('m_gender'));
+            }
         }
     }
     
@@ -168,10 +173,10 @@ class M_gender extends CI_Controller
     {
         $id_array=$this->input->post('id[]');
         foreach ($id_array as $id) {
-            $row = $this->Person_model->get($id);
+            $row = $this->M_gender_model->get($id);
 
             if ($row) {
-                $this->Person_model->delete($id);
+                $this->M_gender_model->delete($id);
             } 
         }
         $result["customActionStatus"]="OK";

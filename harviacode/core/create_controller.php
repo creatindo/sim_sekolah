@@ -166,8 +166,13 @@ foreach ($non_pk as $row) {
 $string .= "\n\t\t\t);
 
             \$this->".$m."->insert(\$data);
-            \$this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('$c_url'));
+            if (\$this->input->post('mode') == 'new') {
+                redirect(site_url('$c_url/create'));
+                
+            } else {
+                \$this->session->set_flashdata('message', 'Create Record Success');
+                redirect(site_url('$c_url'));
+            }
         }
     }
     
@@ -227,10 +232,10 @@ $string .= "\n\t\t    );
     {
         \$id_array=\$this->input->post('id[]');
         foreach (\$id_array as \$id) {
-            \$row = \$this->Person_model->get(\$id);
+            \$row = \$this->".$m."->get(\$id);
 
             if (\$row) {
-                \$this->Person_model->delete(\$id);
+                \$this->".$m."->delete(\$id);
             } 
         }
         \$result[\"customActionStatus\"]=\"OK\";

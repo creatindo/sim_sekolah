@@ -22,7 +22,7 @@
                         <div class='form-actions'>
                           <div class='row'>
                             <div class='col-md-offset-5 col-md-7'>
-                                <a href="<?php echo site_url('menu') ?>" class="btn default">Cancel</a>
+                                <a href="<?php echo site_url('menu') ?>" class="btn default">Kembali</a>
                                 <a href="<?php echo site_url('menu/update/'.$id) ?>" class="btn btn-success">Edit</a>
                             </div>
                           </div>

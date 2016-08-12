@@ -112,8 +112,13 @@ class M_user extends CI_Controller
 			);
 
             $this->M_user_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('m_user'));
+            if ($this->input->post('mode') == 'new') {
+                redirect(site_url('m_user/create'));
+                
+            } else {
+                $this->session->set_flashdata('message', 'Create Record Success');
+                redirect(site_url('m_user'));
+            }
         }
     }
     
@@ -174,10 +179,10 @@ class M_user extends CI_Controller
     {
         $id_array=$this->input->post('id[]');
         foreach ($id_array as $id) {
-            $row = $this->Person_model->get($id);
+            $row = $this->M_user_model->get($id);
 
             if ($row) {
-                $this->Person_model->delete($id);
+                $this->M_user_model->delete($id);
             } 
         }
         $result["customActionStatus"]="OK";

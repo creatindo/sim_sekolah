@@ -29,8 +29,11 @@
                 <div class='form-actions'>
                   <div class='row'>
                       <div class='col-md-offset-5 col-md-7'>
-                        <a href="<?php echo site_url('m_hari') ?>" class="btn default">Cancel</a>
-                        <button type='submit' class='btn green'>Submit</button>
+                        <a href="<?php echo site_url('m_hari') ?>" class="btn default">Kembali</a>
+                        <?php if ($button == 'Create'): ?>
+                        <button type='submit' class='btn green' name='mode' value='new' >Simpan</button>
+                        <?php endif ?>
+                        <button type='submit' class='btn blue' >Selesai</button>
                     </div>
                   </div>
                 </div>
