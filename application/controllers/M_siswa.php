@@ -66,6 +66,7 @@ class M_siswa extends CI_Controller
 					$d->siswa_ibu, 
 					$d->siswa_wali, 
 					$d->telp_ortu, 
+					$d->siswa_img, 
                     $view.$edit.$delete
                 );
             }
@@ -98,6 +99,7 @@ class M_siswa extends CI_Controller
 			'siswa_ibu' => $row->siswa_ibu,
 			'siswa_wali' => $row->siswa_wali,
 			'telp_ortu' => $row->telp_ortu,
+			'siswa_img' => $row->siswa_img,
 		);
             $data['id'] = $id;
             $this->template->load('template','m_siswa/v_m_siswa_read', $data);
@@ -124,6 +126,7 @@ class M_siswa extends CI_Controller
 			'siswa_ibu' => set_value('siswa_ibu'),
 			'siswa_wali' => set_value('siswa_wali'),
 			'telp_ortu' => set_value('telp_ortu'),
+			'siswa_img' => set_value('siswa_img'),
 		);
         $this->template->load('template','m_siswa/v_m_siswa_form', $data);
     }
@@ -147,6 +150,7 @@ class M_siswa extends CI_Controller
 				'siswa_ibu' => $this->input->post('siswa_ibu',TRUE),
 				'siswa_wali' => $this->input->post('siswa_wali',TRUE),
 				'telp_ortu' => $this->input->post('telp_ortu',TRUE),
+				'siswa_img' => $this->input->post('siswa_img',TRUE),
 			);
 
             $this->M_siswa_model->insert($data);
@@ -180,6 +184,7 @@ class M_siswa extends CI_Controller
 				'siswa_ibu' => set_value('siswa_ibu', $row->siswa_ibu),
 				'siswa_wali' => set_value('siswa_wali', $row->siswa_wali),
 				'telp_ortu' => set_value('telp_ortu', $row->telp_ortu),
+				'siswa_img' => set_value('siswa_img', $row->siswa_img),
 			);
             $this->template->load('template','m_siswa/v_m_siswa_form', $data);
         } else {
@@ -207,6 +212,7 @@ class M_siswa extends CI_Controller
 				'siswa_ibu' => $this->input->post('siswa_ibu',TRUE),
 				'siswa_wali' => $this->input->post('siswa_wali',TRUE),
 				'telp_ortu' => $this->input->post('telp_ortu',TRUE),
+				'siswa_img' => $this->input->post('siswa_img',TRUE),
 		    );
 
             $this->M_siswa_model->update($data,$this->input->post('siswa_id', TRUE));
@@ -257,6 +263,7 @@ class M_siswa extends CI_Controller
 		$this->form_validation->set_rules('siswa_ibu', 'siswa ibu', 'trim|required');
 		$this->form_validation->set_rules('siswa_wali', 'siswa wali', 'trim|required');
 		$this->form_validation->set_rules('telp_ortu', 'telp ortu', 'trim|required');
+		$this->form_validation->set_rules('siswa_img', 'siswa img', 'trim|required');
 
 		$this->form_validation->set_rules('siswa_id', 'siswa_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -295,6 +302,7 @@ class M_siswa extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Ibu");
 		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Wali");
 		xlsWriteLabel($tablehead, $kolomhead++, "Telp Ortu");
+		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Img");
 
 		foreach ($this->M_siswa_model->get_all() as $data) {
             $kolombody = 0;
@@ -312,6 +320,7 @@ class M_siswa extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_ibu);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_wali);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->telp_ortu);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_img);
 
 		    $tablebody++;
             $nourut++;

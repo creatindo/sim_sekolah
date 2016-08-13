@@ -176,6 +176,17 @@
                     </div>
                   </div>
                   
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'> imgSiswa Img</label>
+                        <div class='col-md-9'>
+                            <input type="hidden" class="form-control" name="siswa_img" id="siswa_img" placeholder="Siswa Img" value="<?php echo $siswa_img; ?>" />
+                            <img class="upload_img_single" id="siswa_img_preview" style="width: 100px; height: 100px;" src="<?php echo base_url('uploads/temp/'.$siswa_img); ?>"  alt="Image">
+                            <span class='help-block'> <?php echo form_error('siswa_img') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  
                 </div>
                   <input type="hidden" name="siswa_id" value="<?php echo $siswa_id; ?>" />
                 </div>

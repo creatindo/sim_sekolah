@@ -40,6 +40,7 @@ class M_siswa_model extends MY_Model
         $dataorder[$i++] = 'siswa_ibu';
         $dataorder[$i++] = 'siswa_wali';
         $dataorder[$i++] = 'telp_ortu';
+        $dataorder[$i++] = 'siswa_img';
         if(!empty($this->input->post('siswa_nis'))){
             $where['LOWER(siswa_nis) LIKE'] = '%'.strtolower($this->input->post('siswa_nis')).'%';
         }
@@ -75,6 +76,9 @@ class M_siswa_model extends MY_Model
         }
         if(!empty($this->input->post('telp_ortu'))){
             $where['LOWER(telp_ortu) LIKE'] = '%'.strtolower($this->input->post('telp_ortu')).'%';
+        }
+        if(!empty($this->input->post('siswa_img'))){
+            $where['LOWER(siswa_img) LIKE'] = '%'.strtolower($this->input->post('siswa_img')).'%';
         }
         $this->where($where);
         $result['total_rows'] = $this->count_rows();

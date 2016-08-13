@@ -45,6 +45,7 @@
                     <th>T Siswa Nama</th>
                     <th>Siswa Id</th>
                     <th>T Kelas Id</th>
+                    <th>Tahun</th>
                     <th>T Siswa Active</th>
                     <th>Action</th>
                 </tr>
@@ -72,6 +73,10 @@
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                     ?>
                     </td>
+                    <td>
+                        <input class="form-control form-control form-filter input-sm date-decade " readonly name="tahun_start"  type="text" value="" />
+                        <input class="form-control form-control form-filter input-sm date-decade " readonly name="tahun_end"  type="text" value="" />
+                    </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="t_siswa_active"></td>
                     <td>
                         <div class="margin-bottom-5">
@@ -97,12 +102,8 @@
                         },
                         "order": [
                             [1, "asc"]
-                        ],// set first column as a default sort by asc
-                        fixedColumns:   {
-                            leftColumns: 1,
-                            rightColumns: 1
-                        }
-                    },
+                        ]// set first column as a default sort by asc
+                    }
                 });
             }
             jQuery(document).ready(function() {
