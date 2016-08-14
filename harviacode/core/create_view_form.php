@@ -92,7 +92,7 @@ foreach ($non_pk as $row) {
                         <label class='col-md-3 control-label'> img". label($row["column_name"]) . "</label>
                         <div class='col-md-9'>
                             <input type=\"hidden\" class=\"form-control\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
-                            <img class=\"upload_img_single\" id=\"" . $row["column_name"] . "_preview\" style=\"width: 100px; height: 100px;\" src=\"<?php echo base_url('uploads/temp/'.$" . $row["column_name"] . "); ?>\"  alt=\"Image\">
+                            <img class=\"btn no-space upload_img_single\" id=\"" . $row["column_name"] . "_preview\" style=\"width: 100px; height: 100px;\" src=\"<?php echo base_url('uploads/temp/'.$" . $row["column_name"] . "); ?>\" onerror=\"this.src='<?php echo base_url(\"assets/global/img/noimage.png\") ?>'\" alt=\"Image\">
                             <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
                         </div>
                     </div>

@@ -66,7 +66,7 @@ class M_siswa extends CI_Controller
 					$d->siswa_ibu, 
 					$d->siswa_wali, 
 					$d->telp_ortu, 
-					$d->siswa_img, 
+					'<img style="width: 100px; height: 100px;" src="'. base_url("uploads/temp/".$d->siswa_img).'" onerror="this.src=\''.base_url("assets/global/img/noimage.png").'\'"  alt="Image">' , 
                     $view.$edit.$delete
                 );
             }
