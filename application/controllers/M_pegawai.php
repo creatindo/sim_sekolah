@@ -65,7 +65,7 @@ class M_pegawai extends CI_Controller
 					@$d->m_kecamatan->{$this->M_kecamatan_model->label}, 
 					$d->pegawai_alamat, 
 					$d->pegawai_telp, 
-					$d->foto_img, 
+					'<img style="width: 100px; height: 100px;" src="'. base_url("uploads/temp/".$d->foto_img).'" onerror="this.src=\''.base_url("assets/global/img/noimage.png").'\'"  alt="Image">' , 
 					$d->jabatan, 
 					@$d->m_user->{$this->M_user_model->label}, 
                     $view.$edit.$delete

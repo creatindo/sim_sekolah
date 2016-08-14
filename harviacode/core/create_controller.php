@@ -97,6 +97,8 @@ $string .="\n\n    public function getDatatable()
                 foreach ($non_pk as $row) {
                     if($row['r_table'] ) {
                         $string .= "\n\t\t\t\t\t@\$d->". $row["r_table"] ."->{".$row["r_label"]."}, ";
+                    }elseif ($row["img"] ) {
+                        $string .= "\n\t\t\t\t\t'<img style=\"width: 100px; height: 100px;\" src=\"'. base_url(\"uploads/temp/\".\$d->" . $row["column_name"] . ").'\" onerror=\"this.src=\''.base_url(\"assets/global/img/noimage.png\").'\'\"  alt=\"Image\">' , ";
                     }else{
                         $string .= "\n\t\t\t\t\t\$d->". $row['column_name'] .", ";
                     }

@@ -32,6 +32,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="<?php echo base_url(); ?>assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- EXTENDED MODAL -->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
         <!-- DATA TABLE -->
         <link href="<?php echo base_url(); ?>assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
@@ -61,7 +64,13 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="<?php echo base_url(); ?>assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
-        
+        <!-- TOAST -->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/pages/scripts/ui-toastr.min.js" type="text/javascript"></script>        
+        <!-- Modal -->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
         <!-- DATA TABLE -->
         <script src="<?php echo base_url(); ?>assets/global/scripts/datatable.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/datatables/datatables.js" type="text/javascript"></script>
@@ -335,5 +344,26 @@ License: You must have a valid license purchased only from themeforest(the above
         }
         // App.startPageLoading();
         //================================
+        $(".upload_img_single").click(function (e) {
+            var imgId = '#'+$(this).attr("id");
+            var photo_before = $(this).attr("src");
+            var hiddenInputId = '#'+$(this).parent().find( 'input:hidden' ).attr("id");
+            var modal_upload_options={
+                "targetImgId": imgId,
+                "photo":photo_before, 
+                "hiddenInputId" : hiddenInputId,
+            };
+
+            if (document.getElementById('div_upload') === null){
+              var iDiv = document.createElement('div');
+              iDiv.id = 'div_upload';
+              $(this).parent().append(iDiv);
+            }
+
+            $('#div_upload').load("<?php echo site_url('upload/single') ?>",modal_upload_options ,
+                function(){
+                /* Stuff to do after the page is loaded */
+            });
+        });
     </script>
 </html>
