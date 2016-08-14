@@ -71,7 +71,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kecamatan Revised</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kecamatan_revised" id="kecamatan_revised" placeholder="Kecamatan Revised" value="<?php echo $kecamatan_revised; ?>" />
+                            <input type="text" class="form-control mask-number" name="kecamatan_revised" id="kecamatan_revised" placeholder="Kecamatan Revised" value="<?php echo $kecamatan_revised; ?>" />
                             <span class='help-block'> <?php echo form_error('kecamatan_revised') ?> </span>
                         </div>
                     </div>

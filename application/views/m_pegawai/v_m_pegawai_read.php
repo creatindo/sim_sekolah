@@ -20,7 +20,7 @@
                     <tr><td>Kecamatan Id</td><td><?php echo $kecamatan_id; ?></td></tr>
                     <tr><td>Pegawai Alamat</td><td><?php echo $pegawai_alamat; ?></td></tr>
                     <tr><td>Pegawai Telp</td><td><?php echo $pegawai_telp; ?></td></tr>
-                    <tr><td>Pegawai Foto</td><td><?php echo $pegawai_foto; ?></td></tr>
+                    <tr><td>Foto Img</td><td><?php echo $foto_img; ?></td></tr>
                     <tr><td>Jabatan</td><td><?php echo $jabatan; ?></td></tr>
                     <tr><td>User Id</td><td><?php echo $user_id; ?></td></tr>
                     <tr>

@@ -85,7 +85,19 @@ foreach ($non_pk as $row) {
                     </div>
                   </div>
                   ";
-    } else {
+    } else if ($row["data_type"] == 'int' ){
+        $string .= "
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                        <div class='col-md-9'>
+                            <input type=\"text\" class=\"form-control mask-number\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
+                            <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  ";
+    }else {
         $string .= "
                   <div class='col-md-6'>
                     <div class='form-group'>

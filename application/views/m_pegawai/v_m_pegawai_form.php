@@ -156,10 +156,10 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Pegawai Foto</label>
+                        <label class='col-md-3 control-label'>Foto Img</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="pegawai_foto" id="pegawai_foto" placeholder="Pegawai Foto" value="<?php echo $pegawai_foto; ?>" />
-                            <span class='help-block'> <?php echo form_error('pegawai_foto') ?> </span>
+                            <input type="text" class="form-control" name="foto_img" id="foto_img" placeholder="Foto Img" value="<?php echo $foto_img; ?>" />
+                            <span class='help-block'> <?php echo form_error('foto_img') ?> </span>
                         </div>
                     </div>
                   </div>

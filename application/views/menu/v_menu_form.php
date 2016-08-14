@@ -49,7 +49,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Is Active</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="is_active" id="is_active" placeholder="Is Active" value="<?php echo $is_active; ?>" />
+                            <input type="text" class="form-control mask-number" name="is_active" id="is_active" placeholder="Is Active" value="<?php echo $is_active; ?>" />
                             <span class='help-block'> <?php echo form_error('is_active') ?> </span>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Is Parent</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="is_parent" id="is_parent" placeholder="Is Parent" value="<?php echo $is_parent; ?>" />
+                            <input type="text" class="form-control mask-number" name="is_parent" id="is_parent" placeholder="Is Parent" value="<?php echo $is_parent; ?>" />
                             <span class='help-block'> <?php echo form_error('is_parent') ?> </span>
                         </div>
                     </div>

@@ -73,7 +73,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Nilai</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="nilai" id="nilai" placeholder="Nilai" value="<?php echo $nilai; ?>" />
+                            <input type="text" class="form-control mask-number" name="nilai" id="nilai" placeholder="Nilai" value="<?php echo $nilai; ?>" />
                             <span class='help-block'> <?php echo form_error('nilai') ?> </span>
                         </div>
                     </div>

@@ -176,6 +176,16 @@
                     </div>
                   </div>
                   
+                  <div class='col-md-6'>
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>Foto Img</label>
+                        <div class='col-md-9'>
+                            <input type="text" class="form-control" name="foto_img" id="foto_img" placeholder="Foto Img" value="<?php echo $foto_img; ?>" />
+                            <span class='help-block'> <?php echo form_error('foto_img') ?> </span>
+                        </div>
+                    </div>
+                  </div>
+                  
                 </div>
                   <input type="hidden" name="siswa_id" value="<?php echo $siswa_id; ?>" />
                 </div>

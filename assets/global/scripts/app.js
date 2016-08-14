@@ -577,6 +577,20 @@ var App = function() {
         /* Workaround to restrict daterange past date select: http://stackoverflow.com/questions/11933173/how-to-restrict-the-selectable-date-ranges-in-bootstrap-datepicker */
     }
 
+    var handleInputMask = function () {
+
+        if (jQuery().inputmask) {
+            $(".mask-number").inputmask({
+              "alias": "numeric", 
+              "radixPoint": ",", 
+              "groupSeparator": ".",
+              "autoGroup": true,  
+              "placeholder": "0",
+              "repeat": 9 //limit
+            });
+        }
+    }
+
     // handle group element heights
    var handleHeight = function() {
        $('[data-auto-height]').each(function() {
@@ -647,6 +661,7 @@ var App = function() {
             handleBootstrapConfirmation(); // handle bootstrap confirmations
             handleTextareaAutosize(); // handle autosize textareas
             handleCounterup(); // handle counterup instances
+            handleInputMask(); // handle counterup instances
 
             //Handle group element heights
             this.addResizeHandler(handleHeight); // handle auto calculating height on window resize

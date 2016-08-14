@@ -71,7 +71,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Revised</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_revised" id="kota_revised" placeholder="Kota Revised" value="<?php echo $kota_revised; ?>" />
+                            <input type="text" class="form-control mask-number" name="kota_revised" id="kota_revised" placeholder="Kota Revised" value="<?php echo $kota_revised; ?>" />
                             <span class='help-block'> <?php echo form_error('kota_revised') ?> </span>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Kota Counter</label>
                         <div class='col-md-9'>
-                            <input type="text" class="form-control" name="kota_counter" id="kota_counter" placeholder="Kota Counter" value="<?php echo $kota_counter; ?>" />
+                            <input type="text" class="form-control mask-number" name="kota_counter" id="kota_counter" placeholder="Kota Counter" value="<?php echo $kota_counter; ?>" />
                             <span class='help-block'> <?php echo form_error('kota_counter') ?> </span>
                         </div>
                     </div>
