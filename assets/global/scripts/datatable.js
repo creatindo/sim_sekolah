@@ -66,14 +66,14 @@ var Datatable = function() {
                     },
                     // "scrollY":        "300px",
                     // "fixedColumns": true,
-                    "scrollX":        true,
+                    // "scrollX":        true,
                     // "bScrollAutoCss": true, 
                     // "bScrollCollapse": true, 
                     // "scrollCollapse": true,
-                    "fixedColumns":   {
-                        "leftColumns": 1,
-                        "rightColumns": 1
-                    },
+                    // "fixedColumns":   {
+                    //     "leftColumns": 0,
+                    //     "rightColumns": 1
+                    // },
 
                     "orderCellsTop": true,
                     "columnDefs": [{ // define columns sorting options(by default all columns are sortable extept the first checkbox column)
