@@ -91,8 +91,12 @@ License: You must have a valid license purchased only from themeforest(the above
             <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
             <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
             <!-- <script src="<?php echo base_url(); ?>assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script> -->
-        
+            
+            <!-- INPUT MASKING     -->
             <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+    
+            <!-- BOOTBOX -->
+            <script src="<?php echo base_url(); ?>assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
@@ -343,6 +347,17 @@ License: You must have a valid license purchased only from themeforest(the above
             App.alert({message:_message_alert});
         }
         // App.startPageLoading();
+        function deleteConfirm() {
+            return confirm("Hapus ?");
+            // bootbox.confirm("Hapus ?", function(isConfirm) {
+            //     if (isConfirm) {
+            //         return true;
+            //     }else{
+            //         return false;
+            //     }
+            // });
+        }
+
         //================================
         $(".upload_img_single").click(function (e) {
             var imgId = '#'+$(this).attr("id");
