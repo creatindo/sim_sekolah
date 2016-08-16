@@ -10,7 +10,7 @@ class T_siswa_model extends MY_Model
     public $primary_key = 't_siswa_id';
     public $label = 't_siswa_nama';
     public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
-    public $protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
+    public $protected = array('t_siswa_id'); // ...Or you can set an array with the fields that cannot be filled by insert/update
 
     function __construct()
     {

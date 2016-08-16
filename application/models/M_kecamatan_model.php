@@ -10,7 +10,7 @@ class M_kecamatan_model extends MY_Model
     public $primary_key = 'kecamatan_id';
     public $label = 'kecamatan_nama';
     public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
-    public $protected = array(); // ...Or you can set an array with the fields that cannot be filled by insert/update
+    public $protected = array('kecamatan_id'); // ...Or you can set an array with the fields that cannot be filled by insert/update
 
     function __construct()
     {
