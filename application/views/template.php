@@ -96,7 +96,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
     
             <!-- BOOTBOX -->
-            <script src="<?php echo base_url(); ?>assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>assets/global/plugins/bootbox/bootbox.js" type="text/javascript"></script>
 
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
@@ -350,7 +350,7 @@ License: You must have a valid license purchased only from themeforest(the above
         $(document).on("click", "[data-toggle=\"confirm\"]", function (e) {
             e.preventDefault();
             var lHref = $(this).attr('href');
-            var lText = this.attributes.getNamedItem("data-title") ? this.attributes.getNamedItem("data-title").value : "Are you sure?"; // If data-title is not set use default text
+            var lText = this.attributes.getNamedItem("data-title") ? 'Hapus <b>' + this.attributes.getNamedItem("data-title").value + '</b> ?' : "Hapus ?"; // If data-title is not set use default text
             bootbox.confirm(lText, function (confirmed) {
                 if (confirmed) {
                     //window.location.replace(lHref); // similar behavior as an HTTP redirect (DOESN'T increment browser history)
@@ -359,15 +359,6 @@ License: You must have a valid license purchased only from themeforest(the above
             });
         });
 
-        $("a#confirm").click(function(e) {
-            e.preventDefault();
-            bootbox.confirm("Are you sure?", function(result) {
-               if (result) {
-                     //include the href duplication link here?;
-                     window.location = $(this).attr("href");
-                }
-            });
-        });
 
         //================================
         $(".upload_img_single").click(function (e) {

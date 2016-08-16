@@ -49,7 +49,7 @@ class T_absensi extends CI_Controller
                 $checkbok= '<input type="checkbox" name="id[]" value="'.$d->absensi_id.'">';
                 $view    = anchor(site_url('t_absensi/read/'.$d->absensi_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 $edit    = anchor(site_url('t_absensi/update/'.$d->absensi_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('t_absensi/delete/'.$d->absensi_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
+                $delete  = anchor(site_url('t_absensi/delete/'.$d->absensi_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm', 'data-title'=>$d->{$this->T_absensi_model->label}));
 
                 $records["data"][] = array(
                     $checkbok,

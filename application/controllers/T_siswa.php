@@ -49,7 +49,7 @@ class T_siswa extends CI_Controller
                 $checkbok= '<input type="checkbox" name="id[]" value="'.$d->t_siswa_id.'">';
                 $view    = anchor(site_url('t_siswa/read/'.$d->t_siswa_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 $edit    = anchor(site_url('t_siswa/update/'.$d->t_siswa_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('t_siswa/delete/'.$d->t_siswa_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
+                $delete  = anchor(site_url('t_siswa/delete/'.$d->t_siswa_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm', 'data-title'=>$d->{$this->T_siswa_model->label}));
 
                 $records["data"][] = array(
                     $checkbok,
@@ -57,7 +57,6 @@ class T_siswa extends CI_Controller
 					$d->t_siswa_nama, 
 					@$d->m_siswa->{$this->M_siswa_model->label}, 
 					@$d->t_kelas->{$this->T_kelas_model->label}, 
-					$d->tahun, 
 					$d->t_siswa_active, 
                     $view.$edit.$delete
                 );
@@ -82,7 +81,6 @@ class T_siswa extends CI_Controller
 			't_siswa_nama' => $row->t_siswa_nama,
 			'siswa_id' => @$row->m_siswa->{$this->M_siswa_model->label},
 			't_kelas_id' => @$row->t_kelas->{$this->T_kelas_model->label},
-			'tahun' => $row->tahun,
 			't_siswa_active' => $row->t_siswa_active,
 		);
             $data['id'] = $id;
@@ -102,7 +100,6 @@ class T_siswa extends CI_Controller
 			't_siswa_nama' => set_value('t_siswa_nama'),
 			'siswa_id' => set_value('siswa_id'),
 			't_kelas_id' => set_value('t_kelas_id'),
-			'tahun' => set_value('tahun'),
 			't_siswa_active' => set_value('t_siswa_active'),
 		);
         $this->template->load('template','t_siswa/v_t_siswa_form', $data);
@@ -119,7 +116,6 @@ class T_siswa extends CI_Controller
 				't_siswa_nama' => $this->input->post('t_siswa_nama',TRUE),
 				'siswa_id' => $this->input->post('siswa_id',TRUE),
 				't_kelas_id' => $this->input->post('t_kelas_id',TRUE),
-				'tahun' => $this->input->post('tahun',TRUE),
 				't_siswa_active' => $this->input->post('t_siswa_active',TRUE),
 			);
 
@@ -146,7 +142,6 @@ class T_siswa extends CI_Controller
 				't_siswa_nama' => set_value('t_siswa_nama', $row->t_siswa_nama),
 				'siswa_id' => set_value('siswa_id', $row->siswa_id),
 				't_kelas_id' => set_value('t_kelas_id', $row->t_kelas_id),
-				'tahun' => set_value('tahun', $row->tahun),
 				't_siswa_active' => set_value('t_siswa_active', $row->t_siswa_active),
 			);
             $this->template->load('template','t_siswa/v_t_siswa_form', $data);
@@ -167,7 +162,6 @@ class T_siswa extends CI_Controller
 				't_siswa_nama' => $this->input->post('t_siswa_nama',TRUE),
 				'siswa_id' => $this->input->post('siswa_id',TRUE),
 				't_kelas_id' => $this->input->post('t_kelas_id',TRUE),
-				'tahun' => $this->input->post('tahun',TRUE),
 				't_siswa_active' => $this->input->post('t_siswa_active',TRUE),
 		    );
 
@@ -211,7 +205,6 @@ class T_siswa extends CI_Controller
 		$this->form_validation->set_rules('t_siswa_nama', 't siswa nama', 'trim|required');
 		$this->form_validation->set_rules('siswa_id', 'siswa id', 'trim|required');
 		$this->form_validation->set_rules('t_kelas_id', 't kelas id', 'trim|required');
-		$this->form_validation->set_rules('tahun', 'tahun', 'trim|required');
 		$this->form_validation->set_rules('t_siswa_active', 't siswa active', 'trim|required');
 
 		$this->form_validation->set_rules('t_siswa_id', 't_siswa_id', 'trim');
@@ -243,7 +236,6 @@ class T_siswa extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "T Siswa Nama");
 		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Kelas Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Tahun");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Siswa Active");
 
 		foreach ($this->T_siswa_model->get_all() as $data) {
@@ -254,7 +246,6 @@ class T_siswa extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->t_siswa_nama);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->siswa_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->t_kelas_id);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->tahun);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->t_siswa_active);
 
 		    $tablebody++;

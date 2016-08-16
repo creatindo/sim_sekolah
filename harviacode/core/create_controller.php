@@ -89,7 +89,7 @@ $string .="\n\n    public function getDatatable()
                 \$checkbok= '<input type=\"checkbox\" name=\"id[]\" value=\"'.\$d->".$pk.".'\">';
                 \$view    = anchor(site_url('".$c_url."/read/'.\$d->".$pk."),'<i class=\"fa fa-eye fa-lg\"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 \$edit    = anchor(site_url('".$c_url."/update/'.\$d->".$pk."),'<i class=\"fa fa-pencil-square-o fa-lg\"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                \$delete  = anchor(site_url('".$c_url."/delete/'.\$d->".$pk."),'<i class=\"fa fa-trash-o fa-lg\"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
+                \$delete  = anchor(site_url('".$c_url."/delete/'.\$d->".$pk."),'<i class=\"fa fa-trash-o fa-lg\"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm', 'data-title'=>\$d->{\$this->".$m."->label}));
 
                 \$records[\"data\"][] = array(
                     \$checkbok,

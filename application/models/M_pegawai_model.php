@@ -39,7 +39,7 @@ class M_pegawai_model extends MY_Model
         $dataorder[$i++] = 'kecamatan_id';
         $dataorder[$i++] = 'pegawai_alamat';
         $dataorder[$i++] = 'pegawai_telp';
-        $dataorder[$i++] = 'pegawai_foto';
+        $dataorder[$i++] = 'foto_img';
         $dataorder[$i++] = 'jabatan';
         $dataorder[$i++] = 'user_id';
         if(!empty($this->input->post('pegawai_nip'))){
@@ -72,8 +72,8 @@ class M_pegawai_model extends MY_Model
         if(!empty($this->input->post('pegawai_telp'))){
             $where['LOWER(pegawai_telp) LIKE'] = '%'.strtolower($this->input->post('pegawai_telp')).'%';
         }
-        if(!empty($this->input->post('pegawai_foto'))){
-            $where['LOWER(pegawai_foto) LIKE'] = '%'.strtolower($this->input->post('pegawai_foto')).'%';
+        if(!empty($this->input->post('foto_img'))){
+            $where['LOWER(foto_img) LIKE'] = '%'.strtolower($this->input->post('foto_img')).'%';
         }
         if(!empty($this->input->post('jabatan'))){
             $where['LOWER(jabatan) LIKE'] = '%'.strtolower($this->input->post('jabatan')).'%';

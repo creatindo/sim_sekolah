@@ -47,7 +47,7 @@ class M_kecamatan extends CI_Controller
                 $checkbok= '<input type="checkbox" name="id[]" value="'.$d->kecamatan_id.'">';
                 $view    = anchor(site_url('m_kecamatan/read/'.$d->kecamatan_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 $edit    = anchor(site_url('m_kecamatan/update/'.$d->kecamatan_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('m_kecamatan/delete/'.$d->kecamatan_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
+                $delete  = anchor(site_url('m_kecamatan/delete/'.$d->kecamatan_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm', 'data-title'=>$d->{$this->M_kecamatan_model->label}));
 
                 $records["data"][] = array(
                     $checkbok,

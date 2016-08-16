@@ -47,7 +47,7 @@ class M_hari extends CI_Controller
                 $checkbok= '<input type="checkbox" name="id[]" value="'.$d->hari_id.'">';
                 $view    = anchor(site_url('m_hari/read/'.$d->hari_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 $edit    = anchor(site_url('m_hari/update/'.$d->hari_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('m_hari/delete/'.$d->hari_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
+                $delete  = anchor(site_url('m_hari/delete/'.$d->hari_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm', 'data-title'=>$d->{$this->M_hari_model->label}));
 
                 $records["data"][] = array(
                     $checkbok,

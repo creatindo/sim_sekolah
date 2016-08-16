@@ -49,7 +49,7 @@ class T_ujian_nilai extends CI_Controller
                 $checkbok= '<input type="checkbox" name="id[]" value="'.$d->nilai_id.'">';
                 $view    = anchor(site_url('t_ujian_nilai/read/'.$d->nilai_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 $edit    = anchor(site_url('t_ujian_nilai/update/'.$d->nilai_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('t_ujian_nilai/delete/'.$d->nilai_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
+                $delete  = anchor(site_url('t_ujian_nilai/delete/'.$d->nilai_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm', 'data-title'=>$d->{$this->T_ujian_nilai_model->label}));
 
                 $records["data"][] = array(
                     $checkbok,
@@ -205,7 +205,7 @@ class T_ujian_nilai extends CI_Controller
 		$this->form_validation->set_rules('nilai_nama', 'nilai nama', 'trim|required');
 		$this->form_validation->set_rules('t_ujian_id', 't ujian id', 'trim|required');
 		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|required');
-		$this->form_validation->set_rules('nilai', 'nilai', 'trim|required|numeric');
+		$this->form_validation->set_rules('nilai', 'nilai', 'trim|required');
 
 		$this->form_validation->set_rules('nilai_id', 'nilai_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
