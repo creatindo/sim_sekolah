@@ -51,7 +51,7 @@
                     <th>Kecamatan Id</th>
                     <th>Pegawai Alamat</th>
                     <th>Pegawai Telp</th>
-                    <th>Foto Img</th>
+                    <th>Pegawai Foto</th>
                     <th>Jabatan</th>
                     <th>User Id</th>
                     <th>Action</th>
@@ -98,7 +98,7 @@
                     </td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_alamat"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="pegawai_telp"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="foto_img"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="pegawai_foto"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="jabatan"></td>
                     <td>
                     <?php 

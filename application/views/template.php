@@ -346,17 +346,28 @@ License: You must have a valid license purchased only from themeforest(the above
         if (_message_alert) {
             App.alert({message:_message_alert});
         }
-        // App.startPageLoading();
-        function deleteConfirm() {
-            return confirm("Hapus ?");
-            // bootbox.confirm("Hapus ?", function(isConfirm) {
-            //     if (isConfirm) {
-            //         return true;
-            //     }else{
-            //         return false;
-            //     }
-            // });
-        }
+
+        $(document).on("click", "[data-toggle=\"confirm\"]", function (e) {
+            e.preventDefault();
+            var lHref = $(this).attr('href');
+            var lText = this.attributes.getNamedItem("data-title") ? this.attributes.getNamedItem("data-title").value : "Are you sure?"; // If data-title is not set use default text
+            bootbox.confirm(lText, function (confirmed) {
+                if (confirmed) {
+                    //window.location.replace(lHref); // similar behavior as an HTTP redirect (DOESN'T increment browser history)
+                    window.location.href = lHref; // similar behavior as clicking on a link (Increments browser history)
+                }
+            });
+        });
+
+        $("a#confirm").click(function(e) {
+            e.preventDefault();
+            bootbox.confirm("Are you sure?", function(result) {
+               if (result) {
+                     //include the href duplication link here?;
+                     window.location = $(this).attr("href");
+                }
+            });
+        });
 
         //================================
         $(".upload_img_single").click(function (e) {

@@ -47,7 +47,7 @@ class M_status extends CI_Controller
                 $checkbok= '<input type="checkbox" name="id[]" value="'.$d->status_id.'">';
                 $view    = anchor(site_url('m_status/read/'.$d->status_id),'<i class="fa fa-eye fa-lg"></i>',array('title'=>'detail','class'=>'btn btn-outline btn-icon-only green'));
                 $edit    = anchor(site_url('m_status/update/'.$d->status_id),'<i class="fa fa-pencil-square-o fa-lg"></i>',array('title'=>'edit','class'=>'btn btn-outline btn-icon-only blue'));
-                $delete  = anchor(site_url('m_status/delete/'.$d->status_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'onclick'=>'return deleteConfirm();'));
+                $delete  = anchor(site_url('m_status/delete/'.$d->status_id),'<i class="fa fa-trash-o fa-lg"></i>',array('title'=>'delete','class'=>'btn btn-outline btn-icon-only red', 'data-toggle'=>'confirm'));
 
                 $records["data"][] = array(
                     $checkbok,

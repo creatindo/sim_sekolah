@@ -156,11 +156,10 @@
                   
                   <div class='col-md-6'>
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'> imgFoto Img</label>
+                        <label class='col-md-3 control-label'>Pegawai Foto</label>
                         <div class='col-md-9'>
-                            <input type="hidden" class="form-control" name="foto_img" id="foto_img" placeholder="Foto Img" value="<?php echo $foto_img; ?>" />
-                            <img class="btn no-space upload_img_single" id="foto_img_preview" style="width: 100px; height: 100px;" src="<?php echo base_url('uploads/temp/'.$foto_img); ?>" onerror="this.src='<?php echo base_url("assets/global/img/noimage.png") ?>'" alt="Image">
-                            <span class='help-block'> <?php echo form_error('foto_img') ?> </span>
+                            <input type="text" class="form-control" name="pegawai_foto" id="pegawai_foto" placeholder="Pegawai Foto" value="<?php echo $pegawai_foto; ?>" />
+                            <span class='help-block'> <?php echo form_error('pegawai_foto') ?> </span>
                         </div>
                     </div>
                   </div>

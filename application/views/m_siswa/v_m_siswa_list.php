@@ -53,7 +53,7 @@
                     <th>Siswa Ibu</th>
                     <th>Siswa Wali</th>
                     <th>Telp Ortu</th>
-                    <th>Foto Img</th>
+                    <th>Siswa Img</th>
                     <th>Action</th>
                 </tr>
                 <tr role="row" class="filter">
@@ -100,7 +100,7 @@
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_ibu"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="siswa_wali"></td>
                     <td><input type="text" class="form-control form-filter input-sm" name="telp_ortu"></td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="foto_img"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="siswa_img"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
