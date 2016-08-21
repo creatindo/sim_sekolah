@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('ujian_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Ujian Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="ujian_nama" id="ujian_nama" placeholder="Ujian Nama" value="<?php echo $ujian_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('ujian_active')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Ujian Active</label>
                     <div class='col-md-9'>
                       <?php 

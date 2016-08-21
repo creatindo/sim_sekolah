@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('hari_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Hari Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="hari_nama" id="hari_nama" placeholder="Hari Nama" value="<?php echo $hari_nama; ?>" />

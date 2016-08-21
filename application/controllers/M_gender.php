@@ -186,8 +186,8 @@ class M_gender extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('gender_nama', 'gender nama', 'trim|required');
-		$this->form_validation->set_rules('gender_kode', 'gender kode', 'trim|required');
+		$this->form_validation->set_rules('gender_nama', 'gender nama', 'trim');
+		$this->form_validation->set_rules('gender_kode', 'gender kode', 'trim');
 
 		$this->form_validation->set_rules('gender_id', 'gender_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

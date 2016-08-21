@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kecamatan_kode')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kecamatan Kode</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="kecamatan_kode" id="kecamatan_kode" placeholder="Kecamatan Kode" value="<?php echo $kecamatan_kode; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('m_kota_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>M Kota Id</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="m_kota_id" id="m_kota_id" placeholder="M Kota Id" value="<?php echo $m_kota_id; ?>" />
@@ -36,7 +36,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kecamatan_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kecamatan Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="kecamatan_nama" id="kecamatan_nama" placeholder="Kecamatan Nama" value="<?php echo $kecamatan_nama; ?>" />
@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kecamatan_aktif')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kecamatan Aktif</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="kecamatan_aktif" id="kecamatan_aktif" placeholder="Kecamatan Aktif" value="<?php echo $kecamatan_aktif; ?>" />
@@ -58,7 +58,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kecamatan_created_by')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kecamatan Created By</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="kecamatan_created_by" id="kecamatan_created_by" placeholder="Kecamatan Created By" value="<?php echo $kecamatan_created_by; ?>" />
@@ -68,7 +68,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kecamatan_revised')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kecamatan Revised</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control mask-number" name="kecamatan_revised" id="kecamatan_revised" placeholder="Kecamatan Revised" value="<?php echo $kecamatan_revised; ?>" />

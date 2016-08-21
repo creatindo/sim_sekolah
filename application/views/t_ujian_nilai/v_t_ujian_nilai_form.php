@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('nilai_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Nilai Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="nilai_nama" id="nilai_nama" placeholder="Nilai Nama" value="<?php echo $nilai_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_ujian_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Ujian Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -47,7 +47,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_siswa_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Siswa Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -68,10 +68,10 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('nilai')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Nilai</label>
                     <div class='col-md-9'>
-                      <input type="text" class="form-control mask-number" name="nilai" id="nilai" placeholder="Nilai" value="<?php echo $nilai; ?>" />
+                      <input type="text" class="form-control" name="nilai" id="nilai" placeholder="Nilai" value="<?php echo $nilai; ?>" />
                       <span class='help-block'> <?php echo form_error('nilai') ?> </span>
                     </div>
                   </div>

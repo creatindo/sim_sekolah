@@ -188,8 +188,8 @@ class M_jam extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('jam_nama', 'jam nama', 'trim|required');
-		$this->form_validation->set_rules('jam_active', 'jam active', 'trim|required');
+		$this->form_validation->set_rules('jam_nama', 'jam nama', 'trim');
+		$this->form_validation->set_rules('jam_active', 'jam active', 'trim|numeric');
 
 		$this->form_validation->set_rules('jam_id', 'jam_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

@@ -14,8 +14,8 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>Absensi Nama</label>
+                  <div class='form-group <?php if(form_error('absensi_nama')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="absensi_nama" id="absensi_nama" placeholder="Absensi Nama" value="<?php echo $absensi_nama; ?>" />
                       <span class='help-block'> <?php echo form_error('absensi_nama') ?> </span>
@@ -24,8 +24,8 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>Jadwal Id</label>
+                  <div class='form-group <?php if(form_error('jadwal_id')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>Jadwal</label>
                     <div class='col-md-9'>
                       <?php 
                       $v_name_2 = '';
@@ -47,7 +47,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_siswa_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Siswa Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -68,7 +68,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="siswa" id="siswa" placeholder="Siswa" value="<?php echo $siswa; ?>" />

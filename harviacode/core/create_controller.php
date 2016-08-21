@@ -248,8 +248,10 @@ $string .= "\n\t\t    );
     public function _rules() 
     {";
 foreach ($non_pk as $row) {
-    $int = $row3['data_type'] == 'int' || $row['data_type'] == 'double' || $row['data_type'] == 'decimal' ? '|numeric' : '';
-    $string .= "\n\t\t\$this->form_validation->set_rules('".$row['column_name']."', '".  strtolower(label($row['column_name']))."', 'trim|required$int');";
+    $int = $row['data_type'] == 'int' || $row['data_type'] == 'double' || $row['data_type'] == 'decimal' ? '|numeric' : '';
+    $required = ($row['is_nullable'] == 'NO') ? '|required' : '' ;
+    $validation= (!empty($row['validation'])) ?  '|'.$row['validation'] : '' ;
+    $string .= "\n\t\t\$this->form_validation->set_rules('".$row['column_name']."', '".  strtolower(label($row['column_name']))."', 'trim$required$int$validation');";
 }    
 $string .= "\n\n\t\t\$this->form_validation->set_rules('$pk', '$pk', 'trim');";
 $string .= "\n\t\t\$this->form_validation->set_error_delimiters('<span class=\"text-danger\">', '</span>');

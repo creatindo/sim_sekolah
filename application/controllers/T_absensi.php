@@ -202,9 +202,9 @@ class T_absensi extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('absensi_nama', 'absensi nama', 'trim|required');
-		$this->form_validation->set_rules('jadwal_id', 'jadwal id', 'trim|required');
-		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|required');
+		$this->form_validation->set_rules('absensi_nama', 'absensi nama', 'trim|valid_email');
+		$this->form_validation->set_rules('jadwal_id', 'jadwal id', 'trim|numeric');
+		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|numeric');
 		$this->form_validation->set_rules('siswa', 'siswa', 'trim|required');
 
 		$this->form_validation->set_rules('absensi_id', 'absensi_id', 'trim');

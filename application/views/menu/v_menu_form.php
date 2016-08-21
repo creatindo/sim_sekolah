@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('menu_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Menu Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="menu_nama" id="menu_nama" placeholder="Menu Nama" value="<?php echo $menu_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('link')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Link</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="link" id="link" placeholder="Link" value="<?php echo $link; ?>" />
@@ -36,7 +36,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('icon')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Icon</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="icon" id="icon" placeholder="Icon" value="<?php echo $icon; ?>" />
@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('is_active')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Is Active</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control mask-number" name="is_active" id="is_active" placeholder="Is Active" value="<?php echo $is_active; ?>" />
@@ -58,7 +58,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('is_parent')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Is Parent</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control mask-number" name="is_parent" id="is_parent" placeholder="Is Parent" value="<?php echo $is_parent; ?>" />
@@ -68,7 +68,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('controller')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Controller</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="controller" id="controller" placeholder="Controller" value="<?php echo $controller; ?>" />

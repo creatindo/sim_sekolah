@@ -65,7 +65,7 @@ class M_pegawai extends CI_Controller
 					@$d->m_kecamatan->{$this->M_kecamatan_model->label}, 
 					$d->pegawai_alamat, 
 					$d->pegawai_telp, 
-					'<img style="width: 100px; height: 100px;" src="'. base_url("uploads/temp/".$d->foto_img).'" onerror="this.src=\''.base_url("assets/global/img/noimage.png").'\'"  alt="Image">' , 
+					$d->pegawai_foto, 
 					$d->jabatan, 
 					@$d->m_user->{$this->M_user_model->label}, 
                     $view.$edit.$delete
@@ -99,7 +99,7 @@ class M_pegawai extends CI_Controller
 			'kecamatan_id' => @$row->m_kecamatan->{$this->M_kecamatan_model->label},
 			'pegawai_alamat' => $row->pegawai_alamat,
 			'pegawai_telp' => $row->pegawai_telp,
-			'foto_img' => $row->foto_img,
+			'pegawai_foto' => $row->pegawai_foto,
 			'jabatan' => $row->jabatan,
 			'user_id' => @$row->m_user->{$this->M_user_model->label},
 		);
@@ -126,7 +126,7 @@ class M_pegawai extends CI_Controller
 			'kecamatan_id' => set_value('kecamatan_id'),
 			'pegawai_alamat' => set_value('pegawai_alamat'),
 			'pegawai_telp' => set_value('pegawai_telp'),
-			'foto_img' => set_value('foto_img'),
+			'pegawai_foto' => set_value('pegawai_foto'),
 			'jabatan' => set_value('jabatan'),
 			'user_id' => set_value('user_id'),
 		);
@@ -150,7 +150,7 @@ class M_pegawai extends CI_Controller
 				'kecamatan_id' => $this->input->post('kecamatan_id',TRUE),
 				'pegawai_alamat' => $this->input->post('pegawai_alamat',TRUE),
 				'pegawai_telp' => $this->input->post('pegawai_telp',TRUE),
-				'foto_img' => $this->input->post('foto_img',TRUE),
+				'pegawai_foto' => $this->input->post('pegawai_foto',TRUE),
 				'jabatan' => $this->input->post('jabatan',TRUE),
 				'user_id' => $this->input->post('user_id',TRUE),
 			);
@@ -184,7 +184,7 @@ class M_pegawai extends CI_Controller
 				'kecamatan_id' => set_value('kecamatan_id', $row->kecamatan_id),
 				'pegawai_alamat' => set_value('pegawai_alamat', $row->pegawai_alamat),
 				'pegawai_telp' => set_value('pegawai_telp', $row->pegawai_telp),
-				'foto_img' => set_value('foto_img', $row->foto_img),
+				'pegawai_foto' => set_value('pegawai_foto', $row->pegawai_foto),
 				'jabatan' => set_value('jabatan', $row->jabatan),
 				'user_id' => set_value('user_id', $row->user_id),
 			);
@@ -212,7 +212,7 @@ class M_pegawai extends CI_Controller
 				'kecamatan_id' => $this->input->post('kecamatan_id',TRUE),
 				'pegawai_alamat' => $this->input->post('pegawai_alamat',TRUE),
 				'pegawai_telp' => $this->input->post('pegawai_telp',TRUE),
-				'foto_img' => $this->input->post('foto_img',TRUE),
+				'pegawai_foto' => $this->input->post('pegawai_foto',TRUE),
 				'jabatan' => $this->input->post('jabatan',TRUE),
 				'user_id' => $this->input->post('user_id',TRUE),
 		    );
@@ -254,18 +254,18 @@ class M_pegawai extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('pegawai_nip', 'pegawai nip', 'trim|required');
-		$this->form_validation->set_rules('pegawai_nama', 'pegawai nama', 'trim|required');
-		$this->form_validation->set_rules('pegawai_jk', 'pegawai jk', 'trim|required');
-		$this->form_validation->set_rules('pegawai_tgl_lahir', 'pegawai tgl lahir', 'trim|required');
-		$this->form_validation->set_rules('pegawai_golongan', 'pegawai golongan', 'trim|required');
-		$this->form_validation->set_rules('kota_id', 'kota id', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_id', 'kecamatan id', 'trim|required');
-		$this->form_validation->set_rules('pegawai_alamat', 'pegawai alamat', 'trim|required');
-		$this->form_validation->set_rules('pegawai_telp', 'pegawai telp', 'trim|required');
-		$this->form_validation->set_rules('foto_img', 'foto img', 'trim|required');
-		$this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
-		$this->form_validation->set_rules('user_id', 'user id', 'trim|required');
+		$this->form_validation->set_rules('pegawai_nip', 'pegawai nip', 'trim');
+		$this->form_validation->set_rules('pegawai_nama', 'pegawai nama', 'trim');
+		$this->form_validation->set_rules('pegawai_jk', 'pegawai jk', 'trim');
+		$this->form_validation->set_rules('pegawai_tgl_lahir', 'pegawai tgl lahir', 'trim');
+		$this->form_validation->set_rules('pegawai_golongan', 'pegawai golongan', 'trim');
+		$this->form_validation->set_rules('kota_id', 'kota id', 'trim');
+		$this->form_validation->set_rules('kecamatan_id', 'kecamatan id', 'trim');
+		$this->form_validation->set_rules('pegawai_alamat', 'pegawai alamat', 'trim');
+		$this->form_validation->set_rules('pegawai_telp', 'pegawai telp', 'trim');
+		$this->form_validation->set_rules('pegawai_foto', 'pegawai foto', 'trim');
+		$this->form_validation->set_rules('jabatan', 'jabatan', 'trim');
+		$this->form_validation->set_rules('user_id', 'user id', 'trim|numeric');
 
 		$this->form_validation->set_rules('pegawai_id', 'pegawai_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -302,7 +302,7 @@ class M_pegawai extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Kecamatan Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Alamat");
 		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Telp");
-		xlsWriteLabel($tablehead, $kolomhead++, "Foto Img");
+		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Foto");
 		xlsWriteLabel($tablehead, $kolomhead++, "Jabatan");
 		xlsWriteLabel($tablehead, $kolomhead++, "User Id");
 
@@ -320,7 +320,7 @@ class M_pegawai extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->kecamatan_id);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_alamat);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_telp);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->foto_img);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->pegawai_foto);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->jabatan);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->user_id);
 

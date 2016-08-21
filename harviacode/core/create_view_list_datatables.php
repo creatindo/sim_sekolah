@@ -63,7 +63,7 @@ $string .= "
                     ";
 foreach ($non_pk as $row) {
     $string .= "
-                    <th>" . label($row['column_name']) . "</th>";
+                    <th>" . label($row['f_name']) . "</th>";
 }
 $string .= "
                     <th>Action</th>

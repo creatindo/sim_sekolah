@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('gender_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Gender Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="gender_nama" id="gender_nama" placeholder="Gender Nama" value="<?php echo $gender_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('gender_kode')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Gender Kode</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="gender_kode" id="gender_kode" placeholder="Gender Kode" value="<?php echo $gender_kode; ?>" />

@@ -213,9 +213,9 @@ class Menu extends CI_Controller
 		$this->form_validation->set_rules('menu_nama', 'menu nama', 'trim|required');
 		$this->form_validation->set_rules('link', 'link', 'trim|required');
 		$this->form_validation->set_rules('icon', 'icon', 'trim|required');
-		$this->form_validation->set_rules('is_active', 'is active', 'trim|required');
-		$this->form_validation->set_rules('is_parent', 'is parent', 'trim|required');
-		$this->form_validation->set_rules('controller', 'controller', 'trim|required');
+		$this->form_validation->set_rules('is_active', 'is active', 'trim|required|numeric');
+		$this->form_validation->set_rules('is_parent', 'is parent', 'trim|required|numeric');
+		$this->form_validation->set_rules('controller', 'controller', 'trim');
 
 		$this->form_validation->set_rules('id', 'id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

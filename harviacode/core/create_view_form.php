@@ -27,8 +27,8 @@ foreach ($non_pk as $row) {
   if ($row["data_type"] == 'text') {
       $string .= "
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                  <div class='form-group <?php if(form_error('" . $row["column_name"] . "')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>". label($row["f_name"]) . "</label>
                     <div class='col-md-9'>
                       <textarea class=\"form-control\" rows=\"3\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\"><?php echo $" . $row["column_name"] . "; ?></textarea>
                       <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
@@ -39,8 +39,8 @@ foreach ($non_pk as $row) {
   } else if($row['r_table'] ) {
       $string .= "
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                  <div class='form-group <?php if(form_error('" . $row["column_name"] . "')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>". label($row["f_name"]) . "</label>
                     <div class='col-md-9'>
                       <?php 
                       \$v_name_".$i." = '';
@@ -68,8 +68,8 @@ foreach ($non_pk as $row) {
       
       $string .= "
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                  <div class='form-group <?php if(form_error('" . $row["column_name"] . "')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>". label($row["f_name"]) . "</label>
                     <div class='col-md-9'>
                       <div class='input-group date ".$class_date."' >
                         <input type='text' class='form-control ' readonly name=\"" . $row["column_name"] . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\">
@@ -87,8 +87,8 @@ foreach ($non_pk as $row) {
   } else if ($row["data_type"] == 'int' ){
       $string .= "
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                  <div class='form-group <?php if(form_error('" . $row["column_name"] . "')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>". label($row["f_name"]) . "</label>
                     <div class='col-md-9'>
                       <input type=\"text\" class=\"form-control mask-number\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
                       <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>
@@ -99,8 +99,8 @@ foreach ($non_pk as $row) {
   } else if($row["img"] ){
         $string .= "
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'> img". label($row["column_name"]) . "</label>
+                  <div class='form-group <?php if(form_error('" . $row["column_name"] . "')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'> img". label($row["f_name"]) . "</label>
                     <div class='col-md-9'>
                       <input type=\"hidden\" class=\"form-control\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
                       <img class=\"btn no-space upload_img_single\" id=\"" . $row["column_name"] . "_preview\" style=\"width: 100px; height: 100px;\" src=\"<?php echo base_url('uploads/temp/'.$" . $row["column_name"] . "); ?>\" onerror=\"this.src='<?php echo base_url(\"assets/global/img/noimage.png\") ?>'\" alt=\"Image\">
@@ -112,8 +112,8 @@ foreach ($non_pk as $row) {
   } else {
       $string .= "
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'>". label($row["column_name"]) . "</label>
+                  <div class='form-group <?php if(form_error('" . $row["column_name"] . "')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>". label($row["f_name"]) . "</label>
                     <div class='col-md-9'>
                       <input type=\"text\" class=\"form-control\" name=\"" . $row["column_name"] . "\" id=\"" . $row["column_name"] . "\" placeholder=\"" . label($row["column_name"]) . "\" value=\"<?php echo $" . $row["column_name"] . "; ?>\" />
                       <span class='help-block'> <?php echo form_error('" . $row["column_name"] . "') ?> </span>

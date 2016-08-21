@@ -68,16 +68,30 @@ class Harviacode
 
     function not_primary_field($table)
     {
-        $query = "SELECT COLUMN_NAME,COLUMN_KEY,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=? AND TABLE_NAME=? AND COLUMN_KEY <> 'PRI'";
+        $query = "SELECT COLUMN_NAME,COLUMN_KEY,DATA_TYPE,COLUMN_COMMENT,IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=? AND TABLE_NAME=? AND COLUMN_KEY <> 'PRI'";
         $stmt = $this->sql->prepare($query) OR die("Error code :" . $this->sql->errno . " (not_primary_field)");
         $stmt->bind_param('ss', $this->database, $table);
-        $stmt->bind_result($column_name, $column_key, $data_type);
+        $stmt->bind_result($column_name, $column_key, $data_type,$column_comment,$is_nullable);
         $stmt->execute();
         while ($stmt->fetch()) {
             if ($column_name =='created_at' or $column_name =='updated_at' or $column_name =='deleted_at') {
                 continue;
             }
-            $fields[] = array('column_name' => $column_name, 'column_key' => $column_key, 'data_type' => $data_type);
+            $get_arr = array('column_name' => $column_name, 'column_key' => $column_key, 'data_type' => $data_type,'is_nullable'=>$is_nullable);
+            $get_arr['f_name'] = $column_name;
+            $get_arr['validation'] = "";
+            if (!empty($column_comment)) {
+                $j = json_decode($column_comment);
+                if($j){
+                    if (isset($j->name)) {
+                        $get_arr['f_name'] = $j->name;
+                    }
+                    if (isset($j->v)) {
+                        $get_arr['validation'] = $j->v;
+                    }
+                }
+            }
+            $fields[] = $get_arr;
         }
         return $fields;
         $stmt->close();
@@ -86,20 +100,35 @@ class Harviacode
 
     function all_field($table)
     {
-        $query = "SELECT COLUMN_NAME,COLUMN_KEY,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=? AND TABLE_NAME=?";
+        $query = "SELECT COLUMN_NAME,COLUMN_KEY,DATA_TYPE,COLUMN_COMMENT FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=? AND TABLE_NAME=?";
         $stmt = $this->sql->prepare($query) OR die("Error code :" . $this->sql->errno . " (not_primary_field)");
         $stmt->bind_param('ss', $this->database, $table);
-        $stmt->bind_result($column_name, $column_key, $data_type);
+        $stmt->bind_result($column_name, $column_key, $data_type,$column_comment);
         $stmt->execute();
         while ($stmt->fetch()) {
             if ($column_name =='created_at' or $column_name =='updated_at' or $column_name =='deleted_at') {
                 continue;
             }
-            $fields[] = array('column_name' => $column_name, 'column_key' => $column_key, 'data_type' => $data_type);
+            $get_arr = array('column_name' => $column_name, 'column_key' => $column_key, 'data_type' => $data_type);
+            $get_arr['f_name'] = $column_name;
+            if (!empty($column_comment)) {
+                $j = json_decode($column_comment);
+                if($j){
+                    if (isset($j->name)) {
+                        $get_arr['f_name'] = $j->name;
+                    }
+                }
+            }
+            $fields[] = $get_arr;
         }
         return $fields;
         $stmt->close();
         $this->sql->close();
+    }
+
+    public function table_process($stmt)
+    {
+        # code...
     }
 
     function reference_field($table)

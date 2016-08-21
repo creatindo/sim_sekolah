@@ -42,8 +42,8 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Absensi Nama</th>
-                    <th>Jadwal Id</th>
+                    <th>Nama</th>
+                    <th>Jadwal</th>
                     <th>T Siswa Id</th>
                     <th>Siswa</th>
                     <th>Action</th>

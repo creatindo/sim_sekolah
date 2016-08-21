@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_ujian_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Ujian Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="t_ujian_nama" id="t_ujian_nama" placeholder="T Ujian Nama" value="<?php echo $t_ujian_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('ujian_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Ujian Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -47,7 +47,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_jadwal_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Jadwal Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -68,7 +68,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_ujian_tanggal')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Ujian Tanggal</label>
                     <div class='col-md-9'>
                       <div class='input-group date date-decade' >
@@ -87,7 +87,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_ujian_active')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Ujian Active</label>
                     <div class='col-md-9'>
                       <?php 

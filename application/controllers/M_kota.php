@@ -222,14 +222,14 @@ class M_kota extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('kota_kode', 'kota kode', 'trim|required');
+		$this->form_validation->set_rules('kota_kode', 'kota kode', 'trim');
 		$this->form_validation->set_rules('m_propinsi_id', 'm propinsi id', 'trim|required');
 		$this->form_validation->set_rules('kota_nama', 'kota nama', 'trim|required');
-		$this->form_validation->set_rules('kota_aktif', 'kota aktif', 'trim|required');
-		$this->form_validation->set_rules('kota_created_by', 'kota created by', 'trim|required');
-		$this->form_validation->set_rules('kota_revised', 'kota revised', 'trim|required');
-		$this->form_validation->set_rules('kota_counter', 'kota counter', 'trim|required');
-		$this->form_validation->set_rules('kota_kab', 'kota kab', 'trim|required');
+		$this->form_validation->set_rules('kota_aktif', 'kota aktif', 'trim');
+		$this->form_validation->set_rules('kota_created_by', 'kota created by', 'trim');
+		$this->form_validation->set_rules('kota_revised', 'kota revised', 'trim|numeric');
+		$this->form_validation->set_rules('kota_counter', 'kota counter', 'trim|numeric');
+		$this->form_validation->set_rules('kota_kab', 'kota kab', 'trim');
 
 		$this->form_validation->set_rules('kota_id', 'kota_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

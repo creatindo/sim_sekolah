@@ -15,7 +15,7 @@ $string = "
                   <table class=\"table table-bordered\">";
                     foreach ($non_pk as $row) {
                       $string .= "
-                    <tr><td>".label($row["column_name"])."</td><td><?php echo $".$row["column_name"]."; ?></td></tr>";
+                    <tr><td>".label($row["column_name"])."</td><td><?php echo $".$row["f_name"]."; ?></td></tr>";
                     }
                       $string .= "
                     <tr>

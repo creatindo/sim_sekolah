@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('status_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Status Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="status_nama" id="status_nama" placeholder="Status Nama" value="<?php echo $status_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('status_kode')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Status Kode</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="status_kode" id="status_kode" placeholder="Status Kode" value="<?php echo $status_kode; ?>" />

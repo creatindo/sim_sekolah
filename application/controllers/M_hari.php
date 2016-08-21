@@ -180,7 +180,7 @@ class M_hari extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('hari_nama', 'hari nama', 'trim|required');
+		$this->form_validation->set_rules('hari_nama', 'hari nama', 'trim');
 
 		$this->form_validation->set_rules('hari_id', 'hari_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

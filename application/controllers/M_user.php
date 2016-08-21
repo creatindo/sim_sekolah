@@ -192,9 +192,9 @@ class M_user extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('user_nama', 'user nama', 'trim|required');
-		$this->form_validation->set_rules('user_pass', 'user pass', 'trim|required');
-		$this->form_validation->set_rules('user_pass_verif', 'user pass verif', 'trim|required');
+		$this->form_validation->set_rules('user_nama', 'user nama', 'trim');
+		$this->form_validation->set_rules('user_pass', 'user pass', 'trim');
+		$this->form_validation->set_rules('user_pass_verif', 'user pass verif', 'trim');
 
 		$this->form_validation->set_rules('user_id', 'user_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
