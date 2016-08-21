@@ -14,7 +14,7 @@ $string = "
         <div class='portlet-body form'>";
 $string .= "
           <form action=\"<?php echo \$action; ?>\" method=\"post\">";
-$string .="
+$string .= "
             <div class='form-body'>";
 $i=0;
 foreach ($non_pk as $row) {
