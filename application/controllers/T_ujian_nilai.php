@@ -202,10 +202,10 @@ class T_ujian_nilai extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('nilai_nama', 'nilai nama', 'trim|required');
-		$this->form_validation->set_rules('t_ujian_id', 't ujian id', 'trim|required');
-		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|required');
-		$this->form_validation->set_rules('nilai', 'nilai', 'trim|required');
+		$this->form_validation->set_rules('nilai_nama', 'nilai nama', 'trim');
+		$this->form_validation->set_rules('t_ujian_id', 't ujian id', 'trim|numeric');
+		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|numeric');
+		$this->form_validation->set_rules('nilai', 'nilai', 'trim|numeric');
 
 		$this->form_validation->set_rules('nilai_id', 'nilai_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

@@ -188,8 +188,8 @@ class M_jurusan extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('jurusan_nama', 'jurusan nama', 'trim|required');
-		$this->form_validation->set_rules('jurusan_active', 'jurusan active', 'trim|required');
+		$this->form_validation->set_rules('jurusan_nama', 'jurusan nama', 'trim');
+		$this->form_validation->set_rules('jurusan_active', 'jurusan active', 'trim|numeric');
 
 		$this->form_validation->set_rules('jurusan_id', 'jurusan_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

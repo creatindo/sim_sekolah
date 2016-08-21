@@ -186,8 +186,8 @@ class M_status extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('status_nama', 'status nama', 'trim|required');
-		$this->form_validation->set_rules('status_kode', 'status kode', 'trim|required');
+		$this->form_validation->set_rules('status_nama', 'status nama', 'trim');
+		$this->form_validation->set_rules('status_kode', 'status kode', 'trim');
 
 		$this->form_validation->set_rules('status_id', 'status_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

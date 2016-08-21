@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_kelas_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Kelas Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="t_kelas_nama" id="t_kelas_nama" placeholder="T Kelas Nama" value="<?php echo $t_kelas_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kelas_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kelas Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -47,7 +47,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('jurusan_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Jurusan Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -68,7 +68,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('semester_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Semester Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -91,7 +91,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('tahun')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Tahun</label>
                     <div class='col-md-9'>
                       <div class='input-group date date-year' >

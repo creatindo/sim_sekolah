@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('jam_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Jam Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -35,7 +35,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('hari_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Hari Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -58,7 +58,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('mapel_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Mapel Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -79,7 +79,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_kelas_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Kelas Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -102,7 +102,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('pegawai_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Pegawai Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -123,7 +123,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('jadwal_active')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Jadwal Active</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="jadwal_active" id="jadwal_active" placeholder="Jadwal Active" value="<?php echo $jadwal_active; ?>" />

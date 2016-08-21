@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('user_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>User Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="user_nama" id="user_nama" placeholder="User Nama" value="<?php echo $user_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('user_pass')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>User Pass</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="user_pass" id="user_pass" placeholder="User Pass" value="<?php echo $user_pass; ?>" />
@@ -36,7 +36,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('user_pass_verif')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>User Pass Verif</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="user_pass_verif" id="user_pass_verif" placeholder="User Pass Verif" value="<?php echo $user_pass_verif; ?>" />

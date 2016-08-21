@@ -188,8 +188,8 @@ class M_ujian extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('ujian_nama', 'ujian nama', 'trim|required');
-		$this->form_validation->set_rules('ujian_active', 'ujian active', 'trim|required');
+		$this->form_validation->set_rules('ujian_nama', 'ujian nama', 'trim');
+		$this->form_validation->set_rules('ujian_active', 'ujian active', 'trim|numeric');
 
 		$this->form_validation->set_rules('ujian_id', 'ujian_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

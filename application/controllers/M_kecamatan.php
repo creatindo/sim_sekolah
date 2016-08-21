@@ -210,12 +210,12 @@ class M_kecamatan extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('kecamatan_kode', 'kecamatan kode', 'trim|required');
+		$this->form_validation->set_rules('kecamatan_kode', 'kecamatan kode', 'trim');
 		$this->form_validation->set_rules('m_kota_id', 'm kota id', 'trim|required');
 		$this->form_validation->set_rules('kecamatan_nama', 'kecamatan nama', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_aktif', 'kecamatan aktif', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_created_by', 'kecamatan created by', 'trim|required');
-		$this->form_validation->set_rules('kecamatan_revised', 'kecamatan revised', 'trim|required');
+		$this->form_validation->set_rules('kecamatan_aktif', 'kecamatan aktif', 'trim');
+		$this->form_validation->set_rules('kecamatan_created_by', 'kecamatan created by', 'trim');
+		$this->form_validation->set_rules('kecamatan_revised', 'kecamatan revised', 'trim|numeric');
 
 		$this->form_validation->set_rules('kecamatan_id', 'kecamatan_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

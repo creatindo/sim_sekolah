@@ -22,7 +22,7 @@
                     <tr><td>Siswa Ibu</td><td><?php echo $siswa_ibu; ?></td></tr>
                     <tr><td>Siswa Wali</td><td><?php echo $siswa_wali; ?></td></tr>
                     <tr><td>Telp Ortu</td><td><?php echo $telp_ortu; ?></td></tr>
-                    <tr><td>Foto Img</td><td><?php echo $foto_img; ?></td></tr>
+                    <tr><td>Siswa Img</td><td><?php echo $siswa_img; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>

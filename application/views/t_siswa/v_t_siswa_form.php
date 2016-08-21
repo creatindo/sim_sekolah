@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_siswa_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Siswa Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="t_siswa_nama" id="t_siswa_nama" placeholder="T Siswa Nama" value="<?php echo $t_siswa_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -47,7 +47,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('t_kelas_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Kelas Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -68,7 +68,26 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('tahun')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>Tahun</label>
+                    <div class='col-md-9'>
+                      <div class='input-group date date-decade' >
+                        <input type='text' class='form-control ' readonly name="tahun" value="<?php echo $tahun; ?>">
+                        <span class='input-group-btn'>
+                          <button class='btn default' type='button'>
+                            <i class='fa fa-calendar'></i>
+                          </button>
+                        </span>
+                      </div>
+                      <span class='help-block'> <?php echo form_error('tahun') ?> </span>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div class='row'>
+                <div class='col-md-6'>
+                  <div class='form-group <?php if(form_error('t_siswa_active')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>T Siswa Active</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="t_siswa_active" id="t_siswa_active" placeholder="T Siswa Active" value="<?php echo $t_siswa_active; ?>" />

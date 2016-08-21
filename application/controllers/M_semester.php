@@ -180,7 +180,7 @@ class M_semester extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('semester_nama', 'semester nama', 'trim|required');
+		$this->form_validation->set_rules('semester_nama', 'semester nama', 'trim');
 
 		$this->form_validation->set_rules('semester_id', 'semester_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

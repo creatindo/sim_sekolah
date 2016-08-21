@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('mapel_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Mapel Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="mapel_nama" id="mapel_nama" placeholder="Mapel Nama" value="<?php echo $mapel_nama; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('mapel_active')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Mapel Active</label>
                     <div class='col-md-9'>
                       <?php 

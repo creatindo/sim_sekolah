@@ -220,12 +220,12 @@ class T_jadwal extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('jam_id', 'jam id', 'trim|required');
-		$this->form_validation->set_rules('hari_id', 'hari id', 'trim|required');
-		$this->form_validation->set_rules('mapel_id', 'mapel id', 'trim|required');
-		$this->form_validation->set_rules('t_kelas_id', 't kelas id', 'trim|required');
-		$this->form_validation->set_rules('pegawai_id', 'pegawai id', 'trim|required');
-		$this->form_validation->set_rules('jadwal_active', 'jadwal active', 'trim|required');
+		$this->form_validation->set_rules('jam_id', 'jam id', 'trim|numeric');
+		$this->form_validation->set_rules('hari_id', 'hari id', 'trim|numeric');
+		$this->form_validation->set_rules('mapel_id', 'mapel id', 'trim|numeric');
+		$this->form_validation->set_rules('t_kelas_id', 't kelas id', 'trim|numeric');
+		$this->form_validation->set_rules('pegawai_id', 'pegawai id', 'trim|numeric');
+		$this->form_validation->set_rules('jadwal_active', 'jadwal active', 'trim');
 
 		$this->form_validation->set_rules('jadwal_id', 'jadwal_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

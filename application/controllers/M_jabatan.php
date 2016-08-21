@@ -180,7 +180,7 @@ class M_jabatan extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('jabatan_nama', 'jabatan nama', 'trim|required');
+		$this->form_validation->set_rules('jabatan_nama', 'jabatan nama', 'trim');
 
 		$this->form_validation->set_rules('jabatan_id', 'jabatan_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

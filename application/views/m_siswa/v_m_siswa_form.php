@@ -14,7 +14,7 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_nis')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Nis</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="siswa_nis" id="siswa_nis" placeholder="Siswa Nis" value="<?php echo $siswa_nis; ?>" />
@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_nama')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Nama</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="siswa_nama" id="siswa_nama" placeholder="Siswa Nama" value="<?php echo $siswa_nama; ?>" />
@@ -36,7 +36,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_jk')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Jk</label>
                     <div class='col-md-9'>
                       <?php 
@@ -57,7 +57,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_tgl_lahir')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Tgl Lahir</label>
                     <div class='col-md-9'>
                       <div class='input-group date date-decade' >
@@ -76,7 +76,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kota_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kota Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -97,7 +97,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('kecamatan_id')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Kecamatan Id</label>
                     <div class='col-md-9'>
                       <?php 
@@ -120,7 +120,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_alamat')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Alamat</label>
                     <div class='col-md-9'>
                       <textarea class="form-control" rows="3" name="siswa_alamat" id="siswa_alamat" placeholder="Siswa Alamat"><?php echo $siswa_alamat; ?></textarea>
@@ -130,7 +130,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_ayah')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Ayah</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="siswa_ayah" id="siswa_ayah" placeholder="Siswa Ayah" value="<?php echo $siswa_ayah; ?>" />
@@ -142,7 +142,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_ibu')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Ibu</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="siswa_ibu" id="siswa_ibu" placeholder="Siswa Ibu" value="<?php echo $siswa_ibu; ?>" />
@@ -152,7 +152,7 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('siswa_wali')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Siswa Wali</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="siswa_wali" id="siswa_wali" placeholder="Siswa Wali" value="<?php echo $siswa_wali; ?>" />
@@ -164,7 +164,7 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group'>
+                  <div class='form-group <?php if(form_error('telp_ortu')){echo 'has-error';} ?>'>
                     <label class='col-md-3 control-label'>Telp Ortu</label>
                     <div class='col-md-9'>
                       <input type="text" class="form-control" name="telp_ortu" id="telp_ortu" placeholder="Telp Ortu" value="<?php echo $telp_ortu; ?>" />
@@ -174,12 +174,12 @@
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group'>
-                    <label class='col-md-3 control-label'> imgFoto Img</label>
+                  <div class='form-group <?php if(form_error('siswa_img')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'> imgSiswa Img</label>
                     <div class='col-md-9'>
-                      <input type="hidden" class="form-control" name="foto_img" id="foto_img" placeholder="Foto Img" value="<?php echo $foto_img; ?>" />
-                      <img class="btn no-space upload_img_single" id="foto_img_preview" style="width: 100px; height: 100px;" src="<?php echo base_url('uploads/temp/'.$foto_img); ?>" onerror="this.src='<?php echo base_url("assets/global/img/noimage.png") ?>'" alt="Image">
-                      <span class='help-block'> <?php echo form_error('foto_img') ?> </span>
+                      <input type="hidden" class="form-control" name="siswa_img" id="siswa_img" placeholder="Siswa Img" value="<?php echo $siswa_img; ?>" />
+                      <img class="btn no-space upload_img_single" id="siswa_img_preview" style="width: 100px; height: 100px;" src="<?php echo base_url('uploads/temp/'.$siswa_img); ?>" onerror="this.src='<?php echo base_url("assets/global/img/noimage.png") ?>'" alt="Image">
+                      <span class='help-block'> <?php echo form_error('siswa_img') ?> </span>
                     </div>
                   </div>
                 </div>

@@ -210,11 +210,11 @@ class T_kelas extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('t_kelas_nama', 't kelas nama', 'trim|required');
-		$this->form_validation->set_rules('kelas_id', 'kelas id', 'trim|required');
-		$this->form_validation->set_rules('jurusan_id', 'jurusan id', 'trim|required');
-		$this->form_validation->set_rules('semester_id', 'semester id', 'trim|required');
-		$this->form_validation->set_rules('tahun', 'tahun', 'trim|required');
+		$this->form_validation->set_rules('t_kelas_nama', 't kelas nama', 'trim');
+		$this->form_validation->set_rules('kelas_id', 'kelas id', 'trim|numeric');
+		$this->form_validation->set_rules('jurusan_id', 'jurusan id', 'trim|numeric');
+		$this->form_validation->set_rules('semester_id', 'semester id', 'trim|numeric');
+		$this->form_validation->set_rules('tahun', 'tahun', 'trim');
 
 		$this->form_validation->set_rules('t_kelas_id', 't_kelas_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

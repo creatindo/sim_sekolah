@@ -188,8 +188,8 @@ class M_kelas extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('kelas_nama', 'kelas nama', 'trim|required');
-		$this->form_validation->set_rules('kelas_active', 'kelas active', 'trim|required');
+		$this->form_validation->set_rules('kelas_nama', 'kelas nama', 'trim');
+		$this->form_validation->set_rules('kelas_active', 'kelas active', 'trim|numeric');
 
 		$this->form_validation->set_rules('kelas_id', 'kelas_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

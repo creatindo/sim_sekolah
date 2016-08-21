@@ -210,11 +210,11 @@ class T_ujian extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('t_ujian_nama', 't ujian nama', 'trim|required');
-		$this->form_validation->set_rules('ujian_id', 'ujian id', 'trim|required');
-		$this->form_validation->set_rules('t_jadwal_id', 't jadwal id', 'trim|required');
-		$this->form_validation->set_rules('t_ujian_tanggal', 't ujian tanggal', 'trim|required');
-		$this->form_validation->set_rules('t_ujian_active', 't ujian active', 'trim|required');
+		$this->form_validation->set_rules('t_ujian_nama', 't ujian nama', 'trim');
+		$this->form_validation->set_rules('ujian_id', 'ujian id', 'trim|numeric');
+		$this->form_validation->set_rules('t_jadwal_id', 't jadwal id', 'trim|numeric');
+		$this->form_validation->set_rules('t_ujian_tanggal', 't ujian tanggal', 'trim');
+		$this->form_validation->set_rules('t_ujian_active', 't ujian active', 'trim|numeric');
 
 		$this->form_validation->set_rules('t_ujian_id', 't_ujian_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
