@@ -26,7 +26,6 @@ class M_kelas_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'kelas_nama';
         $dataorder[$i++] = 'kelas_active';
         if(!empty($this->input->post('kelas_nama'))){
@@ -35,6 +34,7 @@ class M_kelas_model extends MY_Model
         if(!empty($this->input->post('kelas_active'))){
             $where['kelas_active'] = $this->input->post('kelas_active');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

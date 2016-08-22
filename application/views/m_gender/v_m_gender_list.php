@@ -44,7 +44,7 @@
                     
                     <th>Gender Nama</th>
                     <th>Gender Kode</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

@@ -75,14 +75,14 @@ class M_kecamatan extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'kecamatan_id' => $row->kecamatan_id,
-			'kecamatan_kode' => $row->kecamatan_kode,
-			'm_kota_id' => $row->m_kota_id,
-			'kecamatan_nama' => $row->kecamatan_nama,
-			'kecamatan_aktif' => $row->kecamatan_aktif,
-			'kecamatan_created_by' => $row->kecamatan_created_by,
-			'kecamatan_revised' => $row->kecamatan_revised,
-		);
+				'kecamatan_id' => $row->kecamatan_id,
+				'kecamatan_kode' => $row->kecamatan_kode,
+				'm_kota_id' => $row->m_kota_id,
+				'kecamatan_nama' => $row->kecamatan_nama,
+				'kecamatan_aktif' => $row->kecamatan_aktif,
+				'kecamatan_created_by' => $row->kecamatan_created_by,
+				'kecamatan_revised' => $row->kecamatan_revised,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_kecamatan/v_m_kecamatan_read', $data);
         } else {
@@ -110,6 +110,7 @@ class M_kecamatan extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

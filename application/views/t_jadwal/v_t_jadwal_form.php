@@ -14,22 +14,22 @@
             <div class='form-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group <?php if(form_error('jam_id')){echo 'has-error';} ?>'>
-                    <label class='col-md-3 control-label'>Jam Id</label>
+                  <div class='form-group <?php if(form_error('t_kelas_id')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>Kelas</label>
                     <div class='col-md-9'>
                       <?php 
                       $v_name_1 = '';
-                      if (!empty($jam_id)) {                                
-                        $v_name_1 = $this->M_jam_model->get($jam_id)->{$this->M_jam_model->label};
+                      if (!empty($t_kelas_id)) {                                
+                        $v_name_1 = $this->T_kelas_model->get($t_kelas_id)->{$this->T_kelas_model->label};
                       }
                       $ddajax = array(
-                        'url' => site_url('form/dd/M_jam_model'), 
-                        'name' =>'jam_id',
-                        'current_selected_id' => $jam_id, 
+                        'url' => site_url('form/dd/T_kelas_model'), 
+                        'name' =>'t_kelas_id',
+                        'current_selected_id' => $t_kelas_id, 
                         'current_selected_name' => $v_name_1, 
                         );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE); ?>
-                      <span class='help-block'> <?php echo form_error('jam_id') ?> </span>
+                      <span class='help-block'> <?php echo form_error('t_kelas_id') ?> </span>
                     </div>
                   </div>
                 </div>
@@ -58,43 +58,43 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='form-group <?php if(form_error('mapel_id')){echo 'has-error';} ?>'>
-                    <label class='col-md-3 control-label'>Mapel Id</label>
+                  <div class='form-group <?php if(form_error('jam_id')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>Jam Id</label>
                     <div class='col-md-9'>
                       <?php 
                       $v_name_3 = '';
-                      if (!empty($mapel_id)) {                                
-                        $v_name_3 = $this->M_mapel_model->get($mapel_id)->{$this->M_mapel_model->label};
+                      if (!empty($jam_id)) {                                
+                        $v_name_3 = $this->M_jam_model->get($jam_id)->{$this->M_jam_model->label};
                       }
                       $ddajax = array(
-                        'url' => site_url('form/dd/M_mapel_model'), 
-                        'name' =>'mapel_id',
-                        'current_selected_id' => $mapel_id, 
+                        'url' => site_url('form/dd/M_jam_model'), 
+                        'name' =>'jam_id',
+                        'current_selected_id' => $jam_id, 
                         'current_selected_name' => $v_name_3, 
                         );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE); ?>
-                      <span class='help-block'> <?php echo form_error('mapel_id') ?> </span>
+                      <span class='help-block'> <?php echo form_error('jam_id') ?> </span>
                     </div>
                   </div>
                 </div>
                 
                 <div class='col-md-6'>
-                  <div class='form-group <?php if(form_error('t_kelas_id')){echo 'has-error';} ?>'>
-                    <label class='col-md-3 control-label'>T Kelas Id</label>
+                  <div class='form-group <?php if(form_error('mapel_id')){echo 'has-error';} ?>'>
+                    <label class='col-md-3 control-label'>Mapel Id</label>
                     <div class='col-md-9'>
                       <?php 
                       $v_name_4 = '';
-                      if (!empty($t_kelas_id)) {                                
-                        $v_name_4 = $this->T_kelas_model->get($t_kelas_id)->{$this->T_kelas_model->label};
+                      if (!empty($mapel_id)) {                                
+                        $v_name_4 = $this->M_mapel_model->get($mapel_id)->{$this->M_mapel_model->label};
                       }
                       $ddajax = array(
-                        'url' => site_url('form/dd/T_kelas_model'), 
-                        'name' =>'t_kelas_id',
-                        'current_selected_id' => $t_kelas_id, 
+                        'url' => site_url('form/dd/M_mapel_model'), 
+                        'name' =>'mapel_id',
+                        'current_selected_id' => $mapel_id, 
                         'current_selected_name' => $v_name_4, 
                         );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE); ?>
-                      <span class='help-block'> <?php echo form_error('t_kelas_id') ?> </span>
+                      <span class='help-block'> <?php echo form_error('mapel_id') ?> </span>
                     </div>
                   </div>
                 </div>
@@ -118,16 +118,6 @@
                         );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE); ?>
                       <span class='help-block'> <?php echo form_error('pegawai_id') ?> </span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class='col-md-6'>
-                  <div class='form-group <?php if(form_error('jadwal_active')){echo 'has-error';} ?>'>
-                    <label class='col-md-3 control-label'>Jadwal Active</label>
-                    <div class='col-md-9'>
-                      <input type="text" class="form-control" name="jadwal_active" id="jadwal_active" placeholder="Jadwal Active" value="<?php echo $jadwal_active; ?>" />
-                      <span class='help-block'> <?php echo form_error('jadwal_active') ?> </span>
                     </div>
                   </div>
                 </div>

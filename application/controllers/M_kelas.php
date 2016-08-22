@@ -73,10 +73,10 @@ class M_kelas extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'kelas_id' => $row->kelas_id,
-			'kelas_nama' => $row->kelas_nama,
-			'kelas_active' => @$row->m_status->{$this->M_status_model->label},
-		);
+				'kelas_id' => $row->kelas_id,
+				'kelas_nama' => $row->kelas_nama,
+				'kelas_active' => @$row->m_status->{$this->M_status_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','m_kelas/v_m_kelas_read', $data);
         } else {
@@ -100,6 +100,7 @@ class M_kelas extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

@@ -12,8 +12,8 @@ class T_ujian_nilai extends CI_Controller
         parent::__construct();
         $this->load->model('T_ujian_nilai_model');
         $this->load->library('form_validation');
-		$this->load->model('T_siswa_model');
-		$this->load->model('T_ujian_model');        
+		$this->load->model('T_ujian_model');
+		$this->load->model('T_siswa_model');        
     }
 
     public function index()
@@ -54,7 +54,6 @@ class T_ujian_nilai extends CI_Controller
                 $records["data"][] = array(
                     $checkbok,
                 
-					$d->nilai_nama, 
 					@$d->t_ujian->{$this->T_ujian_model->label}, 
 					@$d->t_siswa->{$this->T_siswa_model->label}, 
 					$d->nilai, 
@@ -72,17 +71,16 @@ class T_ujian_nilai extends CI_Controller
     public function read($id) 
     {
         $row = $this->T_ujian_nilai_model
-                    ->with_t_siswa()
                     ->with_t_ujian()
+                    ->with_t_siswa()
                     ->get($id);
         if ($row) {
             $data = array(
-			'nilai_id' => $row->nilai_id,
-			'nilai_nama' => $row->nilai_nama,
-			't_ujian_id' => @$row->t_ujian->{$this->T_ujian_model->label},
-			't_siswa_id' => @$row->t_siswa->{$this->T_siswa_model->label},
-			'nilai' => $row->nilai,
-		);
+				'nilai_id' => $row->nilai_id,
+				't_ujian_id' => @$row->t_ujian->{$this->T_ujian_model->label},
+				't_siswa_id' => @$row->t_siswa->{$this->T_siswa_model->label},
+				'nilai' => $row->nilai,
+			);
             $data['id'] = $id;
             $this->template->load('template','t_ujian_nilai/v_t_ujian_nilai_read', $data);
         } else {
@@ -97,7 +95,6 @@ class T_ujian_nilai extends CI_Controller
             'button' => 'Create',
             'action' => site_url('t_ujian_nilai/create_action'),
 			'nilai_id' => set_value('nilai_id'),
-			'nilai_nama' => set_value('nilai_nama'),
 			't_ujian_id' => set_value('t_ujian_id'),
 			't_siswa_id' => set_value('t_siswa_id'),
 			'nilai' => set_value('nilai'),
@@ -109,11 +106,11 @@ class T_ujian_nilai extends CI_Controller
     {
         $this->_rules();
 
+
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
             $data = array(
-				'nilai_nama' => $this->input->post('nilai_nama',TRUE),
 				't_ujian_id' => $this->input->post('t_ujian_id',TRUE),
 				't_siswa_id' => $this->input->post('t_siswa_id',TRUE),
 				'nilai' => $this->input->post('nilai',TRUE),
@@ -139,7 +136,6 @@ class T_ujian_nilai extends CI_Controller
                 'button' => 'Update',
                 'action' => site_url('t_ujian_nilai/update_action'),
 				'nilai_id' => set_value('nilai_id', $row->nilai_id),
-				'nilai_nama' => set_value('nilai_nama', $row->nilai_nama),
 				't_ujian_id' => set_value('t_ujian_id', $row->t_ujian_id),
 				't_siswa_id' => set_value('t_siswa_id', $row->t_siswa_id),
 				'nilai' => set_value('nilai', $row->nilai),
@@ -159,7 +155,6 @@ class T_ujian_nilai extends CI_Controller
             $this->update($this->input->post('nilai_id', TRUE));
         } else {
             $data = array(
-				'nilai_nama' => $this->input->post('nilai_nama',TRUE),
 				't_ujian_id' => $this->input->post('t_ujian_id',TRUE),
 				't_siswa_id' => $this->input->post('t_siswa_id',TRUE),
 				'nilai' => $this->input->post('nilai',TRUE),
@@ -202,7 +197,6 @@ class T_ujian_nilai extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('nilai_nama', 'nilai nama', 'trim');
 		$this->form_validation->set_rules('t_ujian_id', 't ujian id', 'trim|numeric');
 		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|numeric');
 		$this->form_validation->set_rules('nilai', 'nilai', 'trim|numeric');
@@ -233,7 +227,6 @@ class T_ujian_nilai extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-		xlsWriteLabel($tablehead, $kolomhead++, "Nilai Nama");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Ujian Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Siswa Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "Nilai");
@@ -243,7 +236,6 @@ class T_ujian_nilai extends CI_Controller
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->nilai_nama);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->t_ujian_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->t_siswa_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->nilai);

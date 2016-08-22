@@ -28,7 +28,6 @@ class T_kelas_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 't_kelas_nama';
         $dataorder[$i++] = 'kelas_id';
         $dataorder[$i++] = 'jurusan_id';
@@ -52,6 +51,7 @@ class T_kelas_model extends MY_Model
         if(!empty($this->input->post('tahun_end'))){
             $where['tahun <='] = $this->input->post('tahun_end');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

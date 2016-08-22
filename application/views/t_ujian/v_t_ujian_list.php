@@ -47,7 +47,7 @@
                     <th>T Jadwal Id</th>
                     <th>T Ujian Tanggal</th>
                     <th>T Ujian Active</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

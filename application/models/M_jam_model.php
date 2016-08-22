@@ -26,7 +26,6 @@ class M_jam_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'jam_nama';
         $dataorder[$i++] = 'jam_active';
         if(!empty($this->input->post('jam_nama'))){
@@ -35,6 +34,7 @@ class M_jam_model extends MY_Model
         if(!empty($this->input->post('jam_active'))){
             $where['jam_active'] = $this->input->post('jam_active');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

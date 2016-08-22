@@ -57,12 +57,11 @@ class T_jadwal extends CI_Controller
                 $records["data"][] = array(
                     $checkbok,
                 
-					@$d->m_jam->{$this->M_jam_model->label}, 
-					@$d->m_hari->{$this->M_hari_model->label}, 
-					@$d->m_mapel->{$this->M_mapel_model->label}, 
 					@$d->t_kelas->{$this->T_kelas_model->label}, 
+					@$d->m_hari->{$this->M_hari_model->label}, 
+					@$d->m_jam->{$this->M_jam_model->label}, 
+					@$d->m_mapel->{$this->M_mapel_model->label}, 
 					@$d->m_pegawai->{$this->M_pegawai_model->label}, 
-					$d->jadwal_active, 
                     $view.$edit.$delete
                 );
             }
@@ -85,14 +84,13 @@ class T_jadwal extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'jadwal_id' => $row->jadwal_id,
-			'jam_id' => @$row->m_jam->{$this->M_jam_model->label},
-			'hari_id' => @$row->m_hari->{$this->M_hari_model->label},
-			'mapel_id' => @$row->m_mapel->{$this->M_mapel_model->label},
-			't_kelas_id' => @$row->t_kelas->{$this->T_kelas_model->label},
-			'pegawai_id' => @$row->m_pegawai->{$this->M_pegawai_model->label},
-			'jadwal_active' => $row->jadwal_active,
-		);
+				'jadwal_id' => $row->jadwal_id,
+				't_kelas_id' => @$row->t_kelas->{$this->T_kelas_model->label},
+				'hari_id' => @$row->m_hari->{$this->M_hari_model->label},
+				'jam_id' => @$row->m_jam->{$this->M_jam_model->label},
+				'mapel_id' => @$row->m_mapel->{$this->M_mapel_model->label},
+				'pegawai_id' => @$row->m_pegawai->{$this->M_pegawai_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','t_jadwal/v_t_jadwal_read', $data);
         } else {
@@ -107,12 +105,11 @@ class T_jadwal extends CI_Controller
             'button' => 'Create',
             'action' => site_url('t_jadwal/create_action'),
 			'jadwal_id' => set_value('jadwal_id'),
-			'jam_id' => set_value('jam_id'),
-			'hari_id' => set_value('hari_id'),
-			'mapel_id' => set_value('mapel_id'),
 			't_kelas_id' => set_value('t_kelas_id'),
+			'hari_id' => set_value('hari_id'),
+			'jam_id' => set_value('jam_id'),
+			'mapel_id' => set_value('mapel_id'),
 			'pegawai_id' => set_value('pegawai_id'),
-			'jadwal_active' => set_value('jadwal_active'),
 		);
         $this->template->load('template','t_jadwal/v_t_jadwal_form', $data);
     }
@@ -121,16 +118,16 @@ class T_jadwal extends CI_Controller
     {
         $this->_rules();
 
+
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
             $data = array(
-				'jam_id' => $this->input->post('jam_id',TRUE),
-				'hari_id' => $this->input->post('hari_id',TRUE),
-				'mapel_id' => $this->input->post('mapel_id',TRUE),
 				't_kelas_id' => $this->input->post('t_kelas_id',TRUE),
+				'hari_id' => $this->input->post('hari_id',TRUE),
+				'jam_id' => $this->input->post('jam_id',TRUE),
+				'mapel_id' => $this->input->post('mapel_id',TRUE),
 				'pegawai_id' => $this->input->post('pegawai_id',TRUE),
-				'jadwal_active' => $this->input->post('jadwal_active',TRUE),
 			);
 
             $this->T_jadwal_model->insert($data);
@@ -153,12 +150,11 @@ class T_jadwal extends CI_Controller
                 'button' => 'Update',
                 'action' => site_url('t_jadwal/update_action'),
 				'jadwal_id' => set_value('jadwal_id', $row->jadwal_id),
-				'jam_id' => set_value('jam_id', $row->jam_id),
-				'hari_id' => set_value('hari_id', $row->hari_id),
-				'mapel_id' => set_value('mapel_id', $row->mapel_id),
 				't_kelas_id' => set_value('t_kelas_id', $row->t_kelas_id),
+				'hari_id' => set_value('hari_id', $row->hari_id),
+				'jam_id' => set_value('jam_id', $row->jam_id),
+				'mapel_id' => set_value('mapel_id', $row->mapel_id),
 				'pegawai_id' => set_value('pegawai_id', $row->pegawai_id),
-				'jadwal_active' => set_value('jadwal_active', $row->jadwal_active),
 			);
             $this->template->load('template','t_jadwal/v_t_jadwal_form', $data);
         } else {
@@ -175,12 +171,11 @@ class T_jadwal extends CI_Controller
             $this->update($this->input->post('jadwal_id', TRUE));
         } else {
             $data = array(
-				'jam_id' => $this->input->post('jam_id',TRUE),
-				'hari_id' => $this->input->post('hari_id',TRUE),
-				'mapel_id' => $this->input->post('mapel_id',TRUE),
 				't_kelas_id' => $this->input->post('t_kelas_id',TRUE),
+				'hari_id' => $this->input->post('hari_id',TRUE),
+				'jam_id' => $this->input->post('jam_id',TRUE),
+				'mapel_id' => $this->input->post('mapel_id',TRUE),
 				'pegawai_id' => $this->input->post('pegawai_id',TRUE),
-				'jadwal_active' => $this->input->post('jadwal_active',TRUE),
 		    );
 
             $this->T_jadwal_model->update($data,$this->input->post('jadwal_id', TRUE));
@@ -220,12 +215,11 @@ class T_jadwal extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('jam_id', 'jam id', 'trim|numeric');
-		$this->form_validation->set_rules('hari_id', 'hari id', 'trim|numeric');
-		$this->form_validation->set_rules('mapel_id', 'mapel id', 'trim|numeric');
 		$this->form_validation->set_rules('t_kelas_id', 't kelas id', 'trim|numeric');
+		$this->form_validation->set_rules('hari_id', 'hari id', 'trim|numeric');
+		$this->form_validation->set_rules('jam_id', 'jam id', 'trim|numeric');
+		$this->form_validation->set_rules('mapel_id', 'mapel id', 'trim|numeric');
 		$this->form_validation->set_rules('pegawai_id', 'pegawai id', 'trim|numeric');
-		$this->form_validation->set_rules('jadwal_active', 'jadwal active', 'trim');
 
 		$this->form_validation->set_rules('jadwal_id', 'jadwal_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -253,24 +247,22 @@ class T_jadwal extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-		xlsWriteLabel($tablehead, $kolomhead++, "Jam Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Hari Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Mapel Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Kelas Id");
+		xlsWriteLabel($tablehead, $kolomhead++, "Hari Id");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jam Id");
+		xlsWriteLabel($tablehead, $kolomhead++, "Mapel Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "Pegawai Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Jadwal Active");
 
 		foreach ($this->T_jadwal_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->jam_id);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->hari_id);
-		    xlsWriteNumber($tablebody, $kolombody++, $data->mapel_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->t_kelas_id);
+		    xlsWriteNumber($tablebody, $kolombody++, $data->hari_id);
+		    xlsWriteNumber($tablebody, $kolombody++, $data->jam_id);
+		    xlsWriteNumber($tablebody, $kolombody++, $data->mapel_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->pegawai_id);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->jadwal_active);
 
 		    $tablebody++;
             $nourut++;

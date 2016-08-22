@@ -73,10 +73,10 @@ class M_mapel extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'mapel_id' => $row->mapel_id,
-			'mapel_nama' => $row->mapel_nama,
-			'mapel_active' => @$row->m_status->{$this->M_status_model->label},
-		);
+				'mapel_id' => $row->mapel_id,
+				'mapel_nama' => $row->mapel_nama,
+				'mapel_active' => @$row->m_status->{$this->M_status_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','m_mapel/v_m_mapel_read', $data);
         } else {
@@ -100,6 +100,7 @@ class M_mapel extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

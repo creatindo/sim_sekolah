@@ -72,11 +72,11 @@ class M_user extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'user_id' => $row->user_id,
-			'user_nama' => $row->user_nama,
-			'user_pass' => $row->user_pass,
-			'user_pass_verif' => $row->user_pass_verif,
-		);
+				'user_id' => $row->user_id,
+				'user_nama' => $row->user_nama,
+				'user_pass' => $row->user_pass,
+				'user_pass_verif' => $row->user_pass_verif,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_user/v_m_user_read', $data);
         } else {
@@ -101,6 +101,7 @@ class M_user extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

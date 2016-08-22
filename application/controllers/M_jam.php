@@ -73,10 +73,10 @@ class M_jam extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'jam_id' => $row->jam_id,
-			'jam_nama' => $row->jam_nama,
-			'jam_active' => @$row->m_status->{$this->M_status_model->label},
-		);
+				'jam_id' => $row->jam_id,
+				'jam_nama' => $row->jam_nama,
+				'jam_active' => @$row->m_status->{$this->M_status_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','m_jam/v_m_jam_read', $data);
         } else {
@@ -100,6 +100,7 @@ class M_jam extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

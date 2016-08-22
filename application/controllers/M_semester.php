@@ -70,9 +70,9 @@ class M_semester extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'semester_id' => $row->semester_id,
-			'semester_nama' => $row->semester_nama,
-		);
+				'semester_id' => $row->semester_id,
+				'semester_nama' => $row->semester_nama,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_semester/v_m_semester_read', $data);
         } else {
@@ -95,6 +95,7 @@ class M_semester extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();
@@ -180,7 +181,7 @@ class M_semester extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('semester_nama', 'semester nama', 'trim');
+		$this->form_validation->set_rules('semester_nama', 'semester nama', 'trim|required');
 
 		$this->form_validation->set_rules('semester_id', 'semester_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

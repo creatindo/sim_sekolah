@@ -48,7 +48,7 @@
                     <th>Is Active</th>
                     <th>Is Parent</th>
                     <th>Controller</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

@@ -44,7 +44,7 @@
                     
                     <th>Kelas Nama</th>
                     <th>Kelas Active</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

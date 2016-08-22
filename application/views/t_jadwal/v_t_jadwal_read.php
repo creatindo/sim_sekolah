@@ -11,12 +11,11 @@
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Jam Id</td><td><?php echo $jam_id; ?></td></tr>
+                    <tr><td>T Kelas Id</td><td><?php echo $kelas; ?></td></tr>
                     <tr><td>Hari Id</td><td><?php echo $hari_id; ?></td></tr>
+                    <tr><td>Jam Id</td><td><?php echo $jam_id; ?></td></tr>
                     <tr><td>Mapel Id</td><td><?php echo $mapel_id; ?></td></tr>
-                    <tr><td>T Kelas Id</td><td><?php echo $t_kelas_id; ?></td></tr>
                     <tr><td>Pegawai Id</td><td><?php echo $pegawai_id; ?></td></tr>
-                    <tr><td>Jadwal Active</td><td><?php echo $jadwal_active; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>

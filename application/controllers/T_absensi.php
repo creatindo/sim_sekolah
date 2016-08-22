@@ -54,10 +54,9 @@ class T_absensi extends CI_Controller
                 $records["data"][] = array(
                     $checkbok,
                 
-					$d->absensi_nama, 
 					@$d->t_jadwal->{$this->T_jadwal_model->label}, 
 					@$d->t_siswa->{$this->T_siswa_model->label}, 
-					$d->siswa, 
+					$d->kehadiran, 
                     $view.$edit.$delete
                 );
             }
@@ -77,12 +76,11 @@ class T_absensi extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'absensi_id' => $row->absensi_id,
-			'absensi_nama' => $row->absensi_nama,
-			'jadwal_id' => @$row->t_jadwal->{$this->T_jadwal_model->label},
-			't_siswa_id' => @$row->t_siswa->{$this->T_siswa_model->label},
-			'siswa' => $row->siswa,
-		);
+				'absensi_id' => $row->absensi_id,
+				'jadwal_id' => @$row->t_jadwal->{$this->T_jadwal_model->label},
+				't_siswa_id' => @$row->t_siswa->{$this->T_siswa_model->label},
+				'kehadiran' => $row->kehadiran,
+			);
             $data['id'] = $id;
             $this->template->load('template','t_absensi/v_t_absensi_read', $data);
         } else {
@@ -97,10 +95,9 @@ class T_absensi extends CI_Controller
             'button' => 'Create',
             'action' => site_url('t_absensi/create_action'),
 			'absensi_id' => set_value('absensi_id'),
-			'absensi_nama' => set_value('absensi_nama'),
 			'jadwal_id' => set_value('jadwal_id'),
 			't_siswa_id' => set_value('t_siswa_id'),
-			'siswa' => set_value('siswa'),
+			'kehadiran' => set_value('kehadiran'),
 		);
         $this->template->load('template','t_absensi/v_t_absensi_form', $data);
     }
@@ -109,14 +106,14 @@ class T_absensi extends CI_Controller
     {
         $this->_rules();
 
+
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
             $data = array(
-				'absensi_nama' => $this->input->post('absensi_nama',TRUE),
 				'jadwal_id' => $this->input->post('jadwal_id',TRUE),
 				't_siswa_id' => $this->input->post('t_siswa_id',TRUE),
-				'siswa' => $this->input->post('siswa',TRUE),
+				'kehadiran' => $this->input->post('kehadiran',TRUE),
 			);
 
             $this->T_absensi_model->insert($data);
@@ -139,10 +136,9 @@ class T_absensi extends CI_Controller
                 'button' => 'Update',
                 'action' => site_url('t_absensi/update_action'),
 				'absensi_id' => set_value('absensi_id', $row->absensi_id),
-				'absensi_nama' => set_value('absensi_nama', $row->absensi_nama),
 				'jadwal_id' => set_value('jadwal_id', $row->jadwal_id),
 				't_siswa_id' => set_value('t_siswa_id', $row->t_siswa_id),
-				'siswa' => set_value('siswa', $row->siswa),
+				'kehadiran' => set_value('kehadiran', $row->kehadiran),
 			);
             $this->template->load('template','t_absensi/v_t_absensi_form', $data);
         } else {
@@ -159,10 +155,9 @@ class T_absensi extends CI_Controller
             $this->update($this->input->post('absensi_id', TRUE));
         } else {
             $data = array(
-				'absensi_nama' => $this->input->post('absensi_nama',TRUE),
 				'jadwal_id' => $this->input->post('jadwal_id',TRUE),
 				't_siswa_id' => $this->input->post('t_siswa_id',TRUE),
-				'siswa' => $this->input->post('siswa',TRUE),
+				'kehadiran' => $this->input->post('kehadiran',TRUE),
 		    );
 
             $this->T_absensi_model->update($data,$this->input->post('absensi_id', TRUE));
@@ -202,10 +197,9 @@ class T_absensi extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('absensi_nama', 'absensi nama', 'trim|valid_email');
 		$this->form_validation->set_rules('jadwal_id', 'jadwal id', 'trim|numeric');
 		$this->form_validation->set_rules('t_siswa_id', 't siswa id', 'trim|numeric');
-		$this->form_validation->set_rules('siswa', 'siswa', 'trim|required');
+		$this->form_validation->set_rules('kehadiran', 'kehadiran', 'trim');
 
 		$this->form_validation->set_rules('absensi_id', 'absensi_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -233,20 +227,18 @@ class T_absensi extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-		xlsWriteLabel($tablehead, $kolomhead++, "Absensi Nama");
 		xlsWriteLabel($tablehead, $kolomhead++, "Jadwal Id");
 		xlsWriteLabel($tablehead, $kolomhead++, "T Siswa Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa");
+		xlsWriteLabel($tablehead, $kolomhead++, "Kehadiran");
 
 		foreach ($this->T_absensi_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->absensi_nama);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->jadwal_id);
 		    xlsWriteNumber($tablebody, $kolombody++, $data->t_siswa_id);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->kehadiran);
 
 		    $tablebody++;
             $nourut++;

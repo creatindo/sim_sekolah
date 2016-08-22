@@ -128,12 +128,12 @@ $string.="
             \$data = array(";
 foreach ($all as $row) {
     if($row['r_table'] ) {
-    $string .= "\n\t\t\t'" . $row['column_name'] . "' => @\$row->". $row["r_table"] ."->{".$row["r_label"]."},";
+    $string .= "\n\t\t\t\t'" . $row['column_name'] . "' => @\$row->". $row["r_table"] ."->{".$row["r_label"]."},";
     }else{
-    $string .= "\n\t\t\t'" . $row['column_name'] . "' => \$row->" . $row['column_name'] . ",";
+    $string .= "\n\t\t\t\t'" . $row['column_name'] . "' => \$row->" . $row['column_name'] . ",";
     }
 }
-$string .= "\n\t\t);
+$string .= "\n\t\t\t);
             \$data['id'] = \$id;
             \$this->template->load('template','$c_url/$v_read', \$data);
         } else {
@@ -156,7 +156,10 @@ $string .= "\n\t\t);
     
     public function create_action() 
     {
-        \$this->_rules();
+        \$this->_rules();";
+
+$string .= "
+
 
         if (\$this->form_validation->run() == FALSE) {
             \$this->create();
@@ -199,7 +202,9 @@ $string .= "\n\t\t\t);
     
     public function update_action() 
     {
-        \$this->_rules();
+        \$this->_rules();";
+
+$string .= "
 
         if (\$this->form_validation->run() == FALSE) {
             \$this->update(\$this->input->post('$pk', TRUE));

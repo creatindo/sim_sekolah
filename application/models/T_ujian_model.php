@@ -28,7 +28,6 @@ class T_ujian_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 't_ujian_nama';
         $dataorder[$i++] = 'ujian_id';
         $dataorder[$i++] = 't_jadwal_id';
@@ -52,6 +51,7 @@ class T_ujian_model extends MY_Model
         if(!empty($this->input->post('t_ujian_active'))){
             $where['t_ujian_active'] = $this->input->post('t_ujian_active');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

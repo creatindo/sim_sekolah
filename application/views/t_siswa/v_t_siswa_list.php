@@ -45,9 +45,8 @@
                     <th>T Siswa Nama</th>
                     <th>Siswa Id</th>
                     <th>T Kelas Id</th>
-                    <th>Tahun</th>
                     <th>T Siswa Active</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
@@ -74,10 +73,15 @@
                     ?>
                     </td>
                     <td>
-                        <input class="form-control form-control form-filter input-sm date-decade " readonly name="tahun_start"  type="text" value="" />
-                        <input class="form-control form-control form-filter input-sm date-decade " readonly name="tahun_end"  type="text" value="" />
+                    <?php 
+                      $ddajax = array(
+                          'url' => site_url('form/dd/M_status_model'), 
+                          'name' =>'t_siswa_active',
+                          'class' => 'form-control form-filter input-sm',
+                          );
+                      $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
+                    ?>
                     </td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="t_siswa_active"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">

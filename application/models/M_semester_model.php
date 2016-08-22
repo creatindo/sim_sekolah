@@ -25,11 +25,11 @@ class M_semester_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'semester_nama';
         if(!empty($this->input->post('semester_nama'))){
             $where['LOWER(semester_nama) LIKE'] = '%'.strtolower($this->input->post('semester_nama')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

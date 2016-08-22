@@ -8,7 +8,7 @@ class T_ujian_nilai_model extends MY_Model
 
     public $table = 't_ujian_nilai';
     public $primary_key = 'nilai_id';
-    public $label = 'nilai_nama';
+    public $label = 'nilai_id';
     public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
     public $protected = array('nilai_id'); // ...Or you can set an array with the fields that cannot be filled by insert/update
 
@@ -16,8 +16,8 @@ class T_ujian_nilai_model extends MY_Model
     {
         parent::__construct();
         $this->soft_deletes = TRUE;
-        $this->has_one['t_siswa'] = array('T_siswa_model','t_siswa_id','t_siswa_id');
         $this->has_one['t_ujian'] = array('T_ujian_model','t_ujian_id','t_ujian_id');
+        $this->has_one['t_siswa'] = array('T_siswa_model','t_siswa_id','t_siswa_id');
     }
     
     // get total rows
@@ -27,14 +27,9 @@ class T_ujian_nilai_model extends MY_Model
         $where = array();
 
         $i=1;
-        
-        $dataorder[$i++] = 'nilai_nama';
         $dataorder[$i++] = 't_ujian_id';
         $dataorder[$i++] = 't_siswa_id';
         $dataorder[$i++] = 'nilai';
-        if(!empty($this->input->post('nilai_nama'))){
-            $where['LOWER(nilai_nama) LIKE'] = '%'.strtolower($this->input->post('nilai_nama')).'%';
-        }
         if(!empty($this->input->post('t_ujian_id'))){
             $where['t_ujian_id'] = $this->input->post('t_ujian_id');
         }
@@ -44,6 +39,7 @@ class T_ujian_nilai_model extends MY_Model
         if(!empty($this->input->post('nilai'))){
             $where['LOWER(nilai) LIKE'] = '%'.strtolower($this->input->post('nilai')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         
@@ -51,8 +47,8 @@ class T_ujian_nilai_model extends MY_Model
         $this->order_by( $dataorder[$order[0]["column"]],  $order[0]["dir"]);
         $this->limit($start, $limit);
         $result['get_db']=$this
-                            ->with_t_siswa()
                             ->with_t_ujian()
+                            ->with_t_siswa()
                             ->get_all();
         return $result;
     }

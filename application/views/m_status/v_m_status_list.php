@@ -44,7 +44,7 @@
                     
                     <th>Status Nama</th>
                     <th>Status Kode</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

@@ -71,10 +71,10 @@ class M_gender extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'gender_id' => $row->gender_id,
-			'gender_nama' => $row->gender_nama,
-			'gender_kode' => $row->gender_kode,
-		);
+				'gender_id' => $row->gender_id,
+				'gender_nama' => $row->gender_nama,
+				'gender_kode' => $row->gender_kode,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_gender/v_m_gender_read', $data);
         } else {
@@ -98,6 +98,7 @@ class M_gender extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

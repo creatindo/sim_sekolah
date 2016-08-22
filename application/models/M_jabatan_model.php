@@ -25,11 +25,11 @@ class M_jabatan_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'jabatan_nama';
         if(!empty($this->input->post('jabatan_nama'))){
             $where['LOWER(jabatan_nama) LIKE'] = '%'.strtolower($this->input->post('jabatan_nama')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

@@ -83,8 +83,8 @@ class Harviacode
             if (!empty($column_comment)) {
                 $j = json_decode($column_comment);
                 if($j){
-                    if (isset($j->name)) {
-                        $get_arr['f_name'] = $j->name;
+                    if (isset($j->n)) {
+                        $get_arr['f_name'] = $j->n;
                     }
                     if (isset($j->v)) {
                         $get_arr['validation'] = $j->v;
@@ -114,8 +114,8 @@ class Harviacode
             if (!empty($column_comment)) {
                 $j = json_decode($column_comment);
                 if($j){
-                    if (isset($j->name)) {
-                        $get_arr['f_name'] = $j->name;
+                    if (isset($j->n)) {
+                        $get_arr['f_name'] = $j->n;
                     }
                 }
             }

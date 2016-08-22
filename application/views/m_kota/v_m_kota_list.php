@@ -50,7 +50,7 @@
                     <th>Kota Revised</th>
                     <th>Kota Counter</th>
                     <th>Kota Kab</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

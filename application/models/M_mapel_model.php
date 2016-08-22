@@ -26,7 +26,6 @@ class M_mapel_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'mapel_nama';
         $dataorder[$i++] = 'mapel_active';
         if(!empty($this->input->post('mapel_nama'))){
@@ -35,6 +34,7 @@ class M_mapel_model extends MY_Model
         if(!empty($this->input->post('mapel_active'))){
             $where['mapel_active'] = $this->input->post('mapel_active');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

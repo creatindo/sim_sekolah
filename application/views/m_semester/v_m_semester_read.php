@@ -11,7 +11,7 @@
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Semester Nama</td><td><?php echo $semester_nama; ?></td></tr>
+                    <tr><td>Semester Nama</td><td><?php echo $Semester; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>

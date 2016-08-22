@@ -49,7 +49,7 @@ $string = "<!doctype html>
 foreach ($non_pk as $row) {
     $string .= "\n\t\t<th>" . label($row['column_name']) . "</th>";
 }
-$string .= "\n\t\t<th>Action</th>
+$string .= "\n\t\t<th width=\"2%\">Action</th>
             </tr>";
 $string .= "<?php
             foreach ($" . $c_url . "_data as \$$c_url)

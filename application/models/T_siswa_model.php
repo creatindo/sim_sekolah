@@ -18,6 +18,7 @@ class T_siswa_model extends MY_Model
         $this->soft_deletes = TRUE;
         $this->has_one['t_kelas'] = array('T_kelas_model','t_kelas_id','t_kelas_id');
         $this->has_one['m_siswa'] = array('M_siswa_model','siswa_id','siswa_id');
+        $this->has_one['m_status'] = array('M_status_model','status_id','t_siswa_active');
     }
     
     // get total rows
@@ -27,11 +28,9 @@ class T_siswa_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 't_siswa_nama';
         $dataorder[$i++] = 'siswa_id';
         $dataorder[$i++] = 't_kelas_id';
-        $dataorder[$i++] = 'tahun';
         $dataorder[$i++] = 't_siswa_active';
         if(!empty($this->input->post('t_siswa_nama'))){
             $where['LOWER(t_siswa_nama) LIKE'] = '%'.strtolower($this->input->post('t_siswa_nama')).'%';
@@ -42,15 +41,10 @@ class T_siswa_model extends MY_Model
         if(!empty($this->input->post('t_kelas_id'))){
             $where['t_kelas_id'] = $this->input->post('t_kelas_id');
         }
-        if(!empty($this->input->post('tahun_start'))){
-            $where['tahun >='] = $this->input->post('tahun_start');
-        }
-        if(!empty($this->input->post('tahun_end'))){
-            $where['tahun <='] = $this->input->post('tahun_end');
-        }
         if(!empty($this->input->post('t_siswa_active'))){
-            $where['LOWER(t_siswa_active) LIKE'] = '%'.strtolower($this->input->post('t_siswa_active')).'%';
+            $where['t_siswa_active'] = $this->input->post('t_siswa_active');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         
@@ -60,6 +54,7 @@ class T_siswa_model extends MY_Model
         $result['get_db']=$this
                             ->with_t_kelas()
                             ->with_m_siswa()
+                            ->with_m_status()
                             ->get_all();
         return $result;
     }

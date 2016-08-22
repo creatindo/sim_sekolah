@@ -25,7 +25,6 @@ class M_status_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'status_nama';
         $dataorder[$i++] = 'status_kode';
         if(!empty($this->input->post('status_nama'))){
@@ -34,6 +33,7 @@ class M_status_model extends MY_Model
         if(!empty($this->input->post('status_kode'))){
             $where['LOWER(status_kode) LIKE'] = '%'.strtolower($this->input->post('status_kode')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

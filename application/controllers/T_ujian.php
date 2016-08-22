@@ -80,13 +80,13 @@ class T_ujian extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			't_ujian_id' => $row->t_ujian_id,
-			't_ujian_nama' => $row->t_ujian_nama,
-			'ujian_id' => @$row->m_ujian->{$this->M_ujian_model->label},
-			't_jadwal_id' => @$row->t_jadwal->{$this->T_jadwal_model->label},
-			't_ujian_tanggal' => $row->t_ujian_tanggal,
-			't_ujian_active' => @$row->m_status->{$this->M_status_model->label},
-		);
+				't_ujian_id' => $row->t_ujian_id,
+				't_ujian_nama' => $row->t_ujian_nama,
+				'ujian_id' => @$row->m_ujian->{$this->M_ujian_model->label},
+				't_jadwal_id' => @$row->t_jadwal->{$this->T_jadwal_model->label},
+				't_ujian_tanggal' => $row->t_ujian_tanggal,
+				't_ujian_active' => @$row->m_status->{$this->M_status_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','t_ujian/v_t_ujian_read', $data);
         } else {
@@ -113,6 +113,7 @@ class T_ujian extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

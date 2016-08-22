@@ -42,13 +42,12 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Jam Id</th>
+                    <th>Kelas</th>
                     <th>Hari Id</th>
+                    <th>Jam Id</th>
                     <th>Mapel Id</th>
-                    <th>T Kelas Id</th>
                     <th>Pegawai Id</th>
-                    <th>Jadwal Active</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
@@ -56,8 +55,8 @@
                     <td>
                     <?php 
                       $ddajax = array(
-                          'url' => site_url('form/dd/M_jam_model'), 
-                          'name' =>'jam_id',
+                          'url' => site_url('form/dd/T_kelas_model'), 
+                          'name' =>'t_kelas_id',
                           'class' => 'form-control form-filter input-sm',
                           );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
@@ -76,8 +75,8 @@
                     <td>
                     <?php 
                       $ddajax = array(
-                          'url' => site_url('form/dd/M_mapel_model'), 
-                          'name' =>'mapel_id',
+                          'url' => site_url('form/dd/M_jam_model'), 
+                          'name' =>'jam_id',
                           'class' => 'form-control form-filter input-sm',
                           );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
@@ -86,8 +85,8 @@
                     <td>
                     <?php 
                       $ddajax = array(
-                          'url' => site_url('form/dd/T_kelas_model'), 
-                          'name' =>'t_kelas_id',
+                          'url' => site_url('form/dd/M_mapel_model'), 
+                          'name' =>'mapel_id',
                           'class' => 'form-control form-filter input-sm',
                           );
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
@@ -103,7 +102,6 @@
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                     ?>
                     </td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="jadwal_active"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">

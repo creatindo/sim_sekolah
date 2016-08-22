@@ -25,7 +25,6 @@ class M_kecamatan_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'kecamatan_kode';
         $dataorder[$i++] = 'm_kota_id';
         $dataorder[$i++] = 'kecamatan_nama';
@@ -50,6 +49,7 @@ class M_kecamatan_model extends MY_Model
         if(!empty($this->input->post('kecamatan_revised'))){
             $where['LOWER(kecamatan_revised) LIKE'] = '%'.strtolower($this->input->post('kecamatan_revised')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

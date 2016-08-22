@@ -66,7 +66,7 @@ class M_siswa extends CI_Controller
 					$d->siswa_ibu, 
 					$d->siswa_wali, 
 					$d->telp_ortu, 
-					'<img style="width: 100px; height: 100px;" src="'. base_url("uploads/temp/".$d->siswa_img).'" onerror="this.src=\''.base_url("assets/global/img/noimage.png").'\'"  alt="Image">' , 
+					'<img style="width: 100px; height: 100px;" src="'. base_url("uploads/temp/".$d->foto_img).'" onerror="this.src=\''.base_url("assets/global/img/noimage.png").'\'"  alt="Image">' , 
                     $view.$edit.$delete
                 );
             }
@@ -87,20 +87,20 @@ class M_siswa extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'siswa_id' => $row->siswa_id,
-			'siswa_nis' => $row->siswa_nis,
-			'siswa_nama' => $row->siswa_nama,
-			'siswa_jk' => @$row->m_gender->{$this->M_gender_model->label},
-			'siswa_tgl_lahir' => $row->siswa_tgl_lahir,
-			'kota_id' => @$row->m_kota->{$this->M_kota_model->label},
-			'kecamatan_id' => @$row->m_kecamatan->{$this->M_kecamatan_model->label},
-			'siswa_alamat' => $row->siswa_alamat,
-			'siswa_ayah' => $row->siswa_ayah,
-			'siswa_ibu' => $row->siswa_ibu,
-			'siswa_wali' => $row->siswa_wali,
-			'telp_ortu' => $row->telp_ortu,
-			'siswa_img' => $row->siswa_img,
-		);
+				'siswa_id' => $row->siswa_id,
+				'siswa_nis' => $row->siswa_nis,
+				'siswa_nama' => $row->siswa_nama,
+				'siswa_jk' => @$row->m_gender->{$this->M_gender_model->label},
+				'siswa_tgl_lahir' => $row->siswa_tgl_lahir,
+				'kota_id' => @$row->m_kota->{$this->M_kota_model->label},
+				'kecamatan_id' => @$row->m_kecamatan->{$this->M_kecamatan_model->label},
+				'siswa_alamat' => $row->siswa_alamat,
+				'siswa_ayah' => $row->siswa_ayah,
+				'siswa_ibu' => $row->siswa_ibu,
+				'siswa_wali' => $row->siswa_wali,
+				'telp_ortu' => $row->telp_ortu,
+				'foto_img' => $row->foto_img,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_siswa/v_m_siswa_read', $data);
         } else {
@@ -126,7 +126,7 @@ class M_siswa extends CI_Controller
 			'siswa_ibu' => set_value('siswa_ibu'),
 			'siswa_wali' => set_value('siswa_wali'),
 			'telp_ortu' => set_value('telp_ortu'),
-			'siswa_img' => set_value('siswa_img'),
+			'foto_img' => set_value('foto_img'),
 		);
         $this->template->load('template','m_siswa/v_m_siswa_form', $data);
     }
@@ -134,6 +134,7 @@ class M_siswa extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();
@@ -150,7 +151,7 @@ class M_siswa extends CI_Controller
 				'siswa_ibu' => $this->input->post('siswa_ibu',TRUE),
 				'siswa_wali' => $this->input->post('siswa_wali',TRUE),
 				'telp_ortu' => $this->input->post('telp_ortu',TRUE),
-				'siswa_img' => $this->input->post('siswa_img',TRUE),
+				'foto_img' => $this->input->post('foto_img',TRUE),
 			);
 
             $this->M_siswa_model->insert($data);
@@ -184,7 +185,7 @@ class M_siswa extends CI_Controller
 				'siswa_ibu' => set_value('siswa_ibu', $row->siswa_ibu),
 				'siswa_wali' => set_value('siswa_wali', $row->siswa_wali),
 				'telp_ortu' => set_value('telp_ortu', $row->telp_ortu),
-				'siswa_img' => set_value('siswa_img', $row->siswa_img),
+				'foto_img' => set_value('foto_img', $row->foto_img),
 			);
             $this->template->load('template','m_siswa/v_m_siswa_form', $data);
         } else {
@@ -212,7 +213,7 @@ class M_siswa extends CI_Controller
 				'siswa_ibu' => $this->input->post('siswa_ibu',TRUE),
 				'siswa_wali' => $this->input->post('siswa_wali',TRUE),
 				'telp_ortu' => $this->input->post('telp_ortu',TRUE),
-				'siswa_img' => $this->input->post('siswa_img',TRUE),
+				'foto_img' => $this->input->post('foto_img',TRUE),
 		    );
 
             $this->M_siswa_model->update($data,$this->input->post('siswa_id', TRUE));
@@ -263,7 +264,7 @@ class M_siswa extends CI_Controller
 		$this->form_validation->set_rules('siswa_ibu', 'siswa ibu', 'trim');
 		$this->form_validation->set_rules('siswa_wali', 'siswa wali', 'trim');
 		$this->form_validation->set_rules('telp_ortu', 'telp ortu', 'trim');
-		$this->form_validation->set_rules('siswa_img', 'siswa img', 'trim');
+		$this->form_validation->set_rules('foto_img', 'foto img', 'trim');
 
 		$this->form_validation->set_rules('siswa_id', 'siswa_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -302,7 +303,7 @@ class M_siswa extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Ibu");
 		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Wali");
 		xlsWriteLabel($tablehead, $kolomhead++, "Telp Ortu");
-		xlsWriteLabel($tablehead, $kolomhead++, "Siswa Img");
+		xlsWriteLabel($tablehead, $kolomhead++, "Foto Img");
 
 		foreach ($this->M_siswa_model->get_all() as $data) {
             $kolombody = 0;
@@ -320,7 +321,7 @@ class M_siswa extends CI_Controller
 		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_ibu);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_wali);
 		    xlsWriteLabel($tablebody, $kolombody++, $data->telp_ortu);
-		    xlsWriteLabel($tablebody, $kolombody++, $data->siswa_img);
+		    xlsWriteLabel($tablebody, $kolombody++, $data->foto_img);
 
 		    $tablebody++;
             $nourut++;

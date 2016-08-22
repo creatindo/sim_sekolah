@@ -25,7 +25,6 @@ class M_user_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'user_nama';
         $dataorder[$i++] = 'user_pass';
         $dataorder[$i++] = 'user_pass_verif';
@@ -38,6 +37,7 @@ class M_user_model extends MY_Model
         if(!empty($this->input->post('user_pass_verif'))){
             $where['LOWER(user_pass_verif) LIKE'] = '%'.strtolower($this->input->post('user_pass_verif')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

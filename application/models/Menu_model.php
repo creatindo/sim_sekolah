@@ -25,7 +25,6 @@ class Menu_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'menu_nama';
         $dataorder[$i++] = 'link';
         $dataorder[$i++] = 'icon';
@@ -50,6 +49,7 @@ class Menu_model extends MY_Model
         if(!empty($this->input->post('controller'))){
             $where['LOWER(controller) LIKE'] = '%'.strtolower($this->input->post('controller')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

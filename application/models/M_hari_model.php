@@ -25,11 +25,11 @@ class M_hari_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'hari_nama';
         if(!empty($this->input->post('hari_nama'))){
             $where['LOWER(hari_nama) LIKE'] = '%'.strtolower($this->input->post('hari_nama')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

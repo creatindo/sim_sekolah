@@ -45,7 +45,7 @@
                     <th>User Nama</th>
                     <th>User Pass</th>
                     <th>User Pass Verif</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

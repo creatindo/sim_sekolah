@@ -73,10 +73,10 @@ class M_jurusan extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'jurusan_id' => $row->jurusan_id,
-			'jurusan_nama' => $row->jurusan_nama,
-			'jurusan_active' => @$row->m_status->{$this->M_status_model->label},
-		);
+				'jurusan_id' => $row->jurusan_id,
+				'jurusan_nama' => $row->jurusan_nama,
+				'jurusan_active' => @$row->m_status->{$this->M_status_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','m_jurusan/v_m_jurusan_read', $data);
         } else {
@@ -100,6 +100,7 @@ class M_jurusan extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

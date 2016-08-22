@@ -11,7 +11,6 @@
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Nilai Nama</td><td><?php echo $nilai_nama; ?></td></tr>
                     <tr><td>T Ujian Id</td><td><?php echo $t_ujian_id; ?></td></tr>
                     <tr><td>T Siswa Id</td><td><?php echo $t_siswa_id; ?></td></tr>
                     <tr><td>Nilai</td><td><?php echo $nilai; ?></td></tr>

@@ -26,7 +26,6 @@ class M_jurusan_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'jurusan_nama';
         $dataorder[$i++] = 'jurusan_active';
         if(!empty($this->input->post('jurusan_nama'))){
@@ -35,6 +34,7 @@ class M_jurusan_model extends MY_Model
         if(!empty($this->input->post('jurusan_active'))){
             $where['jurusan_active'] = $this->input->post('jurusan_active');
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

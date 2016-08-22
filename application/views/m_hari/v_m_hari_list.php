@@ -43,7 +43,7 @@
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
                     <th>Hari Nama</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

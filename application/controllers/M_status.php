@@ -71,10 +71,10 @@ class M_status extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'status_id' => $row->status_id,
-			'status_nama' => $row->status_nama,
-			'status_kode' => $row->status_kode,
-		);
+				'status_id' => $row->status_id,
+				'status_nama' => $row->status_nama,
+				'status_kode' => $row->status_kode,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_status/v_m_status_read', $data);
         } else {
@@ -98,6 +98,7 @@ class M_status extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

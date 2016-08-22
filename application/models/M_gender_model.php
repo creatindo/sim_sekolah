@@ -25,7 +25,6 @@ class M_gender_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'gender_nama';
         $dataorder[$i++] = 'gender_kode';
         if(!empty($this->input->post('gender_nama'))){
@@ -34,6 +33,7 @@ class M_gender_model extends MY_Model
         if(!empty($this->input->post('gender_kode'))){
             $where['LOWER(gender_kode) LIKE'] = '%'.strtolower($this->input->post('gender_kode')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

@@ -75,14 +75,14 @@ class Menu extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'id' => $row->id,
-			'menu_nama' => $row->menu_nama,
-			'link' => $row->link,
-			'icon' => $row->icon,
-			'is_active' => $row->is_active,
-			'is_parent' => $row->is_parent,
-			'controller' => $row->controller,
-		);
+				'id' => $row->id,
+				'menu_nama' => $row->menu_nama,
+				'link' => $row->link,
+				'icon' => $row->icon,
+				'is_active' => $row->is_active,
+				'is_parent' => $row->is_parent,
+				'controller' => $row->controller,
+			);
             $data['id'] = $id;
             $this->template->load('template','menu/v_menu_read', $data);
         } else {
@@ -110,6 +110,7 @@ class Menu extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

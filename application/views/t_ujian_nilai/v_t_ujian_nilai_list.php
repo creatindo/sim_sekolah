@@ -42,16 +42,14 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Nilai Nama</th>
                     <th>T Ujian Id</th>
                     <th>T Siswa Id</th>
                     <th>Nilai</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="nilai_nama"></td>
                     <td>
                     <?php 
                       $ddajax = array(

@@ -11,10 +11,9 @@
                 </div><!-- /.title -->
                 <div class='portlet-body'>
                   <table class="table table-bordered">
-                    <tr><td>Absensi Nama</td><td><?php echo $nama; ?></td></tr>
-                    <tr><td>Jadwal Id</td><td><?php echo $jadwal; ?></td></tr>
+                    <tr><td>Jadwal Id</td><td><?php echo $jadwal_id; ?></td></tr>
                     <tr><td>T Siswa Id</td><td><?php echo $t_siswa_id; ?></td></tr>
-                    <tr><td>Siswa</td><td><?php echo $siswa; ?></td></tr>
+                    <tr><td>Kehadiran</td><td><?php echo $kehadiran; ?></td></tr>
                     <tr>
                       <td colspan='2'>
                         <div class='form-actions'>

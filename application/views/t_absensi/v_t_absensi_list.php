@@ -42,16 +42,14 @@
                 <tr role="row" class="heading">
                     <th width="2%"><input type="checkbox" class="group-checkable"> </th>
                     
-                    <th>Nama</th>
-                    <th>Jadwal</th>
+                    <th>Jadwal Id</th>
                     <th>T Siswa Id</th>
-                    <th>Siswa</th>
-                    <th>Action</th>
+                    <th>Kehadiran</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>
                     
-                    <td><input type="text" class="form-control form-filter input-sm" name="absensi_nama"></td>
                     <td>
                     <?php 
                       $ddajax = array(
@@ -72,7 +70,7 @@
                       $this->load->view('form/v_dropdown_ajax', array('ddajax' => $ddajax ), FALSE);
                     ?>
                     </td>
-                    <td><input type="text" class="form-control form-filter input-sm" name="siswa"></td>
+                    <td><input type="text" class="form-control form-filter input-sm" name="kehadiran"></td>
                     <td>
                         <div class="margin-bottom-5">
                             <button class="btn btn-sm green btn-outline filter-submit margin-bottom">

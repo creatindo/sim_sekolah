@@ -31,8 +31,7 @@ $string .="
         \$dataorder = array();
         \$where = array();
 
-        \$i=1;
-        ";
+        \$i=1;";
 foreach ($non_pk as $row) {
     $string .= "
         \$dataorder[\$i++] = '". $row['column_name'] ."';";
@@ -68,6 +67,7 @@ foreach ($non_pk as $row) {
 }    
 
 $string .= "
+
         \$this->where(\$where);
         \$result['total_rows'] = \$this->count_rows();
         

@@ -73,10 +73,10 @@ class M_ujian extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'ujian_id' => $row->ujian_id,
-			'ujian_nama' => $row->ujian_nama,
-			'ujian_active' => @$row->m_status->{$this->M_status_model->label},
-		);
+				'ujian_id' => $row->ujian_id,
+				'ujian_nama' => $row->ujian_nama,
+				'ujian_active' => @$row->m_status->{$this->M_status_model->label},
+			);
             $data['id'] = $id;
             $this->template->load('template','m_ujian/v_m_ujian_read', $data);
         } else {
@@ -100,6 +100,7 @@ class M_ujian extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

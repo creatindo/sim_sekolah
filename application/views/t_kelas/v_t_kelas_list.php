@@ -47,7 +47,7 @@
                     <th>Jurusan Id</th>
                     <th>Semester Id</th>
                     <th>Tahun</th>
-                    <th>Action</th>
+                    <th width="2%">Action</th>
                 </tr>
                 <tr role="row" class="filter">
                     <td></td>

@@ -8,7 +8,7 @@ class T_absensi_model extends MY_Model
 
     public $table = 't_absensi';
     public $primary_key = 'absensi_id';
-    public $label = 'absensi_nama';
+    public $label = 'absensi_id';
     public $fillable = array(); // If you want, you can set an array with the fields that can be filled by insert/update
     public $protected = array('absensi_id'); // ...Or you can set an array with the fields that cannot be filled by insert/update
 
@@ -27,23 +27,19 @@ class T_absensi_model extends MY_Model
         $where = array();
 
         $i=1;
-        
-        $dataorder[$i++] = 'absensi_nama';
         $dataorder[$i++] = 'jadwal_id';
         $dataorder[$i++] = 't_siswa_id';
-        $dataorder[$i++] = 'siswa';
-        if(!empty($this->input->post('absensi_nama'))){
-            $where['LOWER(absensi_nama) LIKE'] = '%'.strtolower($this->input->post('absensi_nama')).'%';
-        }
+        $dataorder[$i++] = 'kehadiran';
         if(!empty($this->input->post('jadwal_id'))){
             $where['jadwal_id'] = $this->input->post('jadwal_id');
         }
         if(!empty($this->input->post('t_siswa_id'))){
             $where['t_siswa_id'] = $this->input->post('t_siswa_id');
         }
-        if(!empty($this->input->post('siswa'))){
-            $where['LOWER(siswa) LIKE'] = '%'.strtolower($this->input->post('siswa')).'%';
+        if(!empty($this->input->post('kehadiran'))){
+            $where['LOWER(kehadiran) LIKE'] = '%'.strtolower($this->input->post('kehadiran')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

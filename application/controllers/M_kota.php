@@ -77,16 +77,16 @@ class M_kota extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'kota_id' => $row->kota_id,
-			'kota_kode' => $row->kota_kode,
-			'm_propinsi_id' => $row->m_propinsi_id,
-			'kota_nama' => $row->kota_nama,
-			'kota_aktif' => $row->kota_aktif,
-			'kota_created_by' => $row->kota_created_by,
-			'kota_revised' => $row->kota_revised,
-			'kota_counter' => $row->kota_counter,
-			'kota_kab' => $row->kota_kab,
-		);
+				'kota_id' => $row->kota_id,
+				'kota_kode' => $row->kota_kode,
+				'm_propinsi_id' => $row->m_propinsi_id,
+				'kota_nama' => $row->kota_nama,
+				'kota_aktif' => $row->kota_aktif,
+				'kota_created_by' => $row->kota_created_by,
+				'kota_revised' => $row->kota_revised,
+				'kota_counter' => $row->kota_counter,
+				'kota_kab' => $row->kota_kab,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_kota/v_m_kota_read', $data);
         } else {
@@ -116,6 +116,7 @@ class M_kota extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

@@ -70,9 +70,9 @@ class M_hari extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'hari_id' => $row->hari_id,
-			'hari_nama' => $row->hari_nama,
-		);
+				'hari_id' => $row->hari_id,
+				'hari_nama' => $row->hari_nama,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_hari/v_m_hari_read', $data);
         } else {
@@ -95,6 +95,7 @@ class M_hari extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();

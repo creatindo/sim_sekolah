@@ -25,7 +25,6 @@ class M_kota_model extends MY_Model
         $where = array();
 
         $i=1;
-        
         $dataorder[$i++] = 'kota_kode';
         $dataorder[$i++] = 'm_propinsi_id';
         $dataorder[$i++] = 'kota_nama';
@@ -58,6 +57,7 @@ class M_kota_model extends MY_Model
         if(!empty($this->input->post('kota_kab'))){
             $where['LOWER(kota_kab) LIKE'] = '%'.strtolower($this->input->post('kota_kab')).'%';
         }
+
         $this->where($where);
         $result['total_rows'] = $this->count_rows();
         

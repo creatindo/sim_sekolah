@@ -70,9 +70,9 @@ class M_jabatan extends CI_Controller
                     ->get($id);
         if ($row) {
             $data = array(
-			'jabatan_id' => $row->jabatan_id,
-			'jabatan_nama' => $row->jabatan_nama,
-		);
+				'jabatan_id' => $row->jabatan_id,
+				'jabatan_nama' => $row->jabatan_nama,
+			);
             $data['id'] = $id;
             $this->template->load('template','m_jabatan/v_m_jabatan_read', $data);
         } else {
@@ -95,6 +95,7 @@ class M_jabatan extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();
@@ -180,7 +181,7 @@ class M_jabatan extends CI_Controller
 
     public function _rules() 
     {
-		$this->form_validation->set_rules('jabatan_nama', 'jabatan nama', 'trim');
+		$this->form_validation->set_rules('jabatan_nama', 'jabatan nama', 'trim|required|valid_email');
 
 		$this->form_validation->set_rules('jabatan_id', 'jabatan_id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
